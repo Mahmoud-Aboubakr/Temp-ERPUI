@@ -1,0 +1,74 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">News</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="activeFrom"
+                            formControlName="activeFrom"
+                            placeholder="Active From" 
+                            [matDatepicker]="DateFrom">
+                            <mat-datepicker-toggle matSuffix [for]="DateFrom"></mat-datepicker-toggle>
+                        </mat-form-field>
+                        <mat-datepicker #DateFrom></mat-datepicker>
+                        <small 
+                        *ngIf="model.controls['activeFrom'].hasError('required') && model.controls['activeFrom'].touched" 
+                        class="form-error-msg"> Active From Is Required </small>
+                    </div>
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="activeTo"
+                            formControlName="activeTo"
+                            placeholder="Active To" 
+                            [matDatepicker]="dateTo">
+                            
+                            <mat-datepicker-toggle matSuffix [for]="dateTo"></mat-datepicker-toggle>
+                        </mat-form-field>
+                        <mat-datepicker #dateTo></mat-datepicker>
+                        <small 
+                        *ngIf="model.controls['activeTo'].hasError('required') && model.controls['activeTo'].touched" 
+                        class="form-error-msg"> Active To Is Required </small>
+                    </div>
+                    
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="newsTextAr"
+                            formControlName="newsTextAr"
+                            placeholder="News Text In Arabic"
+                            value="">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="newsTextEn"
+                            formControlName="newsTextEn"
+                            placeholder="News Text In English"
+                            value="">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="model.invalid" 
+            (click)="update()">Update</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
