@@ -63,7 +63,7 @@ const components = [
 
 @NgModule({
   imports: [
-CommonModule,
+    CommonModule,
     FormsModule,
     RouterModule,
     TranslateModule,
