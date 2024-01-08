@@ -49,6 +49,10 @@ export const rootRouterConfig: Routes = [
         path: 'news',
         loadChildren: () => import('./views/news/news.module').then(m => m.NewsModule)
       },
+      {
+        path: 'settings', 
+        loadChildren: () => import('./views/settings/settings.module').then(m => m.SettingsModule)
+      }
       
     ]
   },
