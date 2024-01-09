@@ -45,6 +45,20 @@ export const rootRouterConfig: Routes = [
         path: 'search',
         loadChildren: () => import('./views/search-view/search-view.module').then(m => m.SearchViewModule)
       },
+      {
+        path: 'setup',
+        children:[
+          { 
+            path: 'news',
+            loadChildren: () => import('./views/news/news.module').then(m => m.NewsModule)
+          }
+        ]
+        
+      },
+      {
+        path: 'settings', 
+        loadChildren: () => import('./views/settings/settings.module').then(m => m.SettingsModule)
+      }
       
     ]
   },

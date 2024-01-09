@@ -1,4 +1,13 @@
 {
+  "CITY":"City",
+  "GENERAL": "General",
+  "GOVERNMENT":"Government", 
+  "COUNTRY":"Country", 
+  "NEWS":"News", 
+  "MODULES":"Modules", 
+  "SALES":"Sales",
+  "HR":"Hr",
+  "SETUP":"Setup",
   "DASHBOARD": "Dashboard",
   "APPS": "Apps",
   "INBOX": "Inbox",

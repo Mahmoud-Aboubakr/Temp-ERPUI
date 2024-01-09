@@ -22,7 +22,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
-
+import { NewsModule } from './views/news/news.module';
+import { DatePipe } from '@angular/common';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -35,6 +36,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   imports: [
+    
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -52,6 +54,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   declarations: [AppComponent],
   providers: [
+    DatePipe,
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     // { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
