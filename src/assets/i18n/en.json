@@ -8,6 +8,14 @@
   "SALES":"Sales",
   "HR":"Hr",
   "SETUP":"Setup",
+  "PROFILE":"Profile",
+  "ACCOUNT_SETTING":"Account Settings",
+  "CHANGE_PASSWORD":"Change Password",
+  "SIGNOUT":"Sign out",
+
+
+
+
   "DASHBOARD": "Dashboard",
   "APPS": "Apps",
   "INBOX": "Inbox",
@@ -54,14 +62,12 @@
   "SESSIONS": "Sessions",
   "SIGNIN": "Signin",
   "SIGNUP": "Signup",
-  "SIGNOUT": "Sign out",
   "FORGOT": "Forgot",
   "LOCKSCREEN": "Lockscreen",
   "OTHERS": "Others",
   "GALLERY": "Gallery",
   "PRICINGS": "Pricings",
   "USERS": "Users",
-  "PROFILE": "Profile",
   "BLANK": "Blank",
   "MATICONS": "Material Icons",
   "ADD": "Add",

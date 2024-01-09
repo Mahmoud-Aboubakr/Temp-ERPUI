@@ -63,23 +63,19 @@
               <mat-menu #appUserMenu="matMenu">
                 <button mat-menu-item routerLink="/profile/overview">
                   <mat-icon>account_box</mat-icon>
-                  <span>Profile</span>
+                  <span>{{'PROFILE' | translate}}</span>
                 </button>
                 <button mat-menu-item routerLink="/profile/settings">
                   <mat-icon>settings</mat-icon>
-                  <span>Account Settings</span>
-                </button>
-                <button mat-menu-item routerLink="/calendar">
-                  <mat-icon>date_range</mat-icon>
-                  <span>Calendar</span>
+                  <span>{{'ACCOUNT_SETTING' | translate}}</span>
                 </button>
                 <a mat-menu-item routerLink="/settings/changePassword">
                   <mat-icon>date_range</mat-icon>
-                  <span>Change Password</span>
+                  <span>{{'CHANGE_PASSWORD' | translate}}</span>
                 </a>
                 <button mat-menu-item (click)="jwtAuth.signout()">
                   <mat-icon>exit_to_app</mat-icon>
-                  <span>Sign out</span>
+                  <span>{{'SIGNOUT' | translate}}</span>
                 </button>
               </mat-menu>
             </div>
