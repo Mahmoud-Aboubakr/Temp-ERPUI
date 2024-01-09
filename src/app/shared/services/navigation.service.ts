@@ -41,7 +41,12 @@ export class NavigationService {
       tooltip: 'general',
       icon: 'view_carousel',
       sub: [
-        { name: 'BASIC', state: 'general/basic', type: 'link', icon: 'description' },
+        { name: 'SETUP', type: 'dropDown', sub: [
+            { name: 'CITY', state: 'general/setup/city', type: 'link' },
+            { name: 'GOVERNMENT', state: 'general/setup/government', type: 'link' },
+            { name: 'COUNTRY', state: 'general/setup/country', type: 'link' },
+          ] 
+        },        
       ]
     },
     {
@@ -51,7 +56,7 @@ export class NavigationService {
       icon: 'view_carousel',
       sub: [
         { name: 'Sales', state: 'modules/sles' },
-        { name: 'HR', state: 'models/hr' },
+        { name: 'HR', state: 'modules/hr' },
       ]
     },
     {

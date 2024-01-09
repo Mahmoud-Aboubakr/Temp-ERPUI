@@ -55,6 +55,10 @@ export const rootRouterConfig: Routes = [
         ]
         
       },
+      {
+        path: 'settings', 
+        loadChildren: () => import('./views/settings/settings.module').then(m => m.SettingsModule)
+      }
       
     ]
   },

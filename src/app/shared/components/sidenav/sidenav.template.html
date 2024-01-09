@@ -32,7 +32,7 @@
       <!-- Item -->
       <div *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'" class="lvl1">
         <a routerLink="/{{item.state}}" appDropdownToggle matRipple
-          *ngIf="item.type !== 'extLink' && item.type !== 'dropDown'" routerLinkActive="open">
+          *ngIf="item.type !== 'extLink' && item.type !== 'dropDown'" routerLinkActive="open" class="ms-3">
           <mat-icon *ngIf="item.icon" class="sidenav-mat-icon">{{item.icon}}</mat-icon>
           <mat-icon *ngIf="item.svgIcon" [svgIcon]="item.svgIcon" class="svgIcon"></mat-icon>
           <span class="item-name lvl1">{{item.name | translate}}</span>
