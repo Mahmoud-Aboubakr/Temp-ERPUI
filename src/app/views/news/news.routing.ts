@@ -18,7 +18,7 @@ export const NewsRoutes: Routes = [
         data: { title: 'Update', breadcrumb: 'UPDATE' }
       },
       {
-        path: 'Delete/:id',
+        path: 'delete/:id',
         component: DeleteComponent,
         data: { title: 'Delete', breadcrumb: 'DELETE' }
       }

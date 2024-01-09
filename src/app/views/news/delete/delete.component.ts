@@ -60,7 +60,7 @@ export class DeleteComponent implements OnInit {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['/news']);
+          this.router.navigate(['setup/news']);
       }
     }); 
 
@@ -73,7 +73,7 @@ export class DeleteComponent implements OnInit {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000, // Duration in milliseconds
             });
-            this.router.navigate(['/news']);
+            this.router.navigate(['setup/news']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,

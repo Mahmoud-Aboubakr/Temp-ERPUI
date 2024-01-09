@@ -55,6 +55,15 @@ export class NavigationService {
       ]
     },
     {
+      name: 'Setup',
+      type: 'dropDown',
+      tooltip: 'general',
+      icon: 'view_carousel',
+      sub: [
+        { name: 'NewsSetting', state: 'setup/news' },
+      ]
+    },
+    {
       name: 'OTHERS',
       type: 'dropDown',
       tooltip: 'Others',
