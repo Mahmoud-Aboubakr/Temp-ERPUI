@@ -4,13 +4,14 @@ import { ResponseModel } from '../Models/ResponseModels/ResponseModel';
 import { catchError, tap } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { Router } from "@angular/router";
+import { environment } from "environments/environment";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonCrudService {
-    private apiUrl = 'https://localhost:7258/api/'
+    private apiUrl = environment.apiURL
 
   constructor(private _http: HttpClient,private _router: Router) { }
   public post = (url:string,body: any,data:any) => {
