@@ -45,7 +45,7 @@ export class NavigationService {
           type: 'dropDown',
           sub: [
             { name: 'CITY', state: 'general/setup/city', type: 'link' },
-            { name: 'GOVERNMENT', state: 'general/setup/government', type: 'link' },
+            { name: 'GOVERNORATE', state: 'general/setup/government', type: 'link' },
             { name: 'COUNTRY', state: 'general/setup/country', type: 'link' },
             { name: 'NEWS', state: 'setup/news' },
           ] 
