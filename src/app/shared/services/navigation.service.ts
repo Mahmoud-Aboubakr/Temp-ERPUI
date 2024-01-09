@@ -36,36 +36,30 @@ export class NavigationService {
       icon: 'dashboard',
     },*/
     {
-      name: 'General',
+      name: 'GENERAL',
       type: 'dropDown',
       tooltip: 'general',
       icon: 'view_carousel',
       sub: [
-        { name: 'SETUP', type: 'dropDown', sub: [
+        { name: 'SETUP',
+          type: 'dropDown',
+          sub: [
             { name: 'CITY', state: 'general/setup/city', type: 'link' },
             { name: 'GOVERNMENT', state: 'general/setup/government', type: 'link' },
             { name: 'COUNTRY', state: 'general/setup/country', type: 'link' },
+            { name: 'NEWS', state: 'setup/news' },
           ] 
         },        
       ]
     },
     {
-      name: 'Modules',
+      name: 'MODULES',
       type: 'dropDown',
       tooltip: 'general',
       icon: 'view_carousel',
       sub: [
-        { name: 'Sales', state: 'modules/sles' },
+        { name: 'SALES', state: 'modules/sles' },
         { name: 'HR', state: 'modules/hr' },
-      ]
-    },
-    {
-      name: 'Setup',
-      type: 'dropDown',
-      tooltip: 'general',
-      icon: 'view_carousel',
-      sub: [
-        { name: 'NewsSetting', state: 'setup/news' },
       ]
     },
     {
