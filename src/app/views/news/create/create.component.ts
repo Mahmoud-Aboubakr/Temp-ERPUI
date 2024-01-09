@@ -6,6 +6,7 @@ import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { lastValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-create',
@@ -25,6 +26,7 @@ export class CreateComponent implements OnInit {
     total: 0
   }
   constructor(private _commonCrudService : CommonCrudService,
+    private router: Router,
     private datePipe: DatePipe,
     private snackBar: MatSnackBar ) { }
   ngOnInit() {
@@ -58,8 +60,9 @@ export class CreateComponent implements OnInit {
       if(res.statusCode == 201){ 
           this.resetForm();
           this.snackBar.open('News added successfully!', 'Close', {
-            duration: 3000, // Duration in milliseconds
+            duration: 3000,
           });
+          this.router.navigate(['setup/news']);
         } else {
           this.snackBar.open('Failed to add news. Please try again.', 'Close', {
             duration: 3000,
