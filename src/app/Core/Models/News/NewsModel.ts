@@ -1,4 +1,4 @@
-export class CreateNew{
+export class NewsModel{
     activateFrom:string; 
     activateTo:string; 
     newsTextAr:string; 

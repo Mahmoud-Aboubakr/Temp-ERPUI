@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, LOCALE_ID  } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { CreateNew } from 'app/Core/Models/News/CreateNew';
+import { NewsModel } from 'app/Core/Models/News/NewsModel';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { DatePipe } from '@angular/common';
@@ -18,7 +18,7 @@ export class DeleteComponent implements OnInit {
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<CreateNew[]> = {
+  responseModel: ResponseModel<NewsModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,

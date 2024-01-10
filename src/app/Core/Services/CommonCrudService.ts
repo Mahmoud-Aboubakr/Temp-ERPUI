@@ -1,10 +1,12 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ResponseModel } from '../Models/ResponseModels/ResponseModel';
 import { catchError, tap } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { Router } from "@angular/router";
 import { environment } from "environments/environment";
+import { PaginationResponseModel } from "../Models/ResponseModels/PaginationResponseModel";
+import { PaginationParam } from "../Models/ResponseModels/PaginationParam";
 
 
 @Injectable({
@@ -26,6 +28,20 @@ export class CommonCrudService {
   public delete = (url: string) => {
     return this._http.delete<ResponseModel<boolean>>(this.apiUrl +url);
   }
+
+  public getAll = (url: string, paginationParams: PaginationParam, data : any)=> {
+      const params = new HttpParams()
+        .set('PageNumber',  paginationParams.PageNumber)
+        .set('PageSize', paginationParams.PageSize);
+  
+      return this._http.get<PaginationResponseModel<typeof data>>(`${this.apiUrl}${url}`, { params })
+      .pipe(
+            tap((response: any) => {   if (response.statusCode == 401) {
+                      this._router.navigateByUrl("/auth/login");
+                  }
+          })
+      );
+    }
 
   public get = (url: string,data:any) => {
     return this._http.get<ResponseModel<typeof data>>(this.apiUrl + url)
