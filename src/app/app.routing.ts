@@ -51,7 +51,11 @@ export const rootRouterConfig: Routes = [
           { 
             path: 'news',
             loadChildren: () => import('./views/setup/news/news.module').then(m => m.NewsModule)
-          }
+          },
+          {
+            path: 'nationality',
+            loadChildren: () => import('./views/setup/nationality/nationality.module').then(m => m.NationalityModule)
+          },
         ]
         
       },
