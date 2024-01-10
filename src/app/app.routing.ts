@@ -50,7 +50,7 @@ export const rootRouterConfig: Routes = [
         children:[
           { 
             path: 'news',
-            loadChildren: () => import('./views/news/news.module').then(m => m.NewsModule)
+            loadChildren: () => import('./views/setup/news/news.module').then(m => m.NewsModule)
           }
         ]
         

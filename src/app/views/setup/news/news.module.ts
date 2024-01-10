@@ -19,10 +19,17 @@ import { CreateComponent } from './create/create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
+import { ListComponent } from './list/list.component';
+import { MatTableModule } from '@angular/material/table';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
   imports: [
+    MatPaginatorModule,
+    TranslateModule,
+    MatTableModule,
     MatSnackBarModule,
     CommonModule,
     FormsModule,
@@ -41,6 +48,6 @@ import { DeleteComponent } from './delete/delete.component';
     FlexLayoutModule,
     RouterModule.forChild(NewsRoutes),
   ], 
-  declarations: [CreateComponent, UpdateComponent, DeleteComponent],
+  declarations: [ListComponent, CreateComponent, UpdateComponent, DeleteComponent],
 })
 export class NewsModule { }

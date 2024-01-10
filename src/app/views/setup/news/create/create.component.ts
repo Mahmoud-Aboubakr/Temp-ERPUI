@@ -59,12 +59,12 @@ export class CreateComponent implements OnInit {
       this.responseModel = res;
       if(res.statusCode == 201){ 
           this.resetForm();
-          this.snackBar.open('News added successfully!', 'Close', {
+          this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
           this.router.navigate(['setup/news']);
         } else {
-          this.snackBar.open('Failed to add news. Please try again.', 'Close', {
+          this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
       }
