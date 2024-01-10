@@ -4,7 +4,7 @@
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
-        <form [formGroup]="model">
+        <form [formGroup]="model" (ngSubmit)="save()">
             <div fxLayout="row wrap">
                 <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
                     <div class="pb-16">
@@ -13,7 +13,7 @@
                             matInput
                             name="activeFrom"
                             formControlName="activeFrom"
-                            placeholder="Active From" 
+                            [placeholder]="'ActiveFromDate' | translate" 
                             [matDatepicker]="DateFrom">
                             <mat-datepicker-toggle matSuffix [for]="DateFrom"></mat-datepicker-toggle>
                         </mat-form-field>
@@ -28,7 +28,7 @@
                             matInput
                             name="activeTo"
                             formControlName="activeTo"
-                            placeholder="Active To" 
+                            [placeholder]="'ActiveToDate' | translate" 
                             [matDatepicker]="dateTo">
                             
                             <mat-datepicker-toggle matSuffix [for]="dateTo"></mat-datepicker-toggle>
@@ -45,7 +45,7 @@
                             matInput
                             name="newsTextAr"
                             formControlName="newsTextAr"
-                            placeholder="News Text In Arabic"
+                            [placeholder]="'NewsTextInArabic' | translate"
                             value="">
                         </mat-form-field>
                         <!-- <small 
@@ -62,7 +62,7 @@
                             matInput
                             name="newsTextEn"
                             formControlName="newsTextEn"
-                            placeholder="News Text In English"
+                            [placeholder]="'NewsTextInEnglish' | translate"
                             value="">
                         </mat-form-field>
                         <!-- <small 

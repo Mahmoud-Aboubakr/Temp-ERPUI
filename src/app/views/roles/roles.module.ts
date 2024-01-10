@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SettingsRoutingModule } from './settings-routing.module';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { RolesRoutingModule } from './roles-routing.module';
+import { ManageRoleComponent } from './manage-role/manage-role.component';
 
 import { SharedMaterialModule } from 'app/shared/shared-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { ManageRolesComponent } from './manage-roles/manage-roles.component';
 
 
 @NgModule({
   declarations: [
-    ChangePasswordComponent
+    ManageRoleComponent,
+    ManageRolesComponent
   ],
   imports: [
     CommonModule,
-    SettingsRoutingModule,
+    RolesRoutingModule,
     SharedMaterialModule,
     FormsModule,
-    ReactiveFormsModule,
-    TranslateModule
+    ReactiveFormsModule
   ]
 })
-export class SettingsModule { }
+export class RolesModule { }

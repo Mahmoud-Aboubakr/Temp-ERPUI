@@ -48,6 +48,7 @@ export class NavigationService {
             { name: 'GOVERNORATE', state: 'general/setup/government', type: 'link' },
             { name: 'COUNTRY', state: 'general/setup/country', type: 'link' },
             { name: 'NEWS', state: 'setup/news' },
+            { name: 'ROLES', state: 'setup/roles'}
           ] 
         },        
       ]
