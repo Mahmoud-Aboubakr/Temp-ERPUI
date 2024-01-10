@@ -23,6 +23,7 @@ import { ListComponent } from './list/list.component';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedMaterialModule } from 'app/shared/shared-material.module';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatIconModule,
     MatStepperModule,
     FlexLayoutModule,
+    SharedMaterialModule,
     RouterModule.forChild(NewsRoutes),
   ], 
   declarations: [ListComponent, CreateComponent, UpdateComponent, DeleteComponent],

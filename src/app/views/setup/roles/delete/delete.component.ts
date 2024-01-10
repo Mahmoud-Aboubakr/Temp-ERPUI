@@ -1,24 +1,25 @@
-import { Component, OnInit, Inject, LOCALE_ID  } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { NewsModel } from 'app/Core/Models/News/NewsModel';
-import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
-import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
+import { Roles } from 'app/Core/Models/roles';
+import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { lastValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-news-delete',
+  selector: 'app-delete',
   templateUrl: './delete.component.html',
-  styleUrls:['./delete.component.css'],
+  styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent implements OnInit {
+
   Id:number;
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<NewsModel[]> = {
+  responseModel: ResponseModel<Roles[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -35,45 +36,39 @@ export class DeleteComponent implements OnInit {
     //console.log(this.Id);
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
-      newsTextAr: new UntypedFormControl('', [
-      ]),
-      newsTextEn: new UntypedFormControl('', [
-      ]),
-      activeFrom: new UntypedFormControl('', [ 
-        Validators.required
-      ]),
-      activeTo: new UntypedFormControl('', [
-        Validators.required
-      ])
+      name: new UntypedFormControl('', [Validators.required]),
+      Desc_ar: new UntypedFormControl('', [Validators.required]),
+      Desc_en: new UntypedFormControl('', [Validators.required]),
+      Full_desc: new UntypedFormControl('', [Validators.required])
     })
   }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("News/GetNew/" + id, this.responseModel))
+    await lastValueFrom(this._commonCrudService.get("roles/GetRole/" + id, this.responseModel))
     .then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
-          this.model.controls['activeFrom'].setValue(this.datePipe.transform(res.data['activateFrom'], 'yyyy-MM-dd' ) ); 
-          this.model.controls['activeTo'].setValue(this.datePipe.transform(res.data['activateTo'], 'yyyy-MM-dd')); 
-          this.model.controls['newsTextAr'].setValue(res.data['newsTextAr']); 
-          this.model.controls['newsTextEn'].setValue( res.data['newsTextEn']);
+          this.model.controls['name'].setValue(res.data['name']); 
+          this.model.controls['Desc_ar'].setValue(res.data['Desc_ar']);
+          this.model.controls['Desc_en'].setValue(res.data['Desc_en']); 
+          this.model.controls['Full_desc'].setValue( res.data['Full_desc']);
       } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['setup/news']);
+          this.router.navigate(['setup/roles']);
       }
     }); 
 
   }
   async delete(){ 
     if(this.model.valid){
-      await lastValueFrom(this._commonCrudService.delete("News/DeleteNew/" + this.Id))
+      await lastValueFrom(this._commonCrudService.delete("roles/DeleteRole/" + this.Id))
       .then(res => {
         if(res.statusCode == 204){ 
             this.snackBar.open(res.message, 'Close', {
               duration: 3000, // Duration in milliseconds
             });
-            this.router.navigate(['setup/news']);
+            this.router.navigate(['setup/roles']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
@@ -84,6 +79,5 @@ export class DeleteComponent implements OnInit {
     }
     
   }
- 
 
 }

@@ -73,6 +73,10 @@
                   <mat-icon>date_range</mat-icon>
                   <span>{{'CHANGE_PASSWORD' | translate}}</span>
                 </a>
+                <a mat-menu-item routerLink="/roles/manageRoles">
+                  <mat-icon>date_range</mat-icon>
+                  <span>{{'MANAGE_ROLES' | translate}}</span>
+                </a>
                 <button mat-menu-item (click)="jwtAuth.signout()">
                   <mat-icon>exit_to_app</mat-icon>
                   <span>{{'SIGNOUT' | translate}}</span>

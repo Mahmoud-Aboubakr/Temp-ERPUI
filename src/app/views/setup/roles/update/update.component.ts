@@ -1,24 +1,25 @@
-import { Component, OnInit, Inject, LOCALE_ID  } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { NewsModel } from 'app/Core/Models/News/NewsModel';
-import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
-import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
+import { Roles } from 'app/Core/Models/roles';
+import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { lastValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-news-update',
+  selector: 'app-update',
   templateUrl: './update.component.html',
-  styleUrls:['./update.component.css'],
+  styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
+
   Id:number;
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<NewsModel[]> = {
+  responseModel: ResponseModel<Roles[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -66,13 +67,13 @@ export class UpdateComponent implements OnInit {
   }
   async update(){ 
     if(this.model.valid){
-      let updateModel = new NewsModel(); 
-      updateModel.activateFrom = this.datePipe.transform(this.model.controls['activeFrom'].value, 'yyyy-MM-dd'); 
-      updateModel.activateTo   = this.datePipe.transform(this.model.controls['activeTo'].value, 'yyyy-MM-dd'); 
-      updateModel.newsTextAr  = this.model.controls['newsTextAr'].value; 
-      updateModel.newsTextEn  = this.model.controls['newsTextEn'].value;
-      updateModel.Id  = this.Id;  
-      await lastValueFrom (  this._commonCrudService.update("News/UpdateNew/" + this.Id, updateModel, this.responseModel)
+      let updateModel = new Roles(); 
+      updateModel.name  = this.model.controls['name'].value; 
+      updateModel.Desc_ar  = this.model.controls['Desc_ar'].value;
+      updateModel.Desc_en  = this.model.controls['Desc_en'].value;
+      updateModel.Full_desc  = this.model.controls['Full_desc'].value;
+      updateModel.id  = this.Id;  
+      await lastValueFrom (  this._commonCrudService.update("roles/UpdateRole/" + this.Id, updateModel, this.responseModel)
       ) 
       .then(res => {
         this.responseModel = res;
@@ -81,7 +82,7 @@ export class UpdateComponent implements OnInit {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
             });
-            this.router.navigate(['setup/news']);
+            this.router.navigate(['setup/roles']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,

@@ -1,0 +1,75 @@
+<div class="container my-5">
+    <h2 class="text-center mb-5">Manage Roles</h2>
+    <form>
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <div class="example-container">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Role Name(required)</mat-label>
+                      <input matInput [type]="'text'">                      
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="example-container">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Description Arabic(required)</mat-label>
+                      <input matInput [type]="'text'">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="example-container">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Description English(required)</mat-label>
+                      <input matInput [type]="'text'">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Full Description</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <!---------------------- Add Role Button --------------->
+        <a class="btn btn-primary w-50 mx-auto d-block" routerLink="/">Add Role</a>
+    </form>
+
+    <!-------------- List of Roles Table ----------------------->
+    <table class="table caption-top mt-5">
+        <caption class="text-center fw-bold border">List of Roles</caption>
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

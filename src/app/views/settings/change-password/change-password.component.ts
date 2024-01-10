@@ -8,8 +8,12 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent {
-  selectFormControl = new FormControl('', Validators.required);
-  passwordFormControl = new FormControl('', Validators.required);
+  selectUserFormControl = new FormControl('', Validators.required);
+  selectReasonFormControl = new FormControl('', Validators.required);
+  oldPasswordFormControl = new FormControl('', Validators.required);
+  confirmPasswordFormControl = new FormControl('', Validators.required);
+  newPasswordFormControl = new FormControl('', Validators.required);
   hide: boolean = true; 
+
 }
 
