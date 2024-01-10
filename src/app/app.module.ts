@@ -22,7 +22,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
-import { NewsModule } from './views/news/news.module';
+import { NewsModule } from './views/setup/news/news.module';
 import { DatePipe } from '@angular/common';
 
 // AoT requires an exported function for factories

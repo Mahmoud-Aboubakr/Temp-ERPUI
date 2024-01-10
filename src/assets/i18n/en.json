@@ -1,13 +1,26 @@
 {
+  "ActiveFromDate":"Active From Date",
+  "ActiveToDate":"Active To Date",
+  "NewsTextInEnglish":"News Text In English",
+  "NewsTextInArabic":"News Text In Arabic",
+  "Controls":"Controls",
   "CITY":"City",
   "GENERAL": "General",
-  "GOVERNMENT":"Government", 
-  "COUNTRY":"Country", 
+  "GOVERNORATE":"Governorates", 
+  "COUNTRY":"Countries", 
   "NEWS":"News", 
   "MODULES":"Modules", 
   "SALES":"Sales",
   "HR":"Hr",
   "SETUP":"Setup",
+  "PROFILE":"Profile",
+  "ACCOUNT_SETTING":"Account Settings",
+  "CHANGE_PASSWORD":"Change Password",
+  "SIGNOUT":"Sign out",
+
+
+
+
   "DASHBOARD": "Dashboard",
   "APPS": "Apps",
   "INBOX": "Inbox",
@@ -16,7 +29,6 @@
   "DIALOGS": "Dialogs",
   "CONFIRM": "Confirm",
   "LOADER": "Loader",
-
   "MATERIAL": "Material",
   "BUTTONS": "Buttons",
   "CARDS": "Cards",
@@ -38,36 +50,29 @@
   "SAVE": "Save",
   "SLIDER": "Slider",
   "SNACKBAR": "Snackbar",
-
   "FORMS": "Forms",
   "EDITOR": "Editor",
   "BASIC": "Basic",
   "UPLOAD": "Upload",
   "WIZARD": "Wizard",
-
   "TABLES": "Tables",
   "TOUR": "Tour",
   "FULLSCREEN": "Fullscreen",
   "PAGING": "Paging",
   "FILTER": "Filter",
-
   "MAP": "Map",
   "CHARTS": "Charts",
   "DND": "Drag and Drop",
-
   "PAGES": "Pages",
   "SESSIONS": "Sessions",
   "SIGNIN": "Signin",
   "SIGNUP": "Signup",
-  "SIGNOUT": "Sign out",
   "FORGOT": "Forgot",
   "LOCKSCREEN": "Lockscreen",
-
   "OTHERS": "Others",
   "GALLERY": "Gallery",
   "PRICINGS": "Pricings",
   "USERS": "Users",
-  "PROFILE": "Profile",
   "BLANK": "Blank",
   "MATICONS": "Material Icons",
   "ADD": "Add",
@@ -78,7 +83,6 @@
   "ERROR": "Error",
   "OVERVIEW": "Overview",
   "SETTINGS": "Settings",
-  
   "ECOMMERCE": "Ecommerce",
   "SHOP": "Shop",
   "PRODUCTS": "Products",
