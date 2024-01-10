@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { CreateNew } from 'app/Core/Models/News/CreateNew';
+import { NewsModel } from 'app/Core/Models/News/NewsModel';
 import { PaginationParam } from 'app/Core/Models/ResponseModels/PaginationParam';
 import { PaginationResponseModel } from 'app/Core/Models/ResponseModels/PaginationResponseModel';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
@@ -19,7 +19,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class ListComponent {
   displayedColumns: string[] = ['ActiveFromDate', 'ActiveToDate', 'NewsTextAr', 'NewsTextEn', 'Controls']; // Add more columns as needed
-  paginationResponseModel: PaginationResponseModel<CreateNew[]> = {
+  paginationResponseModel: PaginationResponseModel<NewsModel[]> = {
     currentPage:0,
     errorMessage: '',
     lang:'',
@@ -34,7 +34,7 @@ export class ListComponent {
     PageNumber : 1, 
     PageSize : environment.paginationList[0]
   }
-  dataSource = new MatTableDataSource<CreateNew>(this.paginationResponseModel.data);
+  dataSource = new MatTableDataSource<NewsModel>(this.paginationResponseModel.data);
   paginationList = environment.paginationList;
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 
