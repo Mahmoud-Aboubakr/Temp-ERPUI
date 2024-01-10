@@ -17,8 +17,19 @@
   "ACCOUNT_SETTING":"Account Settings",
   "CHANGE_PASSWORD":"Change Password",
   "SIGNOUT":"Sign out",
-
-
+  "ID": "Id",
+  "ROLE": "Role Name",
+  "ROLES": "Roles",
+  "DESCRIPTION": "Description",
+  "DESCRIPTION_AR": "Description Arabic",
+  "DESCRIPTION_EN": "Description English",
+  "SELECT_USER": "Select a User",
+  "CHANGE_REASON": "Reason to Change",
+  "OLD_PASSWORD": "Old Password",
+  "NEW_PASSWORD": "New Password",
+  "CONFIRM_PASSWORD": "Confirm Password",
+  "CHOOSE_ITEM": "Please Choose an Item",
+  "SAVE": "Save",
 
 
   "DASHBOARD": "Dashboard",
@@ -47,7 +58,6 @@
   "TOOLTIP": "Tooltip",
   "MENU": "Menu",
   "MEMBER": "Member",
-  "SAVE": "Save",
   "SLIDER": "Slider",
   "SNACKBAR": "Snackbar",
   "FORMS": "Forms",
