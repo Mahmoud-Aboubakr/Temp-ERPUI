@@ -1,4 +1,8 @@
 {
+  "ActiveFromDate":"متاح من ",
+  "ActiveToDate":"متاح إلي",
+  "NewsTextInEnglish":"الاخبار بالانجليزي",
+  "NewsTextInArabic":"الاخبار بالعربي",
   "Controls":"تحكم",
   "CITY":"مدينه",
   "OTHERS": "اخري",

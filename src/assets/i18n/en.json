@@ -1,4 +1,8 @@
 {
+  "ActiveFromDate":"Active From Date",
+  "ActiveToDate":"Active To Date",
+  "NewsTextInEnglish":"News Text In English",
+  "NewsTextInArabic":"News Text In Arabic",
   "Controls":"Controls",
   "CITY":"City",
   "GENERAL": "General",

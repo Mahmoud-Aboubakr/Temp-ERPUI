@@ -79,7 +79,7 @@ export class UpdateComponent implements OnInit {
         if(res.statusCode == 204){ 
             this.resetForm();
             this.snackBar.open(res.message, 'Close', {
-              duration: 3000, // Duration in milliseconds
+              duration: 3000,
             });
             this.router.navigate(['setup/news']);
           } else {
