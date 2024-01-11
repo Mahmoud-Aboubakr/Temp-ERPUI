@@ -1,0 +1,49 @@
+<!-- list-view.component.html -->
+
+<div class="card-container">
+    <button mat-icon-button color="primary" (click)="addApplicationPagePrefix()">
+        <mat-icon>add_circle</mat-icon>
+    </button>
+
+    <!-- Displaying data in a table -->
+    <table mat-table [dataSource]="dataSource">
+      <!-- Define your columns here -->
+      <ng-container matColumnDef="PageName">
+        <th mat-header-cell *matHeaderCellDef>{{'PAGE_NAME' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.pageName }}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="Prefix">
+        <th mat-header-cell *matHeaderCellDef> {{'PREFIX' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.prefix }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Length">
+        <th mat-header-cell *matHeaderCellDef> {{'LENGTH' | translate }}</th>
+        <td mat-cell *matCellDef="let element">{{ element.length }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Controls">
+        <th mat-header-cell *matHeaderCellDef>{{ 'CONTROLS' | translate }}</th>
+        <td mat-cell *matCellDef="let element">
+          <!-- Update Button -->
+          <button mat-icon-button color="primary" (click)="updateApplicationPagePrefix(element.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+      
+          <!-- Delete Button -->
+          <button mat-icon-button color="warn" (click)="deleteApplicationPagePrefix(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="paginationList" [length]="paginationResponseModel.totalCount"
+    [pageIndex]="paginationResponseModel.currentPage - 1" [pageSize]="paginationResponseModel.pageSize"
+    
+    showFirstLastButtons (page)="onPageChanged($event)"></mat-paginator>
+</div>
+  

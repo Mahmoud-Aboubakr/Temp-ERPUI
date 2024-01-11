@@ -53,11 +53,18 @@ export const rootRouterConfig: Routes = [
             loadChildren: () => import('./views/setup/news/news.module').then(m => m.NewsModule)
           },
           {
+            path: 'nationality',
+            loadChildren: () => import('./views/setup/nationality/nationality.module').then(m => m.NationalityModule)
+          },
+          {
             path: 'roles',
             loadChildren: () => import('./views/setup/roles/roles.module').then(m => m.RolesModule)
+          },
+          {
+            path: 'applicationPagePrefix',
+            loadChildren: () => import('./views/setup/applicationPagePrefix/applicationPagePrefix.module').then(m => m.ApplicationPagePrefixModule)
           }
         ]
-        
       },
       {
         path: 'hr',
@@ -77,12 +84,7 @@ export const rootRouterConfig: Routes = [
       {
         path: 'settings', 
         loadChildren: () => import('./views/settings/settings.module').then(m => m.SettingsModule)
-      },
-      /*{
-        path: 'roles', 
-        loadChildren: () => import('./views/roles/roles.module').then(m => m.RolesModule)
-      }*/
-      
+      }
     ]
   },
   {

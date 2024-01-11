@@ -1,0 +1,59 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">{{'APPLICATION_PAGE_PREFIX' | translate}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="pageName"
+                            formControlName="pageName"
+                            placeholder="{{'PAGE_NAME' | translate}}"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="model.controls['pageName'].hasError('required') && model.controls['pageName'].touched" 
+                        class="form-error-msg"> {{'PAGENAME_REQUIRED' | translate}} </small>
+                    </div>
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="prefix"
+                            formControlName="prefix"
+                            placeholder="{{'PREFIX' | translate}}"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="model.controls['prefix'].hasError('required') && model.controls['prefix'].touched" 
+                        class="form-error-msg"> {{'PREFIX_REQUIRED' | translate}} </small>
+                    </div>
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="length"
+                            formControlName="length"
+                            placeholder="{{'LENGTH' | translate}}"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="model.controls['length'].hasError('required') && model.controls['length'].touched" 
+                        class="form-error-msg"> {{'LENGTH_REUIRED' | translate}} </small>
+                    </div>
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="model.invalid" 
+            (click)="update()">{{'UPDATE' | translate}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
