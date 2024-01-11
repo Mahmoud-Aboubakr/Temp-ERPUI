@@ -44,9 +44,11 @@ export class NavigationService {
         { name: 'SETUP',
           type: 'dropDown',
           sub: [
-            { name: 'CITY', state: 'general/setup/city', type: 'link' },
-            { name: 'GOVERNORATE', state: 'general/setup/government', type: 'link' },
-            { name: 'COUNTRY', state: 'general/setup/country', type: 'link' },
+            { name: 'COMPANIES', state: 'setup/companies', type: 'link' },
+            { name: 'BRANCHES', state: 'setup/branches', type: 'link' },
+            { name: 'COUNTRY', state: 'setup/country', type: 'link' },
+            { name: 'GOVERNORATE', state: 'setup/government', type: 'link' },
+            { name: 'CITY', state: 'setup/city', type: 'link' },
             { name: 'NEWS', state: 'setup/news' },
             { name: 'ROLES', state: 'setup/roles'}
           ] 
