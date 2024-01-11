@@ -53,15 +53,12 @@ export const rootRouterConfig: Routes = [
             loadChildren: () => import('./views/setup/news/news.module').then(m => m.NewsModule)
           },
           {
-<<<<<<< HEAD
             path: 'nationality',
             loadChildren: () => import('./views/setup/nationality/nationality.module').then(m => m.NationalityModule)
           },
-=======
             path: 'roles',
             loadChildren: () => import('./views/setup/roles/roles.module').then(m => m.RolesModule)
           }
->>>>>>> 6fa490cab9594a2b5dbfbc606fbd5c3aaf0f9bf2
         ]
         
       },
