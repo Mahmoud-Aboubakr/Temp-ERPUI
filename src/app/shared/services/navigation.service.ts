@@ -46,9 +46,9 @@ export class NavigationService {
           sub: [
             { name: 'COMPANIES', state: 'setup/companies', type: 'link' },
             { name: 'BRANCHES', state: 'setup/branches', type: 'link' },
-            { name: 'COUNTRY', state: 'setup/country', type: 'link' },
-            { name: 'GOVERNORATE', state: 'setup/government', type: 'link' },
-            { name: 'CITY', state: 'setup/city', type: 'link' },
+            { name: 'COUNTRY', state: 'setup/countries', type: 'link' },
+            { name: 'GOVERNORATE', state: 'setup/governorates', type: 'link' },
+            { name: 'CITY', state: 'setup/cities', type: 'link' },
             { name: 'NEWS', state: 'setup/news' },
             { name: 'ROLES', state: 'setup/roles'},
             { name: 'APPLICATION_PAGE_PREFIX', state: 'setup/applicationPagePrefix'},

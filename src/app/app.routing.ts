@@ -61,17 +61,23 @@ export const rootRouterConfig: Routes = [
         children: [
           {
             path: "branches",
-            loadChildren: () =>
-              import("./views/setup/branches/branches.module").then(
-                (m) => m.BranchesModule
-              ),
+            loadChildren: () => import("./views/setup/branches/branches.module").then(m => m.BranchesModule),
           },
           {
             path: "companies",
-            loadChildren: () =>
-              import("./views/setup/companies/companies.module").then(
-                (m) => m.CompaniesModule
-              ),
+            loadChildren: () => import("./views/setup/companies/companies.module").then(m => m.CompaniesModule),
+          },
+          {
+            path: "cities",
+            loadChildren: () => import("./views/setup/cities/cities.module").then(m => m.CitiesModule),
+          },
+          {
+            path: "governorates",
+            loadChildren: () => import("./views/setup/governorates/governorates.module").then(m => m.GovernoratesModule),
+          },
+          {
+            path: "countries",
+            loadChildren: () => import("./views/setup/countries/countries.module").then(m => m.CountriesModule),
           },
           { 
             path: 'news',
