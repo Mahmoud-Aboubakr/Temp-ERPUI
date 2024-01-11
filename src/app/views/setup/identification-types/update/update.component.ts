@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IdentificationTypes } from 'app/Core/Models/IdentificationTypes/identification-types';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
-import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { lastValueFrom } from 'rxjs';
 
@@ -15,11 +15,11 @@ import { lastValueFrom } from 'rxjs';
 })
 export class UpdateComponent implements OnInit {
 
-  Id:number;
+  Id: string;
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<RolesModel[]> = {
+  responseModel: ResponseModel<IdentificationTypes[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -35,44 +35,57 @@ export class UpdateComponent implements OnInit {
     this.Id  = this.route.snapshot.params['id'];
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
-      newsTextAr: new UntypedFormControl('', [
-      ]),
-      newsTextEn: new UntypedFormControl('', [
-      ]),
-      activeFrom: new UntypedFormControl('', [ 
+      name_ar: new UntypedFormControl('', [
         Validators.required
       ]),
-      activeTo: new UntypedFormControl('', [
+      name_en: new UntypedFormControl('', [
         Validators.required
+      ]),
+      active: new UntypedFormControl('', [ 
+        //Validators.required
+      ]),
+      char_accept: new UntypedFormControl('', [
+        //Validators.required
+      ]),
+      length: new UntypedFormControl('', [
+        Validators.required
+      ]),
+      military_id: new UntypedFormControl('', [
+        //Validators.required
       ])
     })
   }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("Roles/GetRole/" + id, this.responseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.get("identificaions/GetIdentification/" + id, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
-          this.model.controls['activeFrom'].setValue(res.data['activateFrom']); 
-          this.model.controls['activeTo'].setValue(res.data['activateTo']); 
-          this.model.controls['newsTextAr'].setValue(res.data['newsTextAr']); 
-          this.model.controls['newsTextEn'].setValue( res.data['newsTextEn']); 
+          this.model.controls['name_ar'].setValue(res.data['name_ar']); 
+          this.model.controls['name_en'].setValue(res.data['name_en']); 
+          this.model.controls['active'].setValue(res.data['active']); 
+          this.model.controls['char_accept'].setValue( res.data['char_accept']); 
+          this.model.controls['length'].setValue(res.data['length']); 
+          this.model.controls['military_id'].setValue( res.data['military_id']);
 
       } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['setup/roles']);
+          this.router.navigate(['setup/identifications']);
       }
     }); 
 
   }
   async update(){ 
     if(this.model.valid){
-      let updateModel = new RolesModel(); 
-      updateModel.name  = this.model.controls['name'].value; 
-      updateModel.Desc_ar  = this.model.controls['Desc_ar'].value;
-      updateModel.Desc_en  = this.model.controls['Desc_en'].value;
-      updateModel.Full_desc  = this.model.controls['Full_desc'].value;
-      updateModel.id  = this.Id;  
+      let updateModel = new IdentificationTypes(); 
+      updateModel.name_ar  = this.model.controls['name_ar'].value; 
+      updateModel.name_en  = this.model.controls['name_en'].value;
+      updateModel.active  = this.model.controls['active'].value;
+      updateModel.char_accept  = this.model.controls['char_accept'].value;
+      updateModel.military_id  = this.model.controls['military_id'].value;
+      updateModel.length  = this.model.controls['length'].value;
+      updateModel.code  = this.Id;  
+
       await lastValueFrom (  this._commonCrudService.update("roles/UpdateRole/" + this.Id, updateModel, this.responseModel)
       ) 
       .then(res => {
@@ -82,7 +95,7 @@ export class UpdateComponent implements OnInit {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
             });
-            this.router.navigate(['setup/roles']);
+            this.router.navigate(['setup/identifications']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,

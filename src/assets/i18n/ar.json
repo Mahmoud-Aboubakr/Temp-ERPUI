@@ -41,6 +41,12 @@
   "UPDATE":"تعديل",
   "DELETE":"حذف",
   "NATIONALITIES":"الجنسيات",
+  "NAME_AR": "الاسم العربي",
+  "NAME_EN": "الاسم الانجليزي",
+  "ACTIVE": "نشط",
+  "MILITARY_ID": "لديه هوية عسكرية",
+  "CHAR_ACCEPT": "يقبل حروف",
+  "EDIT": "تعديل",
 
 
   "GALLERY": "Gallery",

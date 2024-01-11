@@ -17,7 +17,7 @@
   "ACCOUNT_SETTING":"Account Settings",
   "CHANGE_PASSWORD":"Change Password",
   "SIGNOUT":"Sign out",
-  "ID": "Id",
+  "ID": "Code",
   "ROLE": "Role Name",
   "ROLES": "Roles",
   "DESCRIPTION": "Description",
@@ -40,6 +40,13 @@
   "UPDATE":"Update",
   "DELETE":"Delete",
   "NATIONALITIES":"Nationalities",
+  "NAME_AR": "Arabic Name",
+  "NAME_EN": "English Name",
+  "ACTIVE": "Active",
+  "MILITARY_ID": "Military Identity",
+  "CHAR_ACCEPT": "Accept Characters",
+  "EDIT": "Edit",
+
 
 
   "DASHBOARD": "Dashboard",
