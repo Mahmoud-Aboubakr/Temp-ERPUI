@@ -1,4 +1,8 @@
 {
+  "EmployeeGeneralInformation":"البيانات الأساسية",
+  "EmployeeData" : "بيانات الموظف", 
+  "EmployeeAddressAndContactInfo" : "العنوان وبيانات التواصل",
+  "EMPLOYEE":"الموظف",
   "ActiveFromDate":"متاح من ",
   "ActiveToDate":"متاح إلي",
   "NewsTextInEnglish":"الاخبار بالانجليزي",

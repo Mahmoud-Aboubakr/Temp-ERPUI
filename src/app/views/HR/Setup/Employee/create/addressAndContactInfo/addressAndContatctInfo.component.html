@@ -1,0 +1,369 @@
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-xs="100" class="full-width" [formGroup]="form">
+        <!-- First row -->
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'JobTitle' | translate }}</mat-label>
+                    <mat-select formControlName="JobTitle">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                *ngIf="form.get('JobTitle').hasError('required') && form.controls['JobTitle'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'JobDegree' | translate }}</mat-label>
+                    <mat-select formControlName="JobDegree">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                *ngIf="form.get('JobDegree').hasError('required') && form.controls['JobDegree'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="EmerganceyContact"
+                        formControlName="EmerganceyContact"
+                        [placeholder]="'EmerganceyContact' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                *ngIf="form.get('EmerganceyContact').hasError('required') && form.controls['EmerganceyContact'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'Country' | translate }}</mat-label>
+                    <mat-select formControlName="Country">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'Governates' | translate }}</mat-label>
+                    <mat-select formControlName="Governates">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'City' | translate }}</mat-label>
+                    <mat-select formControlName="City">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'District' | translate }}</mat-label>
+                    <mat-select formControlName="District">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                *ngIf="form.get('District').hasError('required') && form.controls['District'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'Relation' | translate }}</mat-label>
+                    <mat-select formControlName="Relation">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="LocalAddress"
+                        formControlName="LocalAddress"
+                        [placeholder]="'LocalAddress' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                *ngIf="form.get('LocalAddress').hasError('required') && form.controls['LocalAddress'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="LocalAddress2"
+                        formControlName="LocalAddress2"
+                        [placeholder]="'LocalAddress2' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="LocalAddress3"
+                        formControlName="LocalAddress3"
+                        [placeholder]="'LocalAddress3' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="LocalAddress4"
+                        formControlName="LocalAddress4"
+                        [placeholder]="'LocalAddress4' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PermenantAddress"
+                        formControlName="PermenantAddress"
+                        [placeholder]="'PermenantAddress' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PermenantAddress2"
+                        formControlName="PermenantAddress2"
+                        [placeholder]="'PermenantAddress2' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PermenantAddress3"
+                        formControlName="PermenantAddress3"
+                        [placeholder]="'PermenantAddress3' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PermenantAddress4"
+                        formControlName="PermenantAddress4"
+                        [placeholder]="'PermenantAddress4' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="WorkPhone"
+                        formControlName="WorkPhone"
+                        [placeholder]="'WorkPhone' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PlaceIncuranceIdentity"
+                        formControlName="PlaceIncuranceIdentity"
+                        [placeholder]="'PlaceIncuranceIdentity' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PassportNumber"
+                        formControlName="PassportNumber"
+                        [placeholder]="'PassportNumber' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="DrivingLicenceNumber"
+                        formControlName="DrivingLicenceNumber"
+                        [placeholder]="'DrivingLicenceNumber' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="SyndicateCard"
+                        formControlName="SyndicateCard"
+                        [placeholder]="'SyndicateCard' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="WorkPermit"
+                        formControlName="WorkPermit"
+                        [placeholder]="'WorkPermit' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="InssuranceValue"
+                        formControlName="InssuranceValue"
+                        [placeholder]="'InssuranceValue' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="InssuranceJobTitle"
+                        formControlName="InssuranceJobTitle"
+                        [placeholder]="'InssuranceJobTitle' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="InssuranceNumber"
+                        formControlName="InssuranceNumber"
+                        [placeholder]="'InssuranceNumber' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'BloodType' | translate }}</mat-label>
+                    <mat-select formControlName="BloodType">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="PasswportExpirDate"
+                    formControlName="PasswportExpirDate"
+                    [placeholder]="'PasswportExpirDate' | translate" 
+                    [matDatepicker]="PasswportExpirDate">
+                    <mat-datepicker-toggle matSuffix [for]="PasswportExpirDate"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #PasswportExpirDate></mat-datepicker> 
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="DateOfIssuanceOfLicence"
+                    formControlName="DateOfIssuanceOfLicence"
+                    [placeholder]="'DateOfIssuanceOfLicence' | translate" 
+                    [matDatepicker]="DateOfIssuanceOfLicence">
+                    <mat-datepicker-toggle matSuffix [for]="DateOfIssuanceOfLicence"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #DateOfIssuanceOfLicence></mat-datepicker> 
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="LicenceExpirationDate"
+                    formControlName="LicenceExpirationDate"
+                    [placeholder]="'LicenceExpirationDate' | translate" 
+                    [matDatepicker]="LicenceExpirationDate">
+                    <mat-datepicker-toggle matSuffix [for]="LicenceExpirationDate"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #LicenceExpirationDate></mat-datepicker> 
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="ExpiryDateOfWorkPermit"
+                    formControlName="ExpiryDateOfWorkPermit"
+                    [placeholder]="'ExpiryDateOfWorkPermit' | translate" 
+                    [matDatepicker]="ExpiryDateOfWorkPermit">
+                    <mat-datepicker-toggle matSuffix [for]="ExpiryDateOfWorkPermit"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #ExpiryDateOfWorkPermit></mat-datepicker> 
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="InssuranceDate"
+                    formControlName="InssuranceDate"
+                    [placeholder]="'InssuranceDate' | translate" 
+                    [matDatepicker]="InssuranceDate">
+                    <mat-datepicker-toggle matSuffix [for]="InssuranceDate"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #InssuranceDate></mat-datepicker> 
+            </div>
+        </div>
+    </div>
+</div>

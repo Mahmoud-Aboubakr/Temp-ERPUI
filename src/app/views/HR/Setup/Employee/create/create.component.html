@@ -1,0 +1,25 @@
+<button (click)="save()" mat-raised-button color="primary"  [disabled]="form.invalid">Save</button>
+
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">Employee</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <div>
+            <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+                <mat-tab label="{{'EmployeeGeneralInformation' | translate}}">
+                    <app-hr-employee-general-information [form]="form"></app-hr-employee-general-information>
+                </mat-tab>
+                <mat-tab label="{{'EmployeeData' | translate}}">
+                    <app-hr-employee-employment-data [form]="form"></app-hr-employee-employment-data>
+                </mat-tab>
+                <mat-tab label="{{'EmployeeAddressAndContactInfo' | translate}}">
+                    <app-hr-employee-address-and-contact-info [form]="form"></app-hr-employee-address-and-contact-info>
+                </mat-tab>
+            </mat-tab-group>
+            
+        </div>
+    </mat-card-content>
+</mat-card>
+

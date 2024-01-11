@@ -1,0 +1,252 @@
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-xs="100" class="full-width" [formGroup]="form">
+        <!-- First row -->
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="DateOfAppointment"
+                    formControlName="DateOfAppointment"
+                    [placeholder]="'DateOfAppointment' | translate" 
+                    [matDatepicker]="DateOfAppointment">
+                    <mat-datepicker-toggle matSuffix [for]="DateOfAppointment"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #DateOfAppointment></mat-datepicker>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="DateOfConfirmation"
+                    formControlName="DateOfConfirmation"
+                    [placeholder]="'DateOfConfirmation' | translate" 
+                    [matDatepicker]="DateOfConfirmation">
+                    <mat-datepicker-toggle matSuffix [for]="DateOfConfirmation"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #DateOfConfirmation></mat-datepicker>  
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="ProbationEndDate"
+                    formControlName="ProbationEndDate"
+                    [placeholder]="'ProbationEndDate' | translate" 
+                    [matDatepicker]="ProbationEndDate">
+                    <mat-datepicker-toggle matSuffix [for]="ProbationEndDate"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #ProbationEndDate></mat-datepicker>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        type="number"
+                        name="ProbationPeriod"
+                        formControlName="ProbationPeriod"
+                        [placeholder]="'ProbationPeriod' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+           
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="ProbationPeriodNumber"
+                        formControlName="ProbationPeriodNumber"
+                        [placeholder]="'ProbationPeriodNumber' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="DateOfJoining"
+                    formControlName="DateOfJoining"
+                    [placeholder]="'DateOfJoining' | translate" 
+                    [matDatepicker]="DateOfJoining">
+                    <mat-datepicker-toggle matSuffix [for]="DateOfJoining"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #DateOfJoining></mat-datepicker>
+                <small 
+                *ngIf="form.get('DateOfJoining').hasError('required') && form.controls['DateOfJoining'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="ContractStartingDate"
+                    formControlName="ContractStartingDate"
+                    [placeholder]="'ContractStartingDate' | translate" 
+                    [matDatepicker]="ContractStartingDate">
+                    <mat-datepicker-toggle matSuffix [for]="ContractStartingDate"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #ContractStartingDate></mat-datepicker>
+                <small 
+                *ngIf="form.get('ContractStartingDate').hasError('required') && form.controls['ContractStartingDate'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="ExpiryDateOfContact"
+                    formControlName="ExpiryDateOfContact"
+                    [placeholder]="'ExpiryDateOfContact' | translate" 
+                    [matDatepicker]="ExpiryDateOfContact">
+                    <mat-datepicker-toggle matSuffix [for]="ExpiryDateOfContact"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #ExpiryDateOfContact></mat-datepicker>
+                <small 
+                *ngIf="form.get('ExpiryDateOfContact').hasError('required') && form.controls['ExpiryDateOfContact'].touched" 
+                class="form-error-msg"> firstName Is Required 
+            </small>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="NoticePeriodTime"
+                        formControlName="NoticePeriodTime"
+                        [placeholder]="'NoticePeriodTime' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'NoticePeriod' | translate }}</mat-label>
+                    <mat-select formControlName="NoticePeriod">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'ContractPlace' | translate }}</mat-label>
+                    <mat-select formControlName="ContractPlace">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('ContractPlace').hasError('required') && form.controls['ContractPlace'].touched" 
+                    class="form-error-msg"> lastName Is Required 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'ContractType' | translate }}</mat-label>
+                    <mat-select formControlName="ContractType">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-checkbox
+                name="IsHalfTime"
+                formControlName="IsHalfTime"
+                ></mat-checkbox>
+                <label for="IsHalfTime"> {{ 'IsHalfTime' | translate }}</label>
+            </div>
+             <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-checkbox
+                name="Cader"
+                formControlName="Cader"
+                ></mat-checkbox>
+                <label for="Cader"> {{ 'Cader' | translate }}</label>
+            </div>
+             <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-checkbox
+                name="TravlingTickets"
+                formControlName="TravlingTickets"
+                ></mat-checkbox>
+                <label for="TravlingTickets"> {{ 'TravlingTickets' | translate }}</label>
+            </div>
+            
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'HoucingAllowance' | translate }}</mat-label>
+                    <mat-select formControlName="HoucingAllowance">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        type="number"
+                        name="BasicSalary"
+                        formControlName="BasicSalary"
+                        [placeholder]="'BasicSalary' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('BasicSalary').hasError('required') && form.controls['BasicSalary'].touched" 
+                    class="form-error-msg"> lastName Is Required 
+                </small>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'SalaryPaymentMethod' | translate }}</mat-label>
+                    <mat-select formControlName="SalaryPaymentMethod">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('SalaryPaymentMethod').hasError('required') && form.controls['SalaryPaymentMethod'].touched" 
+                    class="form-error-msg"> lastName Is Required 
+                </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="Remarks"
+                        formControlName="Remarks"
+                        [placeholder]="'Remarks' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-checkbox
+                name="SocialServiceFundSubscription"
+                formControlName="SocialServiceFundSubscription"
+                ></mat-checkbox>
+                <label for="SocialServiceFundSubscription"> {{ 'SocialServiceFundSubscription' | translate }}</label>
+            </div>
+            
+        </div>
+    </div>
+</div>

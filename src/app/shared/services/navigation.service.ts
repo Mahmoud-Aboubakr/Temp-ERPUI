@@ -60,7 +60,12 @@ export class NavigationService {
       icon: 'view_carousel',
       sub: [
         { name: 'SALES', state: 'modules/sles' },
-        { name: 'HR', state: 'modules/hr' },
+        { name: 'HR',
+          state: 'modules/hr', 
+          type: 'dropDown',
+          sub:[
+            { name: 'EMPLOYEE', state: 'hr/setup/employee' },
+        ] },
       ]
     },
     {

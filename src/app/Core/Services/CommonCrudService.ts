@@ -86,20 +86,20 @@ export class CommonCrudService {
                }
       }))
   }
-//   public parseFile = async (file,url:string,data:any)  => {
+  public parseFile = async (file,url:string,data:any)  => {
 
-//     let formData:FormData = new FormData();
-//     formData.append('uploadFile', file, file.name);
-//     let _headers = new HttpHeaders();
-//     _headers.append('Content-Type', 'multipart/form-data');
-//     _headers.append('Accept', 'application/json');
+    let formData:FormData = new FormData();
+    formData.append('uploadFile', file, file.name);
+    let _headers = new HttpHeaders();
+    _headers.append('Content-Type', 'multipart/form-data');
+    _headers.append('Accept', 'application/json');
 
-//     return this._http.post<ResponseModel<typeof data >>(url, formData, { headers: _headers }).pipe(
-//       tap((response: any) => {   if (response.statusCode == 401) {
-//                 this._router.navigateByUrl("/auth/login");
-//                }
-//       })).subscribe()
-//   }
+    return this._http.post<ResponseModel<typeof data >>(url, formData, { headers: _headers }).pipe(
+      tap((response: any) => {   if (response.statusCode == 401) {
+                this._router.navigateByUrl("/auth/login");
+               }
+      }))
+  }
   public update = (url:string,body: any,data:any) => {
     return this._http.put<ResponseModel<typeof data>>(this.apiUrl +url, body);  //"Lockup/"+id
   }

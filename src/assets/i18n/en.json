@@ -1,4 +1,8 @@
 {
+  "EmployeeGeneralInformation":"Employee General Information",
+  "EmployeeData" : "Employee Data", 
+  "EmployeeAddressAndContactInfo" : "Employee Address And Contact Info",
+  "EMPLOYEE":"Employee",
   "ActiveFromDate":"Active From Date",
   "ActiveToDate":"Active To Date",
   "NewsTextInEnglish":"News Text In English",
