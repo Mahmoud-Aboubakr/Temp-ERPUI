@@ -1,0 +1,29 @@
+<form [formGroup]="model">
+    <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+
+            <div class="pb-16">
+                <mat-form-field class="full-width">
+                    <input matInput name="CountryCode" formControlName="CountryCode"
+                        placeholder="Country Code" value="">
+                </mat-form-field>
+            </div>
+
+            <div class="pb-16">
+                <mat-form-field class="full-width">
+                    <input matInput name="NameAr" formControlName="NameAr"
+                        placeholder="Nationality Text In Arabic" value="">
+                </mat-form-field>
+            </div>
+
+            <div class="pb-16">
+                <mat-form-field class="full-width">
+                    <input matInput name="NameEn" formControlName="NameEn"
+                        placeholder="Nationality In English" value="">
+                </mat-form-field>
+            </div>
+
+        </div>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="model.invalid" (click)="save()">Submit</button>
+</form>
