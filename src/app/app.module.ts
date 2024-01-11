@@ -1,33 +1,30 @@
-import { NgModule, ErrorHandler } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import {
-  BrowserModule,
-} from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule, ErrorHandler } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { GestureConfig } from '@angular/material/core';
-import {
-  PerfectScrollbarModule,
-  PERFECT_SCROLLBAR_CONFIG,
-  PerfectScrollbarConfigInterface,
-} from "./shared/components/perfect-scrollbar";
+import { 
+  PerfectScrollbarModule, 
+  PERFECT_SCROLLBAR_CONFIG, 
+  PerfectScrollbarConfigInterface
+} from './shared/components/perfect-scrollbar';
 
-import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./shared/inmemory-db/inmemory-db.service";
 
-import { rootRouterConfig } from "./app.routing";
-import { SharedModule } from "./shared/shared.module";
-import { AppComponent } from "./app.component";
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
 
-import {
-  HttpClient,
-  HttpClientModule,
-  HTTP_INTERCEPTORS,
-} from "@angular/common/http";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { ErrorHandlerService } from "./shared/services/error-handler.service";
-import { TokenInterceptor } from "./shared/interceptors/token.interceptor";
-import { DatePipe } from "@angular/common";
+import { rootRouterConfig } from './app.routing';
+import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './app.component';
+
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ErrorHandlerService } from './shared/services/error-handler.service';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { NewsModule } from './views/setup/news/news.module';
+import { DatePipe } from '@angular/common';
+import { NationalityModule } from './views/setup/nationality/nationality.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {

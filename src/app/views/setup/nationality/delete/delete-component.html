@@ -1,0 +1,56 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">Nationality</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="countryCode"
+                            formControlName="countryCode"
+                            placeholder="Country Code" 
+                            readonly>
+                            
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="nameAr"
+                            formControlName="nameAr"
+                            placeholder="Nationality Text In Arabic"
+                            value=""
+                            readonly>
+                        </mat-form-field>
+                       </div>
+
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="nameEn"
+                            formControlName="nameEn"
+                            placeholder="Nationality Text In English"
+                            value=""
+                            readonly>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="warn" 
+            [disabled]="model.invalid" 
+            (click)="delete()">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
