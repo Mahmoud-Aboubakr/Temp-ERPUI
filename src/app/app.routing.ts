@@ -58,6 +58,10 @@ export const rootRouterConfig: Routes = [
           },
             path: 'roles',
             loadChildren: () => import('./views/setup/roles/roles.module').then(m => m.RolesModule)
+          },
+          {
+            path: 'applicationPagePrefix',
+            loadChildren: () => import('./views/setup/applicationPagePrefix/applicationPagePrefix.module').then(m => m.ApplicationPagePrefixModule)
           }
         ]
         
