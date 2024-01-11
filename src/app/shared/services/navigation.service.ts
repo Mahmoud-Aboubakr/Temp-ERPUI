@@ -49,7 +49,8 @@ export class NavigationService {
             { name: 'COUNTRY', state: 'general/setup/country', type: 'link' },
             { name: 'NEWS', state: 'setup/news' },
             { name: 'ROLES', state: 'setup/roles'},
-            { name: 'APPLICATION_PAGE_PREFIX', state: 'setup/applicationPagePrefix'}
+            { name: 'APPLICATION_PAGE_PREFIX', state: 'setup/applicationPagePrefix'},
+            { name: 'NATIONALITIES', state: 'setup/nationality'}
           ] 
         },        
       ]
