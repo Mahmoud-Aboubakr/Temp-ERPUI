@@ -1,6 +1,6 @@
 <mat-card class="p-0">
     <mat-card-title class="">
-        <div class="card-title-text">{{'NATIONALITY' | translate}}</div>
+        <div class="card-title-text">{{'USER_TYPE' | translate}}</div>
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
@@ -10,25 +10,31 @@
         
                     <div class="pb-16">
                         <mat-form-field class="full-width">
-                            <input matInput name="countryCode" formControlName="countryCode"
-                            [placeholder]="'COUNTRY_CODE' | translate" value="">
+                            <input matInput name="typeName" formControlName="typeName"
+                            [placeholder]="'TYPE_NAME' | translate" value="">
                         </mat-form-field>
                     </div>
         
                     <div class="pb-16">
                         <mat-form-field class="full-width">
-                            <input matInput name="nationalityNameAr" formControlName="nationalityNameAr"
-                            [placeholder]="'NATIONALITY_ARABIC' | translate" value="">
+                            <input matInput name="descNameAr" formControlName="descNameAr"
+                            [placeholder]="'DESCRIPTION_AR' | translate" value="">
                         </mat-form-field>
                     </div>
         
                     <div class="pb-16">
                         <mat-form-field class="full-width">
-                            <input matInput name="nationalityNameEn" formControlName="nationalityNameEn"
-                            [placeholder]="'NATIONALITY_ENGLISH' | translate" value="">
+                            <input matInput name="descNameEn" formControlName="descNameEn"
+                            [placeholder]="'DESCRIPTION_EN' | translate" value="">
                         </mat-form-field>
                     </div>
-        
+                
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input matInput name="fullDesc" formControlName="fullDesc"
+                            [placeholder]="'FULL_DESCRIPTION' | translate" value="">
+                        </mat-form-field>
+                    </div>
                 </div>
             </div>
             <button mat-raised-button color="primary" [disabled]="model.invalid" (click)="save()">

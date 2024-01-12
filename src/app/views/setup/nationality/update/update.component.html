@@ -7,13 +7,13 @@
         <form [formGroup]="model">
             <div fxLayout="row wrap">
                 <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
-        
                     <div class="pb-16">
                         <mat-form-field class="full-width">
                             <input matInput name="countryCode" formControlName="countryCode"
-                            [placeholder]="'COUNTRY_CODE' | translate" value="">
+                                [placeholder]="'COUNTRY_CODE' | translate" value="">
                         </mat-form-field>
                     </div>
+                    
         
                     <div class="pb-16">
                         <mat-form-field class="full-width">
@@ -28,11 +28,14 @@
                             [placeholder]="'NATIONALITY_ENGLISH' | translate" value="">
                         </mat-form-field>
                     </div>
-        
+
                 </div>
             </div>
-            <button mat-raised-button color="primary" [disabled]="model.invalid" (click)="save()">
-            {{'SAVE' | translate}}</button>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="model.invalid" 
+            (click)="update()">{{'UPDATE' | translate}}</button>
         </form>
     </mat-card-content>
 </mat-card>

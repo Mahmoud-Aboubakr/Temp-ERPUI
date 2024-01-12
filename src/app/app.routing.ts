@@ -84,7 +84,7 @@ export const rootRouterConfig: Routes = [
             loadChildren: () => import('./views/setup/news/news.module').then(m => m.NewsModule)
           },
           {
-            path: 'nationality',
+            path: 'nationalities',
             loadChildren: () => import('./views/setup/nationality/nationality.module').then(m => m.NationalityModule)
           },
           {
@@ -98,7 +98,11 @@ export const rootRouterConfig: Routes = [
           {
             path: 'applicationPagePrefix',
             loadChildren: () => import('./views/setup/applicationPagePrefix/applicationPagePrefix.module').then(m => m.ApplicationPagePrefixModule)
-          }
+          },
+          {
+            path: 'userTypes',
+            loadChildren: () => import('./views/setup/userTypes/userType.module').then(m => m.userTypesModule)
+          },
           ]
       },
       {

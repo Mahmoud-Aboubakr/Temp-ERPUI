@@ -1,6 +1,6 @@
 export class nationalityModel{
     countryCode:string; 
-    nameAr:string; 
-    nameEn:string; 
+    nationalityNameAr:string; 
+    nationalityNameEn:string; 
     id:number;
 }
