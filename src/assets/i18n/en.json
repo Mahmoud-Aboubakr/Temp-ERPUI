@@ -56,6 +56,14 @@
   "CHAR_ACCEPT": "Accept Characters",
   "EDIT": "Edit",
 
+  "USER_TYPES":"User Types", 
+  "USER_TYPE":"User Type", 
+  "FULL_DESCRIPTION":"Full Description", 
+  "TYPE_NAME":"Type Name", 
+  "NATIONALITY_ARABIC": "Nationality In Arabic",
+  "NATIONALITY_ENGLISH": "Nationality In English",
+  "COUNTRY_CODE": "Country Code",
+  "NATIONALITY": "Nationality",
 
   "DASHBOARD": "Dashboard",
   "APPS": "Apps",

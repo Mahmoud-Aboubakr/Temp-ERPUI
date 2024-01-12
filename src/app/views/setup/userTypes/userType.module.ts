@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NATIONALITYROUTES } from './nationality.routing';
+import { userTypeRoutes } from './userType.routing';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
@@ -17,7 +17,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { DeleteComponent } from './delete/delete.component';
+import { deleteComponent } from './delete/delete-component';
 import { ListComponent } from './list/list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -45,8 +45,8 @@ import { UpdateComponent } from './update/update.component';
     MatIconModule,
     MatStepperModule,
     FlexLayoutModule,
-    RouterModule.forChild(NATIONALITYROUTES),
+    RouterModule.forChild(userTypeRoutes),
   ], 
-  declarations: [CreateComponent,DeleteComponent,ListComponent,UpdateComponent],
+  declarations: [CreateComponent,deleteComponent,ListComponent,UpdateComponent],
 })
-export class NationalityModule { }
+export class userTypesModule { }

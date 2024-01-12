@@ -57,6 +57,16 @@
   "CHAR_ACCEPT": "يقبل حروف",
   "EDIT": "تعديل",
 
+
+  "TYPE_NAME":"اسم النوع", 
+  "NATIONALITY": "الجنسية",
+  "NATIONALITY_ARABIC": "الجنسية عربي",
+  "NATIONALITY_ENGLISH": "الجنسية انجليزي",
+  "COUNTRY_CODE": "كود الدولة",
+  "USER_TYPES":"انواع المستخدمين", 
+  "USER_TYPE":"نوع المستخدم", 
+  "FULL_DESCRIPTION":"الوصف العام", 
+
   "GALLERY": "Gallery",
   "PRICINGS": "Pricings",
   "USERS": "Users",

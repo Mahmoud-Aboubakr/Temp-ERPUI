@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
 import { CreateComponent } from './create/create.component';
-import { DeleteComponent } from './delete/delete.component';
+import { deleteComponent } from './delete/delete-component';
 import { ListComponent } from './list/list.component';
 import { UpdateComponent } from './update/update.component';
 
-export const NATIONALITYROUTES: Routes = [
+export const userTypeRoutes: Routes = [
   {
     path: '',
     children: [
       {
         path: '',
         component: ListComponent,
-        data: { title: 'List', breadcrumb: 'LIST' }
+        data: { title: 'userTypes', breadcrumb: 'LIST' }
       }, 
       {
         path: 'create',
@@ -25,7 +25,7 @@ export const NATIONALITYROUTES: Routes = [
       },
       {
         path: 'delete/:id',
-        component: DeleteComponent,
+        component: deleteComponent,
         data: { title: 'Delete', breadcrumb: 'DELETE' }
       }, 
 

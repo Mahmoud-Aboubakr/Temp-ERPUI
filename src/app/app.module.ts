@@ -24,8 +24,6 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { NewsModule } from './views/setup/news/news.module';
 import { DatePipe } from '@angular/common';
-import { NationalityModule } from './views/setup/nationality/nationality.module';
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
