@@ -2,24 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { IdentificationTypes } from 'app/Core/Models/IdentificationTypes/identification-types';
 import { PaginationParam } from 'app/Core/Models/ResponseModels/PaginationParam';
 import { PaginationResponseModel } from 'app/Core/Models/ResponseModels/PaginationResponseModel';
-import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { AppLanguageService } from 'app/shared/services/app-language.service';
 import { environment } from 'environments/environment';
 import { lastValueFrom } from 'rxjs';
 
-
 @Component({
-  selector: 'app-list-of-roles',
-  templateUrl: './list-of-roles.component.html',
-  styleUrls: ['./list-of-roles.component.scss']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
-export class ListOfRolesComponent implements OnInit {
+export class ListComponent implements OnInit {
 
-  displayedColumns: string[] = ['Id', 'Role', 'Description', 'Controls']; // Add more columns as needed
-  paginationResponseModel: PaginationResponseModel<RolesModel[]> = {
+  displayedColumns: string[] = ['Code', 'English Name', 'Arabic Name', 'Active', 'Military Identity', 'Length', 'Accept Characters', 'Edit']; // Add more columns as needed
+  paginationResponseModel: PaginationResponseModel<IdentificationTypes[]> = {
     currentPage:0,
     errorMessage: '',
     lang:'',
@@ -34,7 +33,7 @@ export class ListOfRolesComponent implements OnInit {
     PageNumber : 1, 
     PageSize : environment.paginationList[0]
   }
-  dataSource = new MatTableDataSource<RolesModel>(this.paginationResponseModel.data);
+  dataSource = new MatTableDataSource<IdentificationTypes>(this.paginationResponseModel.data);
   paginationList = environment.paginationList;
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 
@@ -47,7 +46,7 @@ export class ListOfRolesComponent implements OnInit {
     await this.getData(); 
   }
   async getData(){ 
-    await lastValueFrom(this._commonCrudService.getAll("roles/GetRoles", this.paginationParam, this.paginationResponseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.getAll("identifications/GetIdentifications", this.paginationParam, this.paginationResponseModel)).then(res => {
       this.paginationResponseModel = res;
       if(res.statusCode == 200){
         this.dataSource.data = this.paginationResponseModel.data;
@@ -59,14 +58,14 @@ export class ListOfRolesComponent implements OnInit {
     }); 
 
   }
-  async updateRole(id){ 
-    this.router.navigate(['setup/roles/update/' + id]);
+  async updateIdentification(id){ 
+    this.router.navigate(['setup/identifications/update/' + id]);
   }
-  async deleteRole(id){ 
-    this.router.navigate(['setup/roles/delete/' + id]);
+  async deleteIdentification(id){ 
+    this.router.navigate(['setup/identifications/delete/' + id]);
   }
-  async addRole(){ 
-    this.router.navigate(['setup/roles/create']);
+  async addIdentification(){ 
+    this.router.navigate(['setup/identifications/create']);
   }
   async onPageChanged(event: any) {
     console.log(event);
