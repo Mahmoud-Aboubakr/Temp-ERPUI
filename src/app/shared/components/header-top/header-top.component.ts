@@ -58,6 +58,8 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.menuItemSub.unsubscribe()
   }
+
+  
   setLang() {
     this.translate.use(this.currentLang)
   }

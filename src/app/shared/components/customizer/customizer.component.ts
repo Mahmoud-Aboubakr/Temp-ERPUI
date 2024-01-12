@@ -71,7 +71,7 @@ export class CustomizerComponent implements OnInit {
   }
   toggleDir(data: any) {
     let dir = data.checked ? 'rtl' : 'ltr';
-    this.layout.publishLayoutChange({ dir: dir });
+    this.layout.publishLayoutChange({ dir: dir }); 
   }
   tooglePerfectScrollbar(data: any) {
     this.layout.publishLayoutChange({ perfectScrollbar: this.perfectScrollbarEnabled });

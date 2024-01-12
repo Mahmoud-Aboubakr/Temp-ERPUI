@@ -40,6 +40,7 @@ export class HeaderSideComponent implements OnInit {
   setLang(lng) {
     this.currentLang = lng;
     this.translate.use(lng.code);
+    this.toggleDir(lng)
   }
   changeTheme(theme) {
     // this.themeService.changeTheme(theme);
@@ -77,5 +78,11 @@ export class HeaderSideComponent implements OnInit {
 
   onSearch(e) {
     //   console.log(e)
+  }
+
+  toggleDir(data: any) {
+    //let dir = data.checked ? 'rtl' : 'ltr';
+    let dir = data.code == 'ar' ? 'rtl' : 'ltr'; 
+    this.layout.publishLayoutChange({ dir: dir }); 
   }
 }
