@@ -1,0 +1,50 @@
+<!-- list-view.component.html -->
+
+<div class="card-container">
+  <button mat-icon-button color="primary" (click)="addNew()">
+      <mat-icon>add_circle</mat-icon>
+  </button>
+
+  <!-- Displaying data in a table -->
+  <table mat-table [dataSource]="dataSource">
+    <!-- Define your columns here -->
+    <ng-container matColumnDef="typeName">
+      <th mat-header-cell *matHeaderCellDef>{{'TYPE_NAME' | translate }}</th>
+      <td mat-cell *matCellDef="let element">{{ element.typeName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="descNameAr">
+      <th mat-header-cell *matHeaderCellDef>{{'DESCRIPTION_AR' | translate }}</th>
+      <td mat-cell *matCellDef="let element">{{ element.descNameAr }}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="descNameEn">
+      <th mat-header-cell *matHeaderCellDef> {{'DESCRIPTION_EN' | translate }}</th>
+      <td mat-cell *matCellDef="let element">{{ element.descNameEn }}</td>
+    </ng-container>
+    <ng-container matColumnDef="fullDesc">
+      <th mat-header-cell *matHeaderCellDef> {{'FULL_DESCRIPTION' | translate }}</th>
+      <td mat-cell *matCellDef="let element">{{ element.fullDesc }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Controls">
+      <th mat-header-cell *matHeaderCellDef>{{'CONTROLS' | translate }}</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- Update Button -->
+        <button mat-icon-button color="primary" (click)="updateUserType(element.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+    
+        <!-- Delete Button -->
+        <button mat-icon-button color="warn" (click)="deleteUserType(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="paginationList" [length]="paginationResponseModel.totalCount"
+  [pageIndex]="paginationResponseModel.currentPage - 1" [pageSize]="paginationResponseModel.pageSize"
+  
+  showFirstLastButtons (page)="onPageChanged($event)"></mat-paginator>
+</div>

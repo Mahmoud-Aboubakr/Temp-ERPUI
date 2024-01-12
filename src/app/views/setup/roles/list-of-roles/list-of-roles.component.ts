@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PaginationParam } from 'app/Core/Models/ResponseModels/PaginationParam';
 import { PaginationResponseModel } from 'app/Core/Models/ResponseModels/PaginationResponseModel';
-import { Roles } from 'app/Core/Models/roles';
+import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { AppLanguageService } from 'app/shared/services/app-language.service';
 import { environment } from 'environments/environment';
@@ -19,7 +19,7 @@ import { lastValueFrom } from 'rxjs';
 export class ListOfRolesComponent implements OnInit {
 
   displayedColumns: string[] = ['Id', 'Role', 'Description', 'Controls']; // Add more columns as needed
-  paginationResponseModel: PaginationResponseModel<Roles[]> = {
+  paginationResponseModel: PaginationResponseModel<RolesModel[]> = {
     currentPage:0,
     errorMessage: '',
     lang:'',
@@ -34,7 +34,7 @@ export class ListOfRolesComponent implements OnInit {
     PageNumber : 1, 
     PageSize : environment.paginationList[0]
   }
-  dataSource = new MatTableDataSource<Roles>(this.paginationResponseModel.data);
+  dataSource = new MatTableDataSource<RolesModel>(this.paginationResponseModel.data);
   paginationList = environment.paginationList;
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 

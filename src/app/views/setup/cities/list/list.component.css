@@ -1,0 +1,22 @@
+/* list-view.component.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .card {
+    width: 300px;
+  }
+  
+  .example-card {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 16px;
+  }
+  

@@ -1,0 +1,45 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">{{'USER_TYPE' | translate}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+        
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input matInput name="typeName" formControlName="typeName"
+                            [placeholder]="'TYPE_NAME' | translate" value="">
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input matInput name="descNameAr" formControlName="descNameAr"
+                            [placeholder]="'DESCRIPTION_AR' | translate" value="">
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input matInput name="descNameEn" formControlName="descNameEn"
+                            [placeholder]="'DESCRIPTION_EN' | translate" value="">
+                        </mat-form-field>
+                    </div>
+                
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input matInput name="fullDesc" formControlName="fullDesc"
+                            [placeholder]="'FULL_DESCRIPTION' | translate" value="">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <button mat-raised-button color="primary" [disabled]="model.invalid" (click)="save()">
+            {{'SAVE' | translate}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+

@@ -24,19 +24,17 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { NewsModule } from './views/setup/news/news.module';
 import { DatePipe } from '@angular/common';
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
+  suppressScrollX: true,
 };
 
 @NgModule({
   imports: [
-    
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -46,18 +44,28 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
-    RouterModule.forRoot(rootRouterConfig, { useHash: false, relativeLinkResolution: 'legacy' })
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {
+      passThruUnknownUrl: true,
+    }),
+    RouterModule.forRoot(rootRouterConfig, {
+      useHash: false,
+      relativeLinkResolution: "legacy",
+    }),
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   providers: [
     DatePipe,
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     // { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
-    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
     // REQUIRED IF YOU USE JWT AUTHENTICATION
     {
       provide: HTTP_INTERCEPTORS,
@@ -65,6 +73,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
