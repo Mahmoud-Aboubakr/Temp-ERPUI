@@ -34,13 +34,13 @@ export class CreateComponent implements OnInit {
       //   // Validators.maxLength(9)
         
       // ]),
-      CountryCode: new UntypedFormControl('', [
+      countryCode: new UntypedFormControl('', [
          Validators.required
       ]),
-      NameEn: new UntypedFormControl('', [ 
+      nationalityNameEn: new UntypedFormControl('', [ 
         Validators.required
       ]),
-      NameAr: new UntypedFormControl('', [
+      nationalityNameAr: new UntypedFormControl('', [
         Validators.required
       ])
     })
@@ -50,9 +50,9 @@ export class CreateComponent implements OnInit {
     if(this.model.valid){
     let addModel = new nationalityModel(); 
     //debugger;
-    addModel.countryCode = this.model.controls['CountryCode'].value; 
-    addModel.nameEn  = this.model.controls['NameEn'].value; 
-    addModel.nameAr  = this.model.controls['NameAr'].value; 
+    addModel.countryCode = this.model.controls['countryCode'].value; 
+    addModel.nationalityNameEn  = this.model.controls['nationalityNameEn'].value; 
+    addModel.nationalityNameAr  = this.model.controls['nationalityNameAr'].value; 
     await lastValueFrom(this._commonCrudService.post("Nationality/AddNationality", addModel, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 201){ 

@@ -1,4 +1,4 @@
-export class Roles {
+export class RolesModel {
     id: number;
     name: string;
     Desc_ar: string;

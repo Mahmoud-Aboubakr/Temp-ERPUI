@@ -14,11 +14,11 @@
                             matInput
                             name="name"
                             formControlName="name"
-                            placeholder="Role Name"
+                            [placeholder]="'ROLE' | translate"
                             value=""
                             readonly>
                         </mat-form-field>
-                       </div>
+                    </div>
 
                     <div class="pb-16">
                         <mat-form-field class="full-width">
@@ -26,7 +26,7 @@
                             matInput
                             name="Desc_ar"
                             formControlName="Desc_ar"
-                            placeholder="Description Arabic"
+                            [placeholder]="'DESCRIPTION_AR' | translate"
                             value=""
                             readonly>
                         </mat-form-field>
@@ -38,9 +38,8 @@
                             matInput
                             name="Desc_en"
                             formControlName="Desc_en"
-                            placeholder="Description English"
-                            value=""
-                            readonly>
+                            [placeholder]="'DESCRIPTION_EN' | translate"
+                            value="" readonly>
                         </mat-form-field>
                     </div>
 
@@ -50,9 +49,8 @@
                             matInput
                             name="Full_desc"
                             formControlName="Full_desc"
-                            placeholder="Full Description"
-                            value=""
-                            readonly>
+                            [placeholder]="'DESCRIPTION' | translate"
+                            value="" readonly>
                         </mat-form-field>
                     </div>
 

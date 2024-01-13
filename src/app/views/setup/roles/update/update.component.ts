@@ -4,7 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
-import { Roles } from 'app/Core/Models/roles';
+import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { lastValueFrom } from 'rxjs';
 
@@ -19,7 +19,7 @@ export class UpdateComponent implements OnInit {
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<Roles[]> = {
+  responseModel: ResponseModel<RolesModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -48,7 +48,7 @@ export class UpdateComponent implements OnInit {
     })
   }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("News/GetNew/" + id, this.responseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.get("Roles/GetRole/" + id, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
           this.model.controls['activeFrom'].setValue(res.data['activateFrom']); 
@@ -60,14 +60,14 @@ export class UpdateComponent implements OnInit {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['setup/news']);
+          this.router.navigate(['setup/roles']);
       }
     }); 
 
   }
   async update(){ 
     if(this.model.valid){
-      let updateModel = new Roles(); 
+      let updateModel = new RolesModel(); 
       updateModel.name  = this.model.controls['name'].value; 
       updateModel.Desc_ar  = this.model.controls['Desc_ar'].value;
       updateModel.Desc_en  = this.model.controls['Desc_en'].value;

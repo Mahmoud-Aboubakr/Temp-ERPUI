@@ -9,11 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-nat-delete',
-  templateUrl: './delete-component.html',
-  styleUrls:['./delete-component.css'],
+  selector: 'app-nationality-update',
+  templateUrl: './update.component.html',
+  styleUrls:['./update.component.css'],
 })
-export class deleteComponent implements OnInit {
+export class UpdateComponent implements OnInit {
   Id:number;
   formData = {};
   console = console;
@@ -32,12 +32,13 @@ export class deleteComponent implements OnInit {
     private datePipe: DatePipe,private snackBar: MatSnackBar ) { }
   ngOnInit() {
     this.Id  = this.route.snapshot.params['id'];
-    //console.log(this.Id);
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
-      nameEn: new UntypedFormControl('', [
+      nationalityNameAr: new UntypedFormControl('', [
+        Validators.required
       ]),
-      nameAr: new UntypedFormControl('', [
+      nationalityNameEn: new UntypedFormControl('', [
+        Validators.required
       ]),
       countryCode: new UntypedFormControl('', [ 
         Validators.required
@@ -45,32 +46,39 @@ export class deleteComponent implements OnInit {
     })
   }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("Nationality/GetNationality/" + id, this.responseModel))
-    .then(res => {
+    await lastValueFrom(this._commonCrudService.get("Nationality/GetNationality/" + id, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
           this.model.controls['countryCode'].setValue(res.data['countryCode']); 
-          this.model.controls['nameEn'].setValue( res.data['nameEn']);
-          this.model.controls['nameAr'].setValue( res.data['nameAr']);
+          this.model.controls['nationalityNameAr'].setValue(res.data['nationalityNameAr']); 
+          this.model.controls['nationalityNameEn'].setValue( res.data['nationalityNameEn']); 
 
       } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['setup/nationality']);
+          this.router.navigate(['setup/nationalities']);
       }
     }); 
 
   }
-  async delete(){ 
+  async update(){ 
     if(this.model.valid){
-      await lastValueFrom(this._commonCrudService.delete("Nationality/DeleteNationality/" + this.Id))
+      let updateModel = new nationalityModel(); 
+      updateModel.countryCode  = this.model.controls['countryCode'].value; 
+      updateModel.nationalityNameEn  = this.model.controls['nationalityNameEn'].value;
+      updateModel.nationalityNameAr  = this.model.controls['nationalityNameAr'].value;
+      updateModel.id  = this.Id;  
+      await lastValueFrom (  this._commonCrudService.update("Nationality/UpdateNationality/" + this.Id, updateModel, this.responseModel)
+      ) 
       .then(res => {
+        this.responseModel = res;
         if(res.statusCode == 204){ 
+            this.resetForm();
             this.snackBar.open(res.message, 'Close', {
-              duration: 3000, // Duration in milliseconds
+              duration: 3000,
             });
-            this.router.navigate(['setup/nationality']);
+            this.router.navigate(['setup/nationalities']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
@@ -81,6 +89,16 @@ export class deleteComponent implements OnInit {
     }
     
   }
- 
+  async resetForm() {
+      // Iterate over each control and clear validators
+      Object.keys(this.model.controls).forEach(key => {
+        const control = this.model.get(key);
+        control.clearValidators();
+        control.updateValueAndValidity();
+      });
+  
+      // Reset the form to its initial state
+      this.model.reset();
+  }
 
 }

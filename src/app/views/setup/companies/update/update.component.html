@@ -1,6 +1,6 @@
 <mat-card class="p-0">
     <mat-card-title class="">
-        <div class="card-title-text">Nationality</div>
+        <div class="card-title-text">{{'UPDATE' | translate}}</div>
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
@@ -9,47 +9,51 @@
                 <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
                     <div class="pb-16">
                         <mat-form-field class="full-width">
-                            <input 
-                            matInput
-                            name="countryCode"
-                            formControlName="countryCode"
-                            placeholder="Country Code" 
-                            readonly>
-                            
-                        </mat-form-field>
-                    </div>
-                    
-                    <div class="pb-16">
-                        <mat-form-field class="full-width">
                             <input
                             matInput
-                            name="nameAr"
-                            formControlName="nameAr"
-                            placeholder="Nationality Text In Arabic"
-                            value=""
-                            readonly>
+                            name="Code"
+                            formControlName="Code"
+                            placeholder="{{'CODE' | translate}}"
+                            value="">
                         </mat-form-field>
-                       </div>
+                    </div>
 
                     <div class="pb-16">
                         <mat-form-field class="full-width">
                             <input
                             matInput
-                            name="nameEn"
-                            formControlName="nameEn"
-                            placeholder="Nationality Text In English"
-                            value=""
-                            readonly>
+                            name="EnglishName"
+                            formControlName="EnglishName"
+                            placeholder="{{'ENGLISHNAME' | translate}}"
+                            value="">
                         </mat-form-field>
                     </div>
 
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="ArabicName"
+                            formControlName="ArabicName"
+                            placeholder="{{'ARABICNAME' | translate}}"
+                            value="">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="pb-16">
+                        <mat-checkbox 
+                        class="example-margin"
+                        name="IsActive"
+                        formControlName="IsActive"
+                        value="">{{'ISACTIVE' | translate}}</mat-checkbox>
+                    </div>
                 </div>
             </div>
             <button 
             mat-raised-button 
             color="warn" 
             [disabled]="model.invalid" 
-            (click)="delete()">Delete</button>
+            (click)="update()">{{'UPDATE' | translate}}</button>
         </form>
     </mat-card-content>
 </mat-card>
