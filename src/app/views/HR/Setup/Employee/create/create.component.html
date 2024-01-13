@@ -9,13 +9,13 @@
     <mat-card-content>
         <div>
             <mat-tab-group (selectedIndexChange)="tabChanged($event)">
-                <mat-tab label="{{'EmployeeGeneralInformation' | translate}}">
+                <mat-tab label="{{'EMPLOYEE_GENERAL_INFORMATION' | translate}}">
                     <app-hr-employee-general-information [form]="form"></app-hr-employee-general-information>
                 </mat-tab>
-                <mat-tab label="{{'EmployeeData' | translate}}">
+                <mat-tab label="{{'EMPLOYEE_DATA' | translate}}">
                     <app-hr-employee-employment-data [form]="form" (dataReady)="receiveDataFromChild($event)"></app-hr-employee-employment-data>
                 </mat-tab>
-                <mat-tab label="{{'EmployeeAddressAndContactInfo' | translate}}">
+                <mat-tab label="{{'EMPLOYEE_ADDRESS_AND_CONTACT_INFO' | translate}}">
                     <app-hr-employee-address-and-contact-info [form]="form"></app-hr-employee-address-and-contact-info>
                 </mat-tab>
             </mat-tab-group>
