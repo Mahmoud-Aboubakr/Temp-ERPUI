@@ -1,6 +1,6 @@
 <mat-card class="p-0">
     <mat-card-title class="">
-        <div class="card-title-text">News</div>
+        <div class="card-title-text">{{'NEWS' | translate}}</div>
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
@@ -13,7 +13,7 @@
                             matInput
                             name="activeFrom"
                             formControlName="activeFrom"
-                            placeholder="Active From" 
+                            placeholder="'ACTIVE_FROM_DATE' | translate" 
                             readonly>
                         </mat-form-field>
                     </div>
@@ -23,7 +23,7 @@
                             matInput
                             name="activeTo"
                             formControlName="activeTo"
-                            placeholder="Active To" 
+                            placeholder="'ACTIVE_TO_DATE' | translate" 
                             readonly>
                             
                         </mat-form-field>
@@ -35,7 +35,7 @@
                             matInput
                             name="newsTextAr"
                             formControlName="newsTextAr"
-                            placeholder="News Text In Arabic"
+                            placeholder="'NEWS_TEXT_IN_AR' | translate"
                             value=""
                             readonly>
                         </mat-form-field>
@@ -47,7 +47,7 @@
                             matInput
                             name="newsTextEn"
                             formControlName="newsTextEn"
-                            placeholder="News Text In English"
+                            placeholder="'NEWS_TEXT_IN_EN' | translate"
                             value=""
                             readonly>
                         </mat-form-field>
@@ -59,7 +59,7 @@
             mat-raised-button 
             color="warn" 
             [disabled]="model.invalid" 
-            (click)="delete()">Delete</button>
+            (click)="delete()">{{'DELETE' | translate}}</button>
         </form>
     </mat-card-content>
 </mat-card>

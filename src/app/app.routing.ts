@@ -106,6 +106,21 @@ export const rootRouterConfig: Routes = [
           ]
       },
       {
+        path: 'hr',
+        children:[
+          { 
+            path: 'setup',
+            children:[
+              {
+                path:'employee', 
+                loadChildren: () => import('./views/HR/Setup/Employee/employee.module').then(m => m.EmployeeModule)
+              }
+            ]
+          },
+        ]
+        
+      },
+      {
         path: 'settings', 
         loadChildren: () => import('./views/settings/settings.module').then(m => m.SettingsModule)
       }
