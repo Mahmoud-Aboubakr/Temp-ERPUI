@@ -17,7 +17,7 @@
     <span>{{currentLang.name}}</span>
   </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item *ngFor="let lang of availableLangs" (click)="setLang(lang)">
+  <button mat-menu-item *ngFor="let lang of availableLangs" (click)="setLang(lang, $event)">
         <span class="fi mr-8 fi-{{lang.flag}}"></span>
         <span>{{lang.name}}</span>
   </button>
