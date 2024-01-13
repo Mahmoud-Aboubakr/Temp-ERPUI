@@ -8,7 +8,7 @@
                     matInput
                     name="DateOfAppointment"
                     formControlName="DateOfAppointment"
-                    [placeholder]="'DateOfAppointment' | translate" 
+                    [placeholder]="'DATE_OF_APPOINTMENT' | translate" 
                     [matDatepicker]="DateOfAppointment">
                     <mat-datepicker-toggle matSuffix [for]="DateOfAppointment"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -20,7 +20,7 @@
                     matInput
                     name="DateOfConfirmation"
                     formControlName="DateOfConfirmation"
-                    [placeholder]="'DateOfConfirmation' | translate" 
+                    [placeholder]="'DATE_OF_CONFIRMATION' | translate" 
                     [matDatepicker]="DateOfConfirmation">
                     <mat-datepicker-toggle matSuffix [for]="DateOfConfirmation"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -32,7 +32,7 @@
                     matInput
                     name="ProbationEndDate"
                     formControlName="ProbationEndDate"
-                    [placeholder]="'ProbationEndDate' | translate" 
+                    [placeholder]="'PROBATION_END_DATE' | translate" 
                     [matDatepicker]="ProbationEndDate">
                     <mat-datepicker-toggle matSuffix [for]="ProbationEndDate"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -47,7 +47,7 @@
                         type="number"
                         name="ProbationPeriod"
                         formControlName="ProbationPeriod"
-                        [placeholder]="'ProbationPeriod' | translate" 
+                        [placeholder]="'PROBATION_PERIOD' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -58,7 +58,7 @@
                         matInput
                         name="ProbationPeriodNumber"
                         formControlName="ProbationPeriodNumber"
-                        [placeholder]="'ProbationPeriodNumber' | translate" 
+                        [placeholder]="'PROBATION_PERIOD_NUMBER' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -68,14 +68,14 @@
                     matInput
                     name="DateOfJoining"
                     formControlName="DateOfJoining"
-                    [placeholder]="'DateOfJoining' | translate" 
+                    [placeholder]="'DATE_OF_JOINING' | translate" 
                     [matDatepicker]="DateOfJoining">
                     <mat-datepicker-toggle matSuffix [for]="DateOfJoining"></mat-datepicker-toggle>
                 </mat-form-field>
                 <mat-datepicker #DateOfJoining></mat-datepicker>
                 <small 
                 *ngIf="form.get('DateOfJoining').hasError('required') && form.controls['DateOfJoining'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'DATE_OF_JOINING_IS_REQUIRED' | translate}} 
             </small>
             </div>
         </div>
@@ -86,14 +86,14 @@
                     matInput
                     name="ContractStartingDate"
                     formControlName="ContractStartingDate"
-                    [placeholder]="'ContractStartingDate' | translate" 
+                    [placeholder]="'CONTRACT_STARTING_DATE' | translate" 
                     [matDatepicker]="ContractStartingDate">
                     <mat-datepicker-toggle matSuffix [for]="ContractStartingDate"></mat-datepicker-toggle>
                 </mat-form-field>
                 <mat-datepicker #ContractStartingDate></mat-datepicker>
                 <small 
                 *ngIf="form.get('ContractStartingDate').hasError('required') && form.controls['ContractStartingDate'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'CONTRACT_STARTING_DATE_IS_REQUIRED' | translate}} 
             </small>
             </div>
             
@@ -103,14 +103,14 @@
                     matInput
                     name="ExpiryDateOfContact"
                     formControlName="ExpiryDateOfContact"
-                    [placeholder]="'ExpiryDateOfContact' | translate" 
+                    [placeholder]="'EXPIRY_DATE_OF_CONTACT' | translate" 
                     [matDatepicker]="ExpiryDateOfContact">
                     <mat-datepicker-toggle matSuffix [for]="ExpiryDateOfContact"></mat-datepicker-toggle>
                 </mat-form-field>
                 <mat-datepicker #ExpiryDateOfContact></mat-datepicker>
                 <small 
                 *ngIf="form.get('ExpiryDateOfContact').hasError('required') && form.controls['ExpiryDateOfContact'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'EXPIRY_DATE_OF_CONTACT_IS_REQUIRED' | translate}} 
             </small>
             </div>
             
@@ -120,7 +120,7 @@
                         matInput
                         name="NoticePeriodTime"
                         formControlName="NoticePeriodTime"
-                        [placeholder]="'NoticePeriodTime' | translate" 
+                        [placeholder]="'NOTICE_PERIOD_TIME' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -128,7 +128,7 @@
         <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'NoticePeriod' | translate }}</mat-label>
+                    <mat-label>{{ 'NOTICE_PERIOD' | translate }}</mat-label>
                     <mat-select formControlName="NoticePeriod">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -138,7 +138,7 @@
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'ContractPlace' | translate }}</mat-label>
+                    <mat-label>{{ 'CONTRACT_PLACE' | translate }}</mat-label>
                     <mat-select formControlName="ContractPlace">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -147,12 +147,12 @@
                 </mat-form-field>
                 <small 
                     *ngIf="form.get('ContractPlace').hasError('required') && form.controls['ContractPlace'].touched" 
-                    class="form-error-msg"> lastName Is Required 
+                    class="form-error-msg"> {{'CONTRACT_PLACE_IS_REQUIRED' | translate}} 
                 </small>
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'ContractType' | translate }}</mat-label>
+                    <mat-label>{{ 'CONTRACT_TYPE' | translate }}</mat-label>
                     <mat-select formControlName="ContractType">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -167,28 +167,28 @@
                 name="IsHalfTime"
                 formControlName="IsHalfTime"
                 ></mat-checkbox>
-                <label for="IsHalfTime"> {{ 'IsHalfTime' | translate }}</label>
+                <label for="IsHalfTime"> {{ 'IS_HALF_TIME' | translate }}</label>
             </div>
              <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-checkbox
                 name="Cader"
                 formControlName="Cader"
                 ></mat-checkbox>
-                <label for="Cader"> {{ 'Cader' | translate }}</label>
+                <label for="Cader"> {{ 'CADER' | translate }}</label>
             </div>
              <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-checkbox
                 name="TravlingTickets"
                 formControlName="TravlingTickets"
                 ></mat-checkbox>
-                <label for="TravlingTickets"> {{ 'TravlingTickets' | translate }}</label>
+                <label for="TravlingTickets"> {{ 'TRAVLING_TICKETS' | translate }}</label>
             </div>
             
         </div>
         <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'HoucingAllowance' | translate }}</mat-label>
+                    <mat-label>{{ 'HOUCING_ALLOWNACE' | translate }}</mat-label>
                     <mat-select formControlName="HoucingAllowance">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -204,18 +204,18 @@
                         type="number"
                         name="BasicSalary"
                         formControlName="BasicSalary"
-                        [placeholder]="'BasicSalary' | translate" 
+                        [placeholder]="'BASIC_SALAERY' | translate" 
                     >
                 </mat-form-field>
                 <small 
                     *ngIf="form.get('BasicSalary').hasError('required') && form.controls['BasicSalary'].touched" 
-                    class="form-error-msg"> lastName Is Required 
+                    class="form-error-msg"> {{'BASIC_SALAERY_IS_REQUIRED' | translate}}
                 </small>
             </div>
             
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'SalaryPaymentMethod' | translate }}</mat-label>
+                    <mat-label>{{ 'SALARY_PAYMENT_METHOD' | translate }}</mat-label>
                     <mat-select formControlName="SalaryPaymentMethod">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -224,7 +224,7 @@
                 </mat-form-field>
                 <small 
                     *ngIf="form.get('SalaryPaymentMethod').hasError('required') && form.controls['SalaryPaymentMethod'].touched" 
-                    class="form-error-msg"> lastName Is Required 
+                    class="form-error-msg"> {{'SALARY_PAYMENT_METHOD_IS_REQUIRED' | translate}}
                 </small>
             </div>
         </div>
@@ -235,7 +235,7 @@
                         matInput
                         name="Remarks"
                         formControlName="Remarks"
-                        [placeholder]="'Remarks' | translate" 
+                        [placeholder]="'REMARKS' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -244,9 +244,85 @@
                 name="SocialServiceFundSubscription"
                 formControlName="SocialServiceFundSubscription"
                 ></mat-checkbox>
-                <label for="SocialServiceFundSubscription"> {{ 'SocialServiceFundSubscription' | translate }}</label>
+                <label for="SocialServiceFundSubscription"> {{ 'SOCIAL_SERVICE_FUND_SUBSCRIPTION' | translate }}</label>
             </div>
             
         </div>
+
+        <div class="table-title">
+            <h3>{{'FILE_UPLOADS' | translate}}</h3>
+          </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="100%" fxFlex.gt-xs="100%">
+            <mat-table [dataSource]="fileDataSource" class="mat-elevation-z8">
+        
+                <!-- Define the columns -->
+                <ng-container matColumnDef="hiringDocument">
+                <mat-header-cell *matHeaderCellDef>{{'HIRING_DOCUMENT' | translate}} </mat-header-cell>
+                <mat-cell *matCellDef="let file"> {{ file.hiringDocument }} </mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="isMandatory">
+                    <mat-header-cell *matHeaderCellDef>{{ 'IS_MANDATORY' | translate }}</mat-header-cell>
+                    <mat-cell *matCellDef="let file">
+                      <div class="label-container">
+                        <div class="label" [ngClass]="{'green-box': file.isMandatory, 'red-box': !file.isMandatory}">
+                          <span class="label-text">{{ file.isMandatory ? 'Yes' : 'No' }}</span>
+                        </div>
+                      </div>
+                    </mat-cell>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef>{{ 'STATUS' | translate }}</mat-header-cell>
+                    <mat-cell *matCellDef="let file">
+                      <span [ngClass]="getStatusClass(file.status)">
+                        {{ status[file.status] }}
+                      </span>
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="file">
+                    <mat-header-cell *matHeaderCellDef>{{ 'FILE' | translate }}</mat-header-cell>
+                    <mat-cell *matCellDef="let file">
+                        <input type="file" (change)="onFileSelected($event, file)">
+                    </mat-cell>
+                  </ng-container>
+<!-- 
+                  <ng-container matColumnDef="expiryDate">
+                    <mat-header-cell *matHeaderCellDef>{{ 'EXPIRY_DATE' | translate }}</mat-header-cell>
+                    <mat-cell *matCellDef="let file">
+                      <mat-form-field>
+                        <input matInput name="expiryDate" [matDatepicker]="expiryDate">
+                        <mat-datepicker-toggle matSuffix [for]="expiryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #expiryDate></mat-datepicker>
+                      </mat-form-field>
+                    </mat-cell>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="reciveDate">
+                    <mat-header-cell *matHeaderCellDef>{{ 'RECIVE_DATE' | translate }}</mat-header-cell>
+                    <mat-cell *matCellDef="let file">
+                      <mat-form-field>
+                        <input matInput name="reciveDate" [matDatepicker]="reciveDate">
+                        <mat-datepicker-toggle matSuffix [for]="reciveDate"></mat-datepicker-toggle>
+                        <mat-datepicker #reciveDate></mat-datepicker>
+                      </mat-form-field>
+                    </mat-cell>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="confirm">
+                    <mat-header-cell *matHeaderCellDef>{{ 'CONFIRM' | translate }}</mat-header-cell>
+                    <mat-cell *matCellDef="let file">
+                      <button (click)="uploadFile(file, reciveDate.value, expiryDate.value)" mat-raised-button color="primary">confirm</button>
+                    </mat-cell>
+                  </ng-container> -->
+
+                  <mat-header-row *matHeaderRowDef="fileTableColumns" class="mat-column-confirm"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: fileTableColumns" class="mat-row"></mat-row>
+            </mat-table>
+            </div>
+        </div>
+  
     </div>
 </div>

@@ -4,6 +4,7 @@ import { UntypedFormGroup, UntypedFormControl, Validators, FormGroup } from '@an
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmployeeFrom } from 'app/Core/Froms/Employee/employeeFrom';
 import { EmployeeModel } from 'app/Core/Models/Employee/EmployeeModel';
+import { EmployeeFileModel } from 'app/Core/Models/File/EmployeeFileModel';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 import { lastValueFrom } from 'rxjs';
@@ -23,6 +24,7 @@ export class CreateEmployeeComponent implements OnInit {
     data: [],
     total: 0
   }
+  employeeFiles: EmployeeFileModel[] = []; 
   constructor(private snackBar: MatSnackBar,private datePipe: DatePipe,
      private _commonCrudService : CommonCrudService,){ 
   }
@@ -63,8 +65,18 @@ export class CreateEmployeeComponent implements OnInit {
       }
   }
 
+  receiveDataFromChild(data: EmployeeFileModel) {
+    // Handle the received data here
+    this.employeeFiles.push(data);
+    console.log('Data received from child:', data);
+  }
+  reset(){ 
+    this.form = EmployeeFrom.getFormGroup();
+    this.employeeFiles = []; 
+  }
   
   SeralizeData(model: EmployeeModel) {
+      model.employeeFiles = this.employeeFiles;
       model.StaffCode = this.form.value['StaffCode']
       model.Type = this.form.value['Type']
       model.AccessCardNumber = this.form.value['AccessCardNumber'] == '' ? null : this.form.value['AccessCardNumber']   
@@ -98,7 +110,7 @@ export class CreateEmployeeComponent implements OnInit {
       model.DateOfAppointment = this.form.value['DateOfAppointment'] ? this.datePipe.transform(this.form.value['DateOfAppointment']   , 'yyyy-MM-dd') : null    
       model.DateOfConfirmation = this.form.value['DateOfConfirmation'] ? this.datePipe.transform(this.form.value['DateOfConfirmation']   , 'yyyy-MM-dd') : null 
       model.ProbationEndDate = this.form.value['ProbationEndDate'] ? this.datePipe.transform(this.form.value['ProbationEndDate']   , 'yyyy-MM-dd') : null       
-      model.ProbationPeriod = this.form.value['ProbationPeriod']        
+      model.ProbationPeriod = this.form.value['ProbationPeriod'] == '' ? null : this.form.value['ProbationPeriod']     
       model.ProbationPeriodNumber = this.form.value['ProbationPeriodNumber']  
       model.DateOfJoining = this.form.value['DateOfJoining'] ? this.datePipe.transform(this.form.value['DateOfJoining']   , 'yyyy-MM-dd') : null           
       model.ContractStartingDate = this.form.value['ContractStartingDate'] ? this.datePipe.transform(this.form.value['ContractStartingDate']   , 'yyyy-MM-dd') : null 

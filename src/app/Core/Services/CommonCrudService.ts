@@ -100,6 +100,18 @@ export class CommonCrudService {
                }
       }))
   }
+
+  uploadFile(file: File, url:string, data:any) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+  
+    return this._http.post<ResponseModel<typeof data>>(this.apiUrl + url, formData).pipe(
+      tap((response: any) => {   if (response.statusCode == 401) {
+                this._router.navigateByUrl("/auth/login");
+               }
+      }));
+  }
+
   public update = (url:string,body: any,data:any) => {
     return this._http.put<ResponseModel<typeof data>>(this.apiUrl +url, body);  //"Lockup/"+id
   }

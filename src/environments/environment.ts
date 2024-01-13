@@ -8,5 +8,7 @@ import { config } from "config";
 export const environment = {
   production: false,
   apiURL: config.apiUrl, 
+  fileUrl:config.fileUrl,
   paginationList: config.paginationList,
+  status:config.status,
 };

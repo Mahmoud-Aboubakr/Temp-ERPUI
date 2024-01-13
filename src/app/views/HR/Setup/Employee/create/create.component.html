@@ -1,8 +1,9 @@
-<button (click)="save()" mat-raised-button color="primary"  [disabled]="form.invalid">Save</button>
+<button (click)="save()" mat-raised-button color="primary"  [disabled]="form.invalid">{{'SAVE' | translate}}</button>
+<button (click)="reset()" mat-raised-button color="warn" >{{'CLEAR' | translate}}</button>
 
 <mat-card class="p-0">
     <mat-card-title class="">
-        <div class="card-title-text">Employee</div>
+        <div class="card-title-text">{{'EMPLOYEE' | translate}}</div>
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
@@ -12,7 +13,7 @@
                     <app-hr-employee-general-information [form]="form"></app-hr-employee-general-information>
                 </mat-tab>
                 <mat-tab label="{{'EmployeeData' | translate}}">
-                    <app-hr-employee-employment-data [form]="form"></app-hr-employee-employment-data>
+                    <app-hr-employee-employment-data [form]="form" (dataReady)="receiveDataFromChild($event)"></app-hr-employee-employment-data>
                 </mat-tab>
                 <mat-tab label="{{'EmployeeAddressAndContactInfo' | translate}}">
                     <app-hr-employee-address-and-contact-info [form]="form"></app-hr-employee-address-and-contact-info>

@@ -8,6 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, lastValueFrom, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { EmployeeFrom } from 'app/Core/Froms/Employee/employeeFrom';
+import { UploadFileModel } from 'app/Core/Models/File/UploadFileModel';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ImageService } from 'app/Core/Services/ImageService';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-hr-employee-general-information',
@@ -17,7 +21,8 @@ import { EmployeeFrom } from 'app/Core/Froms/Employee/employeeFrom';
 export class GeneralInformationComponent implements OnInit {
   @Input() employeeForm: EmployeeFrom;
   @Input() form: FormGroup;
-  responseModel: ResponseModel<NewsModel[]> = {
+  image:string;
+  responseModel: ResponseModel<UploadFileModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -25,7 +30,10 @@ export class GeneralInformationComponent implements OnInit {
     data: [],
     total: 0
   }
-  constructor(private _commonCrudService : CommonCrudService){ 
+  constructor(private snackBar: MatSnackBar,
+    private _commonCrudService : CommonCrudService, 
+    private sanitizer: DomSanitizer, 
+    private imageService:ImageService){ 
 
   }
   ngOnInit() {
@@ -35,33 +43,32 @@ export class GeneralInformationComponent implements OnInit {
     }
   }
 
-  onFileSelected(event: any, name:string ) {
-    const file = event.target.files[0];
-    console.log(file);
-    if (file) {
-      // Assuming you have a method to handle file uploads and return the URL
-      this.uploadImage(file);
-      // .subscribe((imageUrl: string) => {
-      //   console.log(imageUrl);
-      //   //this.form.get(name).setValue(imageUrl);
-      // });
+  onFileSelected(event: any, selectedAttrbuteName:string ) {
+    const fileInput = event.target;
+    if (fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      this.uploadImage(file, selectedAttrbuteName);
     }
   }
   
   
-  uploadImage(file: File) {
+  uploadImage(file: File, selectedAttrbuteName:string) {
     if (file) {
-      const formData = new FormData();
-      formData.append('file', file);
-      //this._commonCrudService.parseFile(file, 'api/upload', this.form )
-       this._commonCrudService.parseFile(file, "File/Upload/" , this.responseModel).then(res => {
-        console.log(res);
+       this._commonCrudService.uploadFile(file, "File/UploadImage/" , this.responseModel)
+       .subscribe(response => {
+        if(response.statusCode == 201){
+          this.form.get(selectedAttrbuteName).setValue(response.data.filePath);
+          //this.loadImageAsBase64(this.form.get(selectedAttrbuteName).value);
+        }else{ 
+          this.snackBar.open(response.message, 'Close', {
+            duration: 3000,
+          });
+        }
       });
-      // this.http.post<string>('/api/upload', formData).subscribe((newPath: string) => {
-      //   console.log('Image uploaded successfully. New path:', newPath);
-      // });
     }
   }
-  
+  getImageUrl(relativePath: string): string {
+    return `${environment.fileUrl}${relativePath}`;
+  }
  
 }

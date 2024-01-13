@@ -4,7 +4,7 @@
         <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'JobTitle' | translate }}</mat-label>
+                    <mat-label>{{ 'JOBTITLE' | translate }}</mat-label>
                     <mat-select formControlName="JobTitle">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -13,12 +13,12 @@
                 </mat-form-field>
                 <small 
                 *ngIf="form.get('JobTitle').hasError('required') && form.controls['JobTitle'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'JOB_TITLE_IS_REQUIRED' | translate}}
             </small>
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'JobDegree' | translate }}</mat-label>
+                    <mat-label>{{ 'JOBDEGREE' | translate }}</mat-label>
                     <mat-select formControlName="JobDegree">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -27,7 +27,7 @@
                 </mat-form-field>
                 <small 
                 *ngIf="form.get('JobDegree').hasError('required') && form.controls['JobDegree'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'JOB_DEGREE_IS_REQURED' | translate}} 
             </small>
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
@@ -36,19 +36,19 @@
                         matInput
                         name="EmerganceyContact"
                         formControlName="EmerganceyContact"
-                        [placeholder]="'EmerganceyContact' | translate" 
+                        [placeholder]="'EMERGANCEYCONTACT' | translate" 
                     >
                 </mat-form-field>
                 <small 
                 *ngIf="form.get('EmerganceyContact').hasError('required') && form.controls['EmerganceyContact'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{"EMERGANCEY_CONTACT_IS_REQUIRED" | translate}}
             </small>
             </div>
         </div>
         <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'Country' | translate }}</mat-label>
+                    <mat-label>{{ 'COUNTRY' | translate }}</mat-label>
                     <mat-select formControlName="Country">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -58,7 +58,7 @@
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'Governates' | translate }}</mat-label>
+                    <mat-label>{{ 'GOVERNORATE' | translate }}</mat-label>
                     <mat-select formControlName="Governates">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -68,7 +68,7 @@
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'City' | translate }}</mat-label>
+                    <mat-label>{{ 'CITY' | translate }}</mat-label>
                     <mat-select formControlName="City">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -80,7 +80,7 @@
         <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'District' | translate }}</mat-label>
+                    <mat-label>{{ 'DISTIRCT' | translate }}</mat-label>
                     <mat-select formControlName="District">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -89,12 +89,12 @@
                 </mat-form-field>
                 <small 
                 *ngIf="form.get('District').hasError('required') && form.controls['District'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'DISTIRCT_IS_REQUIRED' | translate}} 
             </small>
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'Relation' | translate }}</mat-label>
+                    <mat-label>{{ 'REALTION' | translate }}</mat-label>
                     <mat-select formControlName="Relation">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -108,12 +108,12 @@
                         matInput
                         name="LocalAddress"
                         formControlName="LocalAddress"
-                        [placeholder]="'LocalAddress' | translate" 
+                        [placeholder]="'LOCALADDRESS' | translate" 
                     >
                 </mat-form-field>
                 <small 
                 *ngIf="form.get('LocalAddress').hasError('required') && form.controls['LocalAddress'].touched" 
-                class="form-error-msg"> firstName Is Required 
+                class="form-error-msg"> {{'LOCALADDRESS_IS_REQUIRED' | translate}}
             </small>
             </div>
         </div>
@@ -124,7 +124,7 @@
                         matInput
                         name="LocalAddress2"
                         formControlName="LocalAddress2"
-                        [placeholder]="'LocalAddress2' | translate" 
+                        [placeholder]="'LOCALADDRESS2' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -134,7 +134,7 @@
                         matInput
                         name="LocalAddress3"
                         formControlName="LocalAddress3"
-                        [placeholder]="'LocalAddress3' | translate" 
+                        [placeholder]="'LOCALADDRESS3' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -144,7 +144,7 @@
                         matInput
                         name="LocalAddress4"
                         formControlName="LocalAddress4"
-                        [placeholder]="'LocalAddress4' | translate" 
+                        [placeholder]="'LOCALADDRESS4' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -157,7 +157,7 @@
                         matInput
                         name="PermenantAddress"
                         formControlName="PermenantAddress"
-                        [placeholder]="'PermenantAddress' | translate" 
+                        [placeholder]="'PERMENANTADDRESS' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -167,7 +167,7 @@
                         matInput
                         name="PermenantAddress2"
                         formControlName="PermenantAddress2"
-                        [placeholder]="'PermenantAddress2' | translate" 
+                        [placeholder]="'PERMENANTADDRESS2' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -177,7 +177,7 @@
                         matInput
                         name="PermenantAddress3"
                         formControlName="PermenantAddress3"
-                        [placeholder]="'PermenantAddress3' | translate" 
+                        [placeholder]="'PERMENANTADDRESS3' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -190,7 +190,7 @@
                         matInput
                         name="PermenantAddress4"
                         formControlName="PermenantAddress4"
-                        [placeholder]="'PermenantAddress4' | translate" 
+                        [placeholder]="'PERMENANTADDRESS4' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -200,7 +200,7 @@
                         matInput
                         name="WorkPhone"
                         formControlName="WorkPhone"
-                        [placeholder]="'WorkPhone' | translate" 
+                        [placeholder]="'WORK_PHONE' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -210,7 +210,7 @@
                         matInput
                         name="PlaceIncuranceIdentity"
                         formControlName="PlaceIncuranceIdentity"
-                        [placeholder]="'PlaceIncuranceIdentity' | translate" 
+                        [placeholder]="'PLACEINCURANCEIDENTITY' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -222,7 +222,7 @@
                         matInput
                         name="PassportNumber"
                         formControlName="PassportNumber"
-                        [placeholder]="'PassportNumber' | translate" 
+                        [placeholder]="'PASSPORTNUMBER' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -232,7 +232,7 @@
                         matInput
                         name="DrivingLicenceNumber"
                         formControlName="DrivingLicenceNumber"
-                        [placeholder]="'DrivingLicenceNumber' | translate" 
+                        [placeholder]="'DRIVING_LICENCE_NUMBER' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -242,7 +242,7 @@
                         matInput
                         name="SyndicateCard"
                         formControlName="SyndicateCard"
-                        [placeholder]="'SyndicateCard' | translate" 
+                        [placeholder]="'SYNDICATED_CARD' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -254,7 +254,7 @@
                         matInput
                         name="WorkPermit"
                         formControlName="WorkPermit"
-                        [placeholder]="'WorkPermit' | translate" 
+                        [placeholder]="'WORK_PERMIT' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -264,7 +264,7 @@
                         matInput
                         name="InssuranceValue"
                         formControlName="InssuranceValue"
-                        [placeholder]="'InssuranceValue' | translate" 
+                        [placeholder]="'INSSURANCE_VALUE' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -274,7 +274,7 @@
                         matInput
                         name="InssuranceJobTitle"
                         formControlName="InssuranceJobTitle"
-                        [placeholder]="'InssuranceJobTitle' | translate" 
+                        [placeholder]="'INSSURANCE_JOB_TITLE' | translate" 
                     >
                 </mat-form-field>
             </div>
@@ -286,13 +286,13 @@
                         matInput
                         name="InssuranceNumber"
                         formControlName="InssuranceNumber"
-                        [placeholder]="'InssuranceNumber' | translate" 
+                        [placeholder]="'INSSURANCE_NUMBER' | translate" 
                     >
                 </mat-form-field>
             </div>
             <div fxFlex="40%" fxFlex.gt-xs="40%">
                 <mat-form-field appearance="fill">
-                    <mat-label>{{ 'BloodType' | translate }}</mat-label>
+                    <mat-label>{{ 'BLOOD_TYPE' | translate }}</mat-label>
                     <mat-select formControlName="BloodType">
                         <!-- Add options as needed -->
                         <mat-option value="0">Option 1</mat-option>
@@ -306,7 +306,7 @@
                     matInput
                     name="PasswportExpirDate"
                     formControlName="PasswportExpirDate"
-                    [placeholder]="'PasswportExpirDate' | translate" 
+                    [placeholder]="'PASSWORD_EXPIR_DATE' | translate" 
                     [matDatepicker]="PasswportExpirDate">
                     <mat-datepicker-toggle matSuffix [for]="PasswportExpirDate"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -320,7 +320,7 @@
                     matInput
                     name="DateOfIssuanceOfLicence"
                     formControlName="DateOfIssuanceOfLicence"
-                    [placeholder]="'DateOfIssuanceOfLicence' | translate" 
+                    [placeholder]="'DATE_OF_ISSUANCE_OF_LICENCE' | translate" 
                     [matDatepicker]="DateOfIssuanceOfLicence">
                     <mat-datepicker-toggle matSuffix [for]="DateOfIssuanceOfLicence"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -332,7 +332,7 @@
                     matInput
                     name="LicenceExpirationDate"
                     formControlName="LicenceExpirationDate"
-                    [placeholder]="'LicenceExpirationDate' | translate" 
+                    [placeholder]="'LICENCE_EXPIRATION_DATE' | translate" 
                     [matDatepicker]="LicenceExpirationDate">
                     <mat-datepicker-toggle matSuffix [for]="LicenceExpirationDate"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -344,7 +344,7 @@
                     matInput
                     name="ExpiryDateOfWorkPermit"
                     formControlName="ExpiryDateOfWorkPermit"
-                    [placeholder]="'ExpiryDateOfWorkPermit' | translate" 
+                    [placeholder]="'EXPIRY_DATE_OF_WORK_PERMIT' | translate" 
                     [matDatepicker]="ExpiryDateOfWorkPermit">
                     <mat-datepicker-toggle matSuffix [for]="ExpiryDateOfWorkPermit"></mat-datepicker-toggle>
                 </mat-form-field>
@@ -358,7 +358,7 @@
                     matInput
                     name="InssuranceDate"
                     formControlName="InssuranceDate"
-                    [placeholder]="'InssuranceDate' | translate" 
+                    [placeholder]="'INSSURANCE_DATE' | translate" 
                     [matDatepicker]="InssuranceDate">
                     <mat-datepicker-toggle matSuffix [for]="InssuranceDate"></mat-datepicker-toggle>
                 </mat-form-field>

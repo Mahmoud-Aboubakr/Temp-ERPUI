@@ -35,7 +35,9 @@ export  class EmployeeFrom {
             Religon: new FormControl(0),
             AttendanceMachineCode: new FormControl(''),
             SignatureImagePath: new FormControl(''),
+            SignatureImage: new FormControl(''), 
             EmpolyeeImagePath: new FormControl(''),
+            EmpolyeeImage: new FormControl(''),
             PersonalEmailAddress: new FormControl(''),
             OfficialEmailAddress: new FormControl(''),
             

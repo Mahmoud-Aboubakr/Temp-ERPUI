@@ -1,0 +1,42 @@
+.label-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .green-box {
+    background-color: green;
+    color: white;
+    padding: 5px; /* Adjust the padding as needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  
+  .red-box {
+    background-color: red;
+    color: white;
+    padding: 5px; /* Adjust the padding as needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  
+  .label-text {
+    font-weight: bold; /* Optional: Add bold font for better visibility */
+  }
+  .cell-spacing {
+    margin: 0 8px; /* Adjust the margin as needed */
+  }
+
+  .confirm-column {
+    width: 50px; /* Set the desired width */
+  }
+
+  .mat-column-isMandatory {
+    flex: 0 0 auto; /* Allow the column to shrink and grow, and set initial size to auto */
+  }
+  .mat-column-status {
+    flex: 0 0 auto; /* Allow the column to shrink and grow, and set initial size to auto */
+  }
+
+ 
+  .mat-column-confirm {
+    flex: 0 0 auto; /* Allow the column to shrink and grow, and set initial size to auto */
+  }
+  

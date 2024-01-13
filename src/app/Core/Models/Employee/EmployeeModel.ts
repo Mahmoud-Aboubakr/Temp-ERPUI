@@ -1,4 +1,7 @@
+import { EmployeeFileModel } from "../File/EmployeeFileModel";
+
 export class EmployeeModel{
+    employeeFiles:EmployeeFileModel[];
     StaffCode:string;
     Type:number;
     AccessCardNumber:string;
