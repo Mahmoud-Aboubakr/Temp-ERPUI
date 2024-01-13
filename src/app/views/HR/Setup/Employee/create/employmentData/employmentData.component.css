@@ -27,16 +27,18 @@
   .confirm-column {
     width: 50px; /* Set the desired width */
   }
-
-  .mat-column-isMandatory {
-    flex: 0 0 auto; /* Allow the column to shrink and grow, and set initial size to auto */
-  }
-  .mat-column-status {
-    flex: 0 0 auto; /* Allow the column to shrink and grow, and set initial size to auto */
-  }
-
- 
-  .mat-column-confirm {
-    flex: 0 0 auto; /* Allow the column to shrink and grow, and set initial size to auto */
-  }
+/*
   
+  .mat-column-isMandatory {
+    flex: 0 0 auto; 
+  }
+.mat-column-status {
+  flex: 0 0 auto; 
+}
+
+
+.mat-column-confirm {
+  flex: 0 0 auto; 
+}
+
+*/

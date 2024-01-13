@@ -52,6 +52,7 @@ export class CreateEmployeeComponent implements OnInit {
               this.snackBar.open(res.message, 'Close', {
                   duration: 3000,
                 });
+                this.reset(); 
               } else {
                 this.snackBar.open(res.message, 'Close', {
                   duration: 3000,

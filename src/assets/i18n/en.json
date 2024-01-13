@@ -39,7 +39,7 @@
   "INSSURANCE_NUMBER" : "Inssurance Number", 
   "BLOOD_TYPE" : "Blood Type", 
   "PASSWORD_EXPIR_DATE" : "Password Expir Date", 
-  "DATE_OF_ISSUANCE_OF_LICENCE" : "", 
+  "DATE_OF_ISSUANCE_OF_LICENCE" : "Date of Issuance of Licence", 
   "LICENCE_EXPIRATION_DATE" : "Licence Expiration Date", 
   "EXPIRY_DATE_OF_WORK_PERMIT" : "Expiry Date of Wor Permit", 
   "INSSURANCE_DATE" : "Inssurance Date", 
