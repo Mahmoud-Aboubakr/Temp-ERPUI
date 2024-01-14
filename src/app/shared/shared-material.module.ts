@@ -4,7 +4,7 @@ import { MatBottomSheetModule } from "@angular/material/bottom-sheet";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
-import { MatRippleModule, MatNativeDateModule } from "@angular/material/core";
+import { MatRippleModule, MatNativeDateModule, MAT_DATE_LOCALE } from "@angular/material/core";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatExpansionModule } from "@angular/material/expansion";
@@ -76,6 +76,7 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     MatBadgeModule,
     MatBottomSheetModule,
     MatDividerModule
-  ]
+  ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }]
 })
 export class SharedMaterialModule {}

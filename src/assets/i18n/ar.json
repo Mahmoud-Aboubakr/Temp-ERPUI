@@ -149,6 +149,7 @@
   "DESCRIPTION_EN": "الوصف الانجليزي",
   "SELECT_USER": "اختر مستخدم",
   "CHANGE_REASON": "سبب التغيير",
+  "PASSWORD": "كلمة المرور",
   "OLD_PASSWORD": "كلمة المرور القديمة",
   "NEW_PASSWORD": "كلمة المرور الجديدة",
   "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
@@ -177,6 +178,15 @@
   "MILITARY_ID": "لديه هوية عسكرية",
   "CHAR_ACCEPT": "يقبل حروف",
   "EDIT": "تعديل",
+  "PHONENUMBER": "رقم الهاتف",
+  "EMAIL": "البريد الالكتروني",
+  "DEPARTMENT": "القسم",
+  "BRANCH": "الفرع",
+  "DEFAULT_MODULE": "الموديول الافتراضي",
+  "LANGUAGE": "اللغة",
+  "MAKE_DISCOUNT": "يعمل خصم",
+  "DISC_PERCENTAGE": "نسبة الخصم",
+  "DISC_LIMIT": "حد الخصم",
 
 
   "TYPE_NAME":"اسم النوع", 
@@ -187,6 +197,9 @@
   "USER_TYPES":"انواع المستخدمين", 
   "USER_TYPE":"نوع المستخدم", 
   "FULL_DESCRIPTION":"الوصف العام", 
+  "CREATE_USER": "اضافة مستخدم جديد",
+  "USERNAME": "اسم المستخدم",
+  "SEC_LEVEL": "مستوى السرية",
 
   "GALLERY": "Gallery",
   "PRICINGS": "Pricings",

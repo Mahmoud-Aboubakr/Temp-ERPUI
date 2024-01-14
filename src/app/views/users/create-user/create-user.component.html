@@ -1,0 +1,276 @@
+<div class="container my-4">
+    <div class="card py-2">
+        <div class="card-body">
+            <h2 class="text-center mb-5">{{'CREATE_USER' | translate}}</h2>
+            <form [formGroup]="createUserForm" (ngSubmit)="addUser(createUserForm)">
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                              <mat-label>{{'USERNAME' | translate}}</mat-label>
+                              <input matInput formControlName="userName">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'EMPLOYEE' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="employee">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="admin">Admin</option>
+                                    <option value="mahmoud">Mahmoud</option>
+                                    <option value="fathy">Fathy</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'ARABICNAME' | translate}}</mat-label>
+                              <input matInput formControlName="name_ar">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'ENGLISHNAME' | translate}}</mat-label>
+                                <input matInput formControlName="name_en">
+                            </mat-form-field>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'GENDER' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="gender">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'DATE_OF_BIRTH'| translate}}</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                            <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'PHONENUMBER' | translate}}</mat-label>
+                                <input matInput formControlName="phoneNumber" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'EMAIL' | translate}}</mat-label>
+                                <input matInput formControlName="email" required type="email">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'NATIONALITY' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="nationality">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="EGY">Egyptian</option>
+                                    <option value="Japan">Japanese</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'DEPARTMENT' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="department">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="HR">HR</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'USER_TYPE' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="userType">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="EGY">Egyptian</option>
+                                    <option value="Japan">Japanese</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------------------- Branches ----------------------->
+                <mat-card class="mb-5 mt-2 w-75">
+                    <mat-card-content>
+                        <h3 class="fw-bold mb-3">{{'BRANCH' | translate}}</h3>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="d-flex flex-wrap">
+                                    <section *ngFor="let branch of branches; let i = index" formArrayName="branches" class="me-5">
+                                        <mat-checkbox [formControlName]="i">
+                                            <span>{{branch.ArabicName}}</span>
+                                        </mat-checkbox>   
+                                    </section>
+                                </div>    
+                            </div>    
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                   
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'SEC_LEVEL' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="securityLevel">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="admin">Admin</option>
+                                    <option value="mahmoud">Mahmoud</option>
+                                    <option value="fathy">Fathy</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                              <mat-label>{{'PASSWORD' | translate}}</mat-label>
+                              <input matInput type="password" formControlName="password" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                              <mat-label>{{'CONFIRM_PASSWORD' | translate}}</mat-label>
+                              <input matInput type="password" formControlName="confirmPassword" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'STATUS' | translate}}</mat-label>
+                                <select matNativeControl required formControlName="status">
+                                    <option value="active">Active</option>
+                                    <option value="notActive">Not Active</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>    
+                
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'DEFAULT_MODULE' | translate}}</mat-label>
+                                <select matNativeControl formControlName="defaultModule">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="admin">Admin</option>
+                                    <option value="mahmoud">Mahmoud</option>
+                                    <option value="fathy">Fathy</option>
+                                </select>
+                            </mat-form-field>
+                        </div> 
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'LANGUAGE' | translate}}</mat-label>
+                                <select matNativeControl formControlName="language">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="admin">Admin</option>
+                                    <option value="mahmoud">Mahmoud</option>
+                                    <option value="fathy">Fathy</option>
+                                </select>
+                            </mat-form-field>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-6">
+                        <mat-checkbox formControlName="makeDiscount" [(ngModel)]="makeDiscount">{{'MAKE_DISCOUNT' | translate}}</mat-checkbox>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                              <mat-label>{{'DISC_PERCENTAGE' | translate}}</mat-label>
+                              <input matInput formControlName="discPercentage" [disabled]="!makeDiscount" [readonly]="!makeDiscount">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                              <mat-label>{{'DISC_LIMIT' | translate}}</mat-label>
+                              <input matInput formControlName="discLimit" [disabled]="!makeDiscount" [readonly]="!makeDiscount">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                
+                <!------------------------- Roles ----------------------->
+                <mat-card class="mb-5 mt-2 w-75">
+                    <mat-card-content>
+                        <h3 class="fw-bold mb-3">{{'ROLES' | translate}}</h3>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="d-flex flex-wrap">
+                                    <section *ngFor="let role of roles; let i = index" formArrayName="userRoles" class="me-5">
+                                        <mat-checkbox [formControlName]="i">
+                                            <span>{{role.name}}</span>
+                                        </mat-checkbox>   
+                                    </section>
+                                </div>    
+                            </div>    
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+                <button class="btn btn-primary w-50 mx-auto d-block" type="submit">{{'SAVE' | translate}}</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -56,7 +56,14 @@ export class NavigationService {
             { name: 'Identifications', state: 'setup/identifications'},
             { name: 'USER_TYPES', state: 'setup/userTypes'}
           ] 
-        },        
+        },  
+        {
+          name: 'USERS',
+          type: 'dropDown',
+          sub: [
+            {name: 'Create a new user', state: 'users/createUser'},
+          ]
+        }         
       ]
     },
     {

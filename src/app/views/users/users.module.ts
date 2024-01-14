@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SettingsRoutingModule } from './settings-routing.module';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { UsersRoutingModule } from './users-routing.module';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 import { SharedMaterialModule } from 'app/shared/shared-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 
-
 @NgModule({
   declarations: [
-    ChangePasswordComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,
-    SettingsRoutingModule,
+    UsersRoutingModule,
     SharedMaterialModule,
-    FormsModule,
+    FormsModule, 
     ReactiveFormsModule,
     TranslateModule
   ]
 })
-export class SettingsModule { }
+export class UsersModule { }
