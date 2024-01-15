@@ -1,0 +1,419 @@
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-xs="100" class="full-width" [formGroup]="form">
+        <!-- First row -->
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="StaffCode"
+                        formControlName="StaffCode"
+                        [placeholder]="'STAFF_CODE' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('StaffCode').hasError('required') && form.controls['StaffCode'].touched" 
+                    class="form-error-msg"> {{'STAFF_CODE_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'TYPE' | translate }}</mat-label>
+                    <mat-select formControlName="Type">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('Type').hasError('required') && form.controls['Type'].touched" 
+                    class="form-error-msg"> {{'TYPE_IS_REQUIRED' | translate}}
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="AccessCardNumber"
+                        formControlName="AccessCardNumber"
+                        [placeholder]="'ACCESS_CARD_NUMBER' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="FirstNameAr"
+                        formControlName="FirstNameAr"
+                        [placeholder]="'FIRST_NAME_AR' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('FirstNameAr').hasError('required') && form.controls['FirstNameAr'].touched" 
+                    class="form-error-msg"> {{'FIRST_NAME_AR_IS_REQUIRED' | translate}}
+                </small>
+            </div>
+           
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="MiddleNameAr"
+                        formControlName="MiddleNameAr"
+                        [placeholder]="'MIDDLE_NAME_AR' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="LastNameAr"
+                        formControlName="LastNameAr"
+                        [placeholder]="'LAST_NAME_AR' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="FirstNameEn"
+                        formControlName="FirstNameEn"
+                        [placeholder]="'FIRST_NAME_EN' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('FirstNameEn').hasError('required') && form.controls['FirstNameEn'].touched" 
+                    class="form-error-msg"> {{'FIRST_NAME_EN_IS_REQUIRED' | translate }} 
+                </small>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="MiddleNameEn"
+                        formControlName="MiddleNameEn"
+                        [placeholder]="'MIDDLE_NAME_EN' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="LastNameEn"
+                        formControlName="LastNameEn"
+                        [placeholder]="'LAST_NAME_EN' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'BRANCH_ID' | translate }}</mat-label>
+                    <mat-select formControlName="BranchId">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('BranchId').hasError('required') && form.controls['BranchId'].touched" 
+                    class="form-error-msg"> {{'BRANCH_ID_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'GENEDER' | translate }}</mat-label>
+                    <mat-select formControlName="Geneder">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('Geneder').hasError('required') && form.controls['Geneder'].touched" 
+                    class="form-error-msg"> {{'GENEDER_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'UNION' | translate }}</mat-label>
+                    <mat-select formControlName="Union">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+             <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-checkbox
+                name="Research"
+                formControlName="Research"
+                ></mat-checkbox>
+                <label for="Research"> {{ 'RESEARCH' | translate }}</label>
+            </div>
+            
+             <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-checkbox
+                name="POD"
+                formControlName="POD"
+                ></mat-checkbox>
+                <label for="POD"> {{ 'POD' | translate }}</label>
+            </div>
+            
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="DateOfBirth"
+                    formControlName="DateOfBirth"
+                    [placeholder]="'DATE_OF_BIRTH' | translate" 
+                    [matDatepicker]="DateOfBirth">
+                    <mat-datepicker-toggle matSuffix [for]="DateOfBirth"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #DateOfBirth></mat-datepicker>
+                <small 
+                *ngIf="form.get('DateOfBirth').hasError('required') && form.controls['DateOfBirth'].touched" 
+                class="form-error-msg">{{'DATE_OF_BIRTH_IS_REQUIRED' | translate}}</small>    
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="BirthPlace"
+                        formControlName="BirthPlace"
+                        [placeholder]="'BIRTH_PLACE' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'DIVISIOINS_ID' | translate }}</mat-label>
+                    <mat-select formControlName="DivisioinsId">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('DivisioinsId').hasError('required') && form.controls['DivisioinsId'].touched" 
+                    class="form-error-msg"> {{'DIVISIOINS_ID_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'SHIFT_TYPE' | translate }}</mat-label>
+                    <mat-select formControlName="ShirftType">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('ShirftType').hasError('required') && form.controls['ShirftType'].touched" 
+                    class="form-error-msg"> {{'SHIFT_TYPE_ISREQUIRED' | translate}} 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'MARITAL_STATUS' | translate }}</mat-label>
+                    <mat-select formControlName="MaritalStatus">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('MaritalStatus').hasError('required') && form.controls['MaritalStatus'].touched" 
+                    class="form-error-msg"> {{'MARITAL_STATUS_IS_REQUIRED'}} 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'NATIONAL_ID' | translate }}</mat-label>
+                    <mat-select formControlName="NationalId">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('NationalId').hasError('required') && form.controls['NationalId'].touched" 
+                    class="form-error-msg"> {{'NATIONAL_ID_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="Phone"
+                        formControlName="Phone"
+                        [placeholder]="'PHONE' | translate" 
+                    >
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('Phone').hasError('required') && form.controls['Phone'].touched" 
+                    class="form-error-msg"> {{'PHONE_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'IDENTIFICATION_TYPE' | translate }}</mat-label>
+                    <mat-select formControlName="IdentificationType">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('IdentificationType').hasError('required') && form.controls['IdentificationType'].touched" 
+                    class="form-error-msg"> {{'IDENTIFICATION_TYPE_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'NATINOALIY' | translate }}</mat-label>
+                    <mat-select formControlName="Nationality">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('Nationality').hasError('required') && form.controls['Nationality'].touched" 
+                    class="form-error-msg"> {{'NATINOALIY_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+            
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                    matInput
+                    name="NationalIdEndDate"
+                    formControlName="NationalIdEndDate"
+                    [placeholder]="'NATIONAL_ID_END_DATE' | translate" 
+                    [matDatepicker]="NationalIdEndDate">
+                    <mat-datepicker-toggle matSuffix [for]="NationalIdEndDate"></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-datepicker #NationalIdEndDate></mat-datepicker>
+                <small 
+                *ngIf="form.get('NationalIdEndDate').hasError('required') && form.controls['NationalIdEndDate'].touched" 
+                class="form-error-msg"> {{'NATIONAL_ID_END_DATE_IS_REQUIRED' | translate}} </small>    
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'DEPARTMENT_ID' | translate }}</mat-label>
+                    <mat-select formControlName="DepartmentId">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('DepartmentId').hasError('required') && form.controls['DepartmentId'].touched" 
+                    class="form-error-msg"> {{'DEPARTMENT_ID_IS_REQUIRED' | translate}}
+                </small>
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'RELIGON' | translate }}</mat-label>
+                    <mat-select formControlName="Religon">
+                        <!-- Add options as needed -->
+                        <mat-option value="0">Option 1</mat-option>
+                        <mat-option value="2">Option 2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <small 
+                    *ngIf="form.get('Religon').hasError('required') && form.controls['Religon'].touched" 
+                    class="form-error-msg"> {{'RELIGON_IS_REQUIRED' | translate}} 
+                </small>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                    <input type="file"
+                     (change)="onFileSelected($event, 'SignatureImagePath')"
+                      accept="image/*" 
+                      formControlName="SignatureImage">
+                    <mat-label>{{ 'SIGNATURE_IMAGE_PATH' | translate }}</mat-label>
+                    <input type="hidden"
+                    formControlName="SignatureImagePath">
+                    <mat-icon matSuffix>attach_file</mat-icon>
+                    <div class="image-preview" *ngIf="form.value['SignatureImagePath']">
+                        <img [src]="getImageUrl(form.value['SignatureImagePath'])" alt="Uploaded Image" class="image">
+                    </div>    
+            </div>
+            
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                    <input type="file"
+                     (change)="onFileSelected($event, 'EmpolyeeImagePath')"
+                      accept="image/*" 
+                      formControlName="EmpolyeeImage" >
+                    <mat-label>{{ 'EMPLOYEE_IMAGE_PATH' | translate }}</mat-label>
+                    <input type="hidden"
+                    formControlName="EmpolyeeImagePath">
+                    <mat-icon matSuffix>attach_file</mat-icon>
+                    <div class="image-preview" *ngIf="form.value['EmpolyeeImagePath']">
+                        <img [src]="getImageUrl(form.value['EmpolyeeImagePath'])" alt="Uploaded Image" class="image">
+                    </div>    
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="start start" class="pb-16">    
+            <!-- <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PersonalEmailAddress"
+                        formControlName="PersonalEmailAddress"
+                        [placeholder]="'PERSONAL_EMAIL_ADDRESS' | translate" 
+                    >
+                </mat-form-field>
+            </div> -->
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="PersonalEmailAddress"
+                        formControlName="PersonalEmailAddress"
+                        [placeholder]="'PERSONAL_EMAIL_ADDRESS' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+            <div fxFlex="40%" fxFlex.gt-xs="40%">
+                <mat-form-field>
+                    <input 
+                        matInput
+                        name="AttendanceMachineCode"
+                        formControlName="AttendanceMachineCode"
+                        [placeholder]="'ATTENDANCE_MACHINE_CODE' | translate" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

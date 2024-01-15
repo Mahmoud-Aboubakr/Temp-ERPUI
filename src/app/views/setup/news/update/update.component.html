@@ -1,6 +1,6 @@
 <mat-card class="p-0">
     <mat-card-title class="">
-        <div class="card-title-text">News</div>
+        <div class="card-title-text">{{'NEWS' | translate}}</div>
         <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
@@ -13,14 +13,14 @@
                             matInput
                             name="activeFrom"
                             formControlName="activeFrom"
-                            placeholder="Active From" 
+                            placeholder="'ACTIVE_FROM_DATE' | translate" 
                             [matDatepicker]="DateFrom">
                             <mat-datepicker-toggle matSuffix [for]="DateFrom"></mat-datepicker-toggle>
                         </mat-form-field>
                         <mat-datepicker #DateFrom></mat-datepicker>
                         <small 
                         *ngIf="model.controls['activeFrom'].hasError('required') && model.controls['activeFrom'].touched" 
-                        class="form-error-msg"> Active From Is Required </small>
+                        class="form-error-msg"> {{'ACTIVE_FROM_DATE_IS_REQUIRED' | translate}} </small>
                     </div>
                     <div class="pb-16">
                         <mat-form-field class="full-width">
@@ -28,7 +28,7 @@
                             matInput
                             name="activeTo"
                             formControlName="activeTo"
-                            placeholder="Active To" 
+                            placeholder="'ACTIVE_TO_DATE' | translate" 
                             [matDatepicker]="dateTo">
                             
                             <mat-datepicker-toggle matSuffix [for]="dateTo"></mat-datepicker-toggle>
@@ -36,7 +36,7 @@
                         <mat-datepicker #dateTo></mat-datepicker>
                         <small 
                         *ngIf="model.controls['activeTo'].hasError('required') && model.controls['activeTo'].touched" 
-                        class="form-error-msg"> Active To Is Required </small>
+                        class="form-error-msg"> {{'ACTIVE_TO_DATE_IS_REQUIRED' | translate}}</small>
                     </div>
                     
                     <div class="pb-16">
@@ -45,7 +45,7 @@
                             matInput
                             name="newsTextAr"
                             formControlName="newsTextAr"
-                            placeholder="News Text In Arabic"
+                            placeholder="'NEWS_TEXT_IN_AR' | translate"
                             value="">
                         </mat-form-field>
                     </div>
@@ -56,7 +56,7 @@
                             matInput
                             name="newsTextEn"
                             formControlName="newsTextEn"
-                            placeholder="News Text In English"
+                            placeholder="'NEWS_TEXT_IN_EN' | translate"
                             value="">
                         </mat-form-field>
                     </div>
@@ -67,7 +67,7 @@
             mat-raised-button 
             color="primary" 
             [disabled]="model.invalid" 
-            (click)="update()">Update</button>
+            (click)="update()">{{'UPDATE' | translate}}</button>
         </form>
     </mat-card-content>
 </mat-card>

@@ -1,6 +1,8 @@
 export const config = {
   apiUrl: 'https://localhost:7258/api/',
+  fileUrl:'https://localhost:7258/',
   paginationList: [5, 10, 20],
+  status:['pending', 'active'],
   authRoles: {
     sa: ['SA'], // Only Super Admin has access
     admin: ['SA', 'Admin'], // Only SA & Admin has access
