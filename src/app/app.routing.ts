@@ -106,6 +106,10 @@ export const rootRouterConfig: Routes = [
           ]
       },
       {
+        path: 'users',
+        loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)
+      },
+      {
         path: 'hr',
         children:[
           { 

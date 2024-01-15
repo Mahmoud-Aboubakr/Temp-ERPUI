@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 /** @title Select with form field features */
 @Component({
@@ -8,11 +8,16 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent {
-  selectUserFormControl = new FormControl('', Validators.required);
-  selectReasonFormControl = new FormControl('', Validators.required);
-  oldPasswordFormControl = new FormControl('', Validators.required);
-  confirmPasswordFormControl = new FormControl('', Validators.required);
-  newPasswordFormControl = new FormControl('', Validators.required);
+
+  changePasswordForm: FormGroup = new FormGroup({
+    selectUser: new FormControl('', Validators.required),
+    selectReason: new FormControl('', Validators.required),
+    oldPassword: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
+    newPassword: new FormControl('', Validators.required)
+  })
+
+  
   hide: boolean = true; 
 
 }
