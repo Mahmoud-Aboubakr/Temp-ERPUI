@@ -1,4 +1,13 @@
 {
+  "ITEM_CLASSIFICATIONS" : "تصنيفات العناصر",
+  "CODE_REQUIRED":"الكود مطلوب", 
+  "NAME":"الإسم", 
+  "ITEM_CATEGORIES":"أقسام العنصر",
+  "NAME_REQUIRED":"الإسم مطلوب",
+  "SEARCH" : "بحث",
+  "ITEM_TYPES":"أنواع العنصر",
+  "TYPE_NAME_REQUIRED" :"اسم نوع العنصر مطلوب",
+  "INVENTORY" : "بضاعه",
   "EMPLOYEE_GENERAL_INFORMATION":"البيانات الأساسية",
   "EMPLOYEE_DATA" : "بيانات الموظف", 
   "EMPLOYEE_ADDRESS_AND_CONTACT_INFO" : "العنوان وبيانات التواصل",

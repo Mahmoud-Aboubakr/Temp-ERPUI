@@ -1,4 +1,13 @@
 {
+  "ITEM_CLASSIFICATIONS" : "Item Classificatoins",
+  "CODE_REQUIRED":"Code Is Required", 
+  "NAME":"Name", 
+  "ITEM_CATEGORIES":"Item Categories",
+  "NAME_REQUIRED":"Name Is Required",
+  "SEARCH" : "Search",
+  "ITEM_TYPES":"Item Types",
+  "TYPE_NAME_REQUIRED" :"Type Name Is Required",
+  "INVENTORY" : "Inventory",
   "EMPLOYEE_GENERAL_INFORMATION":"Employee General Information",
   "EMPLOYEE_DATA" : "Employee Data", 
   "EMPLOYEE_ADDRESS_AND_CONTACT_INFO" : "Employee Address And Contact Info",

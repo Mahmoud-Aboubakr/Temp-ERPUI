@@ -1,0 +1,35 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">{{'ITEM_CATEGORIES' | translate}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model" (ngSubmit)="save()">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="name"
+                            formControlName="name"
+                            [placeholder]="'NAME' | translate"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="model.controls['name'].hasError('required') && model.controls['name'].touched" 
+                        class="form-error-msg"> {{'NAME_REQUIRED' | translate}} </small>
+                    </div>
+
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="model.invalid" 
+            type="button"
+            (click)="save()">{{'SUBMIT' | translate}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
