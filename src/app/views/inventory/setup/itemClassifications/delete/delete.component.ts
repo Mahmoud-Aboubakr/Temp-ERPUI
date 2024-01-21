@@ -8,9 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { ItemTypeModel } from 'app/Core/Models/Inventory/ItemType/ItemTypeModel';
+import { ItemClassificationModel } from 'app/Core/Models/Inventory/ItemClassification/ItemClassificationModel';
 
 @Component({
-  selector: 'app-Item-Categories-delete',
+  selector: 'app-Item-Classifications-delete',
   templateUrl: './delete.component.html',
   styleUrls:['./delete.component.css'],
 })
@@ -19,7 +20,7 @@ export class DeleteComponent implements OnInit {
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<ItemTypeModel[]> = {
+  responseModel: ResponseModel<ItemClassificationModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -36,34 +37,37 @@ export class DeleteComponent implements OnInit {
     //console.log(this.Id);
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
+      code: new UntypedFormControl('', [
+      ]),
       name: new UntypedFormControl('', [
       ])
     })
   }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("ItemCategories/GetItemCategory/" + id, this.responseModel))
+    await lastValueFrom(this._commonCrudService.get("ItemClassifications/GetItemClassification/" + id, this.responseModel))
     .then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
+        this.model.controls['code'].setValue(res.data['code']); 
         this.model.controls['name'].setValue(res.data['name']); 
       } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['inventory/itemCategories']);
+          this.router.navigate(['inventory/setup/itemClassifications']);
       }
     }); 
 
   }
   async delete(){ 
     if(this.model.valid){
-      await lastValueFrom(this._commonCrudService.delete("ItemCategories/" + this.Id))
+      await lastValueFrom(this._commonCrudService.delete("ItemClassifications/" + this.Id))
       .then(res => {
         if(res.statusCode == 204){ 
             this.snackBar.open(res.message, 'Close', {
               duration: 3000, // Duration in milliseconds
             });
-            this.router.navigate(['inventory/itemCategories']);
+            this.router.navigate(['inventory/setup/itemClassifications']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,

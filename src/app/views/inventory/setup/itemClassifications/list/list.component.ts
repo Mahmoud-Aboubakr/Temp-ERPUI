@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ItemCategoryModel } from 'app/Core/Models/Inventory/ItemCategory/ItemCategoryModel';
+import { ItemClassificationModel } from 'app/Core/Models/Inventory/ItemClassification/ItemClassificationModel';
 import { ItemTypeModel } from 'app/Core/Models/Inventory/ItemType/ItemTypeModel';
 import { NewsModel } from 'app/Core/Models/News/NewsModel';
 import { PaginationParam } from 'app/Core/Models/ResponseModels/PaginationParam';
@@ -21,9 +22,9 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  displayedColumns: string[] = ['Name', 'Controls']; // Add more columns as needed
+  displayedColumns: string[] = ['Code','Name', 'Controls']; // Add more columns as needed
   searchTerm: string = '';
-  paginationResponseModel: PaginationResponseModel<ItemCategoryModel[]> = {
+  paginationResponseModel: PaginationResponseModel<ItemClassificationModel[]> = {
     currentPage:0,
     errorMessage: '',
     lang:'',
@@ -39,7 +40,7 @@ export class ListComponent {
     PageSize : environment.paginationList[0], 
     Term:'',
   }
-  dataSource = new MatTableDataSource<ItemCategoryModel>(this.paginationResponseModel.data);
+  dataSource = new MatTableDataSource<ItemClassificationModel>(this.paginationResponseModel.data);
   paginationList = environment.paginationList;
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 
@@ -51,8 +52,7 @@ export class ListComponent {
     await this.getData(); 
   }
   async getData(){ 
-    console.log(this.paginationParamWithSearch)
-    await lastValueFrom(this._commonCrudService.getAllWithSearch("ItemCategories/GetItemCategories", this.paginationParamWithSearch, this.paginationResponseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.getAllWithSearch("ItemClassifications/GetItemClassifications", this.paginationParamWithSearch, this.paginationResponseModel)).then(res => {
       this.paginationResponseModel = res;
       if(res.statusCode == 200){
         this.dataSource.data = this.paginationResponseModel.data;
@@ -64,17 +64,16 @@ export class ListComponent {
     }); 
 
   }
-  async updateItemCategory(id){ 
-    this.router.navigate(['inventory/itemCategories/update/' + id]);
+  async updateItemClassification(id){ 
+    this.router.navigate(['inventory/setup/itemClassifications/update/' + id]);
   }
-  async deleteItemCategory(id){ 
-    this.router.navigate(['inventory/itemCategories/delete/' + id]);
+  async deleteItemClassification(id){ 
+    this.router.navigate(['inventory/setup/itemClassifications/delete/' + id]);
   }
-  async addItemCategory(){ 
-    this.router.navigate(['inventory/itemCategories/create']);
+  async addItemClassification(){ 
+    this.router.navigate(['inventory/setup/itemClassifications/create']);
   }
   async onPageChanged(event: any) {
-    console.log(event);
     this.paginationParamWithSearch.PageNumber = event.pageIndex + 1;
     this.paginationParamWithSearch.PageSize = event.pageSize;
 

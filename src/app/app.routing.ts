@@ -117,17 +117,22 @@ export const rootRouterConfig: Routes = [
         path: 'inventory',
         children: [
           {
-            path:'itemTypes',
-            loadChildren: () => import('./views/inventory/itemTypes/itemTypes.module').then(m => m.ItemTypesModule)
-          },
-          {
-            path:'itemCategories',
-            loadChildren: () => import('./views/inventory/itemCategories/itemCategories.module').then(m => m.ItemCategoriesModule)
-          },
-          {
-            path:'itemClassifications',
-            loadChildren: () => import('./views/inventory/itemClassifications/itemClassifications.module').then(m => m.ItemClassificationsModule)
-          },
+            path:'setup', 
+            children:[
+              {
+                path:'itemTypes',
+                loadChildren: () => import('./views/inventory/setup/itemTypes/itemTypes.module').then(m => m.ItemTypesModule)
+              },
+              {
+                path:'itemCategories',
+                loadChildren: () => import('./views/inventory/setup/itemCategories/itemCategories.module').then(m => m.ItemCategoriesModule)
+              },
+              {
+                path:'itemClassifications',
+                loadChildren: () => import('./views/inventory/setup/itemClassifications/itemClassifications.module').then(m => m.ItemClassificationsModule)
+              },
+            ]
+          }
         ]
       },
       {

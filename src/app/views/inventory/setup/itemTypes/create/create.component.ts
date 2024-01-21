@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['inventory/itemTypes']);
+          this.router.navigate(['inventory/setup/itemTypes']);
         } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,

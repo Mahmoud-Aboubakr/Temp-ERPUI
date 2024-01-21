@@ -94,7 +94,7 @@ export class CreateComponent implements OnInit {
     addModel.Symbol = this.model.controls['symbol'].value; 
     addModel.CountryId = this.model.controls['countryId'].value; 
     addModel.IsDefault = this.model.controls['isDefault'].value; 
-    await lastValueFrom(this._commonCrudService.post("Currency/AddCurrency", addModel, this.responseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.post("CurrencySetup/AddCurrency", addModel, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 201){ 
           this.resetForm();

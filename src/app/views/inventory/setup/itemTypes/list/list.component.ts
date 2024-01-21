@@ -64,13 +64,13 @@ export class ListComponent {
 
   }
   async updateItemType(id){ 
-    this.router.navigate(['inventory/itemTypes/update/' + id]);
+    this.router.navigate(['inventory/setup/itemTypes/update/' + id]);
   }
   async deleteItemType(id){ 
-    this.router.navigate(['inventory/itemTypes/delete/' + id]);
+    this.router.navigate(['inventory/setup/itemTypes/delete/' + id]);
   }
   async addItemType(){ 
-    this.router.navigate(['inventory/itemTypes/create']);
+    this.router.navigate(['inventory/setup/itemTypes/create']);
   }
   async onPageChanged(event: any) {
     console.log(event);

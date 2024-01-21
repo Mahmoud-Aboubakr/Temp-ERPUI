@@ -89,7 +89,7 @@ export class DeleteComponent implements OnInit {
      }); 
    }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("Currency/GetCurrency/" + id, this.responseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.get("CurrencySetup/GetCurrency/" + id, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
           this.model.controls['arabicName'].setValue(res.data['arabicName']); 
@@ -110,7 +110,7 @@ export class DeleteComponent implements OnInit {
   }
   async delete(){ 
     if(this.model.valid){
-      await lastValueFrom(this._commonCrudService.delete("Currency/" + this.Id))
+      await lastValueFrom(this._commonCrudService.delete("CurrencySetup/" + this.Id))
       .then(res => {
         if(res.statusCode == 204){ 
             this.snackBar.open(res.message, 'Close', {

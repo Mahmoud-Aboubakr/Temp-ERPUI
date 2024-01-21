@@ -50,7 +50,7 @@ export class UpdateComponent implements OnInit {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['inventory/itemTypes']);
+          this.router.navigate(['inventory/setup/itemTypes']);
       }
     }); 
 
@@ -69,7 +69,7 @@ export class UpdateComponent implements OnInit {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
             });
-            this.router.navigate(['inventory/itemCategories']);
+            this.router.navigate(['inventory/setup/itemCategories']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,

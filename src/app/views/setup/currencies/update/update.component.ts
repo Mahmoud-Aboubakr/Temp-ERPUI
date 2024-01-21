@@ -88,7 +88,7 @@ export class UpdateComponent implements OnInit {
      }); 
    }
   async getData(id){ 
-  await lastValueFrom(this._commonCrudService.get("Currency/GetCurrency/" + id, this.responseModel)).then(res => {
+  await lastValueFrom(this._commonCrudService.get("CurrencySetup/GetCurrency/" + id, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
           this.model.controls['arabicName'].setValue(res.data['arabicName']); 
@@ -96,6 +96,7 @@ export class UpdateComponent implements OnInit {
           this.model.controls['symbol'].setValue(res.data['symbol']); 
           this.model.controls['rate'].setValue(res.data['rate']); 
           this.model.controls['countryId'].setValue(res.data['countryId']); 
+          this.model.controls['isDefault'].setValue(res.data['isDefault']); 
       } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
@@ -115,7 +116,7 @@ export class UpdateComponent implements OnInit {
       updateModel.CountryId = this.model.controls['countryId'].value; 
       updateModel.IsDefault = this.model.controls['isDefault'].value == ""? false : true; 
       updateModel.Id  = this.Id;  
-      await lastValueFrom ( this._commonCrudService.update("Currency/" + this.Id, updateModel, this.responseModel)
+      await lastValueFrom ( this._commonCrudService.update("CurrencySetup/" + this.Id, updateModel, this.responseModel)
       ) 
       .then(res => {
         this.responseModel = res;

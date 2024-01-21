@@ -54,7 +54,7 @@ export class ListComponent {
   }
   async getData(){ 
    
-    await lastValueFrom(this._commonCrudService.getAllWithSearch("Currency/GetCurrencies", this.paginationParamWithSearch, this.paginationResponseModel)).then(res => {
+    await lastValueFrom(this._commonCrudService.getAllWithSearch("CurrencySetup/GetCurrencies", this.paginationParamWithSearch, this.paginationResponseModel)).then(res => {
       this.paginationResponseModel = res;
       if(res.statusCode == 200){
         this.dataSource.data = this.paginationResponseModel.data;

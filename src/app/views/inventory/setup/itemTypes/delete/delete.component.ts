@@ -50,7 +50,7 @@ export class DeleteComponent implements OnInit {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['inventory/itemTypes']);
+          this.router.navigate(['inventory/setup/itemTypes']);
       }
     }); 
 
@@ -63,7 +63,7 @@ export class DeleteComponent implements OnInit {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000, // Duration in milliseconds
             });
-            this.router.navigate(['inventory/itemTypes']);
+            this.router.navigate(['inventory/setup/itemTypes']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
