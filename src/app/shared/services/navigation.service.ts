@@ -54,7 +54,8 @@ export class NavigationService {
             { name: 'APPLICATION_PAGE_PREFIX', state: 'setup/applicationPagePrefix'},
             { name: 'NATIONALITIES', state: 'setup/nationalities'},
             { name: 'Identifications', state: 'setup/identifications'},
-            { name: 'USER_TYPES', state: 'setup/userTypes'}
+            { name: 'USER_TYPES', state: 'setup/userTypes'},
+            { name: 'CURRENCIES', state: 'setup/currencies'}
           ] 
         },  
         {
@@ -62,6 +63,21 @@ export class NavigationService {
           type: 'dropDown',
           sub: [
             {name: 'Create a new user', state: 'users/createUser'},
+          ]
+        },
+        {
+          name: 'INVENTORY',
+          type: 'dropDown',
+          sub: [
+            {
+              name:"SETUP",
+              type:"dropDown", 
+              sub:[
+                {name: 'ITEM_TYPES', state: 'inventory/setup/itemTypes'},
+                {name: 'ITEM_CATEGORIES', state: 'inventory/setup/itemCategories'},
+                {name: 'ITEM_CLASSIFICATIONS', state: 'inventory/setup/itemClassifications'},
+              ]
+            }
           ]
         }         
       ]

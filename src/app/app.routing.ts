@@ -103,11 +103,37 @@ export const rootRouterConfig: Routes = [
             path: 'userTypes',
             loadChildren: () => import('./views/setup/userTypes/userType.module').then(m => m.userTypesModule)
           },
+          {
+            path: 'currencies',
+            loadChildren: () => import('./views/setup/currencies/currencies.module').then(m => m.CurrenciesModule)
+          },
           ]
       },
       {
         path: 'users',
         loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path: 'inventory',
+        children: [
+          {
+            path:'setup', 
+            children:[
+              {
+                path:'itemTypes',
+                loadChildren: () => import('./views/inventory/setup/itemTypes/itemTypes.module').then(m => m.ItemTypesModule)
+              },
+              {
+                path:'itemCategories',
+                loadChildren: () => import('./views/inventory/setup/itemCategories/itemCategories.module').then(m => m.ItemCategoriesModule)
+              },
+              {
+                path:'itemClassifications',
+                loadChildren: () => import('./views/inventory/setup/itemClassifications/itemClassifications.module').then(m => m.ItemClassificationsModule)
+              },
+            ]
+          }
+        ]
       },
       {
         path: 'hr',
