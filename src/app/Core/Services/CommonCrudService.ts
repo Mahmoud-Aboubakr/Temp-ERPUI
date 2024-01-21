@@ -132,6 +132,9 @@ export class CommonCrudService {
   public update = (url:string,body: any,data:any) => {
     return this._http.put<ResponseModel<typeof data>>(this.apiUrl +url, body);  //"Lockup/"+id
   }
+  public updatePatch = (url:string,body: any,data:any) => {
+    return this._http.patch<ResponseModel<typeof data>>(this.apiUrl +url, body);  //"Lockup/"+id
+  }
   public getWithParam = async (url: string,params:any,data:any) => {
     return this._http.get<ResponseModel<typeof data>>(this.apiUrl +url, { params: { params} }).pipe(
       tap((response: any) => {   if (response.statusCode == 401) {

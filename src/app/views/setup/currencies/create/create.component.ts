@@ -93,7 +93,7 @@ export class CreateComponent implements OnInit {
     addModel.Rate = this.model.controls['rate'].value; 
     addModel.Symbol = this.model.controls['symbol'].value; 
     addModel.CountryId = this.model.controls['countryId'].value; 
-    addModel.IsDefault = this.model.controls['isDefault'].value; 
+    addModel.IsDefault = this.model.controls['isDefault'].value == "" ? false : true; 
     await lastValueFrom(this._commonCrudService.post("CurrencySetup/AddCurrency", addModel, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 201){ 
