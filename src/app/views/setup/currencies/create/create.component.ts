@@ -12,6 +12,7 @@ import { CountryModel } from 'app/Core/Models/Countries/CountryModel';
 import { PaginationParamWithSearch } from 'app/Core/Models/ResponseModels/PaginationParamWithSearch';
 import { PaginationParam } from 'app/Core/Models/ResponseModels/PaginationParam';
 import { PaginationResponseModel } from 'app/Core/Models/ResponseModels/PaginationResponseModel';
+import { CurrencyModel } from 'app/Core/Models/Currencies/CurrencyModel';
 
 @Component({
   selector: 'app-item-classification-create',
@@ -23,7 +24,7 @@ export class CreateComponent implements OnInit {
   console = console;
   model: UntypedFormGroup;
   countries: CountryModel[]; 
-  responseModel: ResponseModel<ItemClassificationModel[]> = {
+  responseModel: ResponseModel<CurrencyModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -84,28 +85,31 @@ export class CreateComponent implements OnInit {
     }); 
   }
   async save(){ 
-    console.log(this.model);
-    // if(this.model.valid){
-    // let addModel = new ItemClassificationModel(); 
-    // //debugger;
-    // addModel.Code = this.model.controls['code'].value; 
-    // addModel.Name = this.model.controls['name'].value; 
-    // await lastValueFrom(this._commonCrudService.post("ItemClassifications/AddItemClassification", addModel, this.responseModel)).then(res => {
-    //   this.responseModel = res;
-    //   if(res.statusCode == 201){ 
-    //       this.resetForm();
-    //       this.snackBar.open(res.message, 'Close', {
-    //         duration: 3000,
-    //       });
-    //       this.router.navigate(['inventory/itemClassifications']);
-    //     } else {
-    //       this.snackBar.open(res.message, 'Close', {
-    //         duration: 3000,
-    //       });
-    //   }
-    // }); 
+    if(this.model.valid){
+    let addModel = new CurrencyModel(); 
+    //debugger;
+    addModel.ArabicName = this.model.controls['arabicName'].value; 
+    addModel.EnglishName = this.model.controls['englishName'].value; 
+    addModel.Rate = this.model.controls['rate'].value; 
+    addModel.Symbol = this.model.controls['symbol'].value; 
+    addModel.CountryId = this.model.controls['countryId'].value; 
+    addModel.IsDefault = this.model.controls['isDefault'].value; 
+    await lastValueFrom(this._commonCrudService.post("Currency/AddCurrency", addModel, this.responseModel)).then(res => {
+      this.responseModel = res;
+      if(res.statusCode == 201){ 
+          this.resetForm();
+          this.snackBar.open(res.message, 'Close', {
+            duration: 3000,
+          });
+          this.router.navigate(['setup/currencies']);
+        } else {
+          this.snackBar.open(res.message, 'Close', {
+            duration: 3000,
+          });
+      }
+    }); 
 
-    // }
+    }
     
   }
 

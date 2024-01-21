@@ -43,8 +43,8 @@ export class CommonCrudService {
           })
       );
     }
-    public getAllWithSearch = (url: string, paginationParams: PaginationParamWithSearch, data : any)=> {
-       var params = new HttpParams()
+    public getAllWithSearch = (url: string, paginationParams: PaginationParamWithSearch, data : any)=> { 
+      var params = new HttpParams()
         .set('PageNumber',  paginationParams.PageNumber)
         .set('PageSize', paginationParams.PageSize);
         if (paginationParams.Term !== null && paginationParams.Term !== undefined && paginationParams.Term !== '') {

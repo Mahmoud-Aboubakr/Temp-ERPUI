@@ -10,6 +10,9 @@ import { lastValueFrom } from 'rxjs';
 import { ItemTypeModel } from 'app/Core/Models/Inventory/ItemType/ItemTypeModel';
 import { ItemCategoryModel } from 'app/Core/Models/Inventory/ItemCategory/ItemCategoryModel';
 import { ItemClassificationModel } from 'app/Core/Models/Inventory/ItemClassification/ItemClassificationModel';
+import { PaginationResponseModel } from 'app/Core/Models/ResponseModels/PaginationResponseModel';
+import { CountryModel } from 'app/Core/Models/Countries/CountryModel';
+import { CurrencyModel } from 'app/Core/Models/Currencies/CurrencyModel';
 
 @Component({
   selector: 'app-item-classification-update',
@@ -21,7 +24,7 @@ export class UpdateComponent implements OnInit {
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  responseModel: ResponseModel<ItemClassificationModel[]> = {
+  responseModel: ResponseModel<CountryModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -29,6 +32,18 @@ export class UpdateComponent implements OnInit {
     data: [],
     total: 0
   }
+  paginationResponseModel: PaginationResponseModel<CountryModel[]> = {
+    currentPage:0,
+    errorMessage: '',
+    lang:'',
+    message:'',
+    pageSize:0,
+    statusCode:0,
+    totalCount:0,
+    totalPages: 0,
+    data: undefined
+  }
+  countries: CountryModel[]; 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private _commonCrudService : CommonCrudService,
@@ -37,36 +52,70 @@ export class UpdateComponent implements OnInit {
     this.Id  = this.route.snapshot.params['id'];
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
-      code: new UntypedFormControl('', [
+      arabicName: new UntypedFormControl('', [
         Validators.required
       ]),
-      name: new UntypedFormControl('', [
+      englishName: new UntypedFormControl('', [
         Validators.required
-      ])
-    })
+      ]),
+      rate: new UntypedFormControl('', [
+      ]),
+      symbol: new UntypedFormControl('', [
+        Validators.required
+      ]),
+      isDefault: new UntypedFormControl('', [
+      ]),
+      countryId: new UntypedFormControl('', [
+        Validators.required
+      ]),
+    }); 
+    this.getCountreis();
   }
+  async getCountreis(){ 
+    var paginationParam  = { 
+       PageNumber : 1, 
+       PageSize : 1000
+     }
+     await lastValueFrom(this._commonCrudService.getAll("Countries/GetCountries", paginationParam , this.paginationResponseModel)).then(res => {
+       this.paginationResponseModel = res;
+       if(res.statusCode == 200){
+         this.countries = this.paginationResponseModel.data;
+       } else {
+           this.snackBar.open(res.message, 'Close', {
+             duration: 3000,
+           });
+       }
+     }); 
+   }
   async getData(id){ 
-  await lastValueFrom(this._commonCrudService.get("ItemClassifications/GetItemClassification/" + id, this.responseModel)).then(res => {
+  await lastValueFrom(this._commonCrudService.get("Currency/GetCurrency/" + id, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 200){
-          this.model.controls['code'].setValue(res.data['code']); 
-          this.model.controls['name'].setValue(res.data['name']); 
+          this.model.controls['arabicName'].setValue(res.data['arabicName']); 
+          this.model.controls['englishName'].setValue(res.data['englishName']); 
+          this.model.controls['symbol'].setValue(res.data['symbol']); 
+          this.model.controls['rate'].setValue(res.data['rate']); 
+          this.model.controls['countryId'].setValue(res.data['countryId']); 
       } else {
           this.snackBar.open(res.message, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['inventory/itemClassifications']);
+          this.router.navigate(['setup/currencies']);
       }
     }); 
 
   }
   async update(){ 
     if(this.model.valid){
-      let updateModel = new ItemClassificationModel(); 
-      updateModel.Code = this.model.controls['code'].value; 
-      updateModel.Name = this.model.controls['name'].value; 
+      let updateModel = new CurrencyModel(); 
+      updateModel.ArabicName = this.model.controls['arabicName'].value; 
+      updateModel.EnglishName = this.model.controls['englishName'].value; 
+      updateModel.Rate = this.model.controls['rate'].value; 
+      updateModel.Symbol = this.model.controls['symbol'].value; 
+      updateModel.CountryId = this.model.controls['countryId'].value; 
+      updateModel.IsDefault = this.model.controls['isDefault'].value == ""? false : true; 
       updateModel.Id  = this.Id;  
-      await lastValueFrom (  this._commonCrudService.update("ItemClassifications/" + this.Id, updateModel, this.responseModel)
+      await lastValueFrom ( this._commonCrudService.update("Currency/" + this.Id, updateModel, this.responseModel)
       ) 
       .then(res => {
         this.responseModel = res;
@@ -75,7 +124,7 @@ export class UpdateComponent implements OnInit {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
             });
-            this.router.navigate(['inventory/itemClassifications']);
+            this.router.navigate(['setup/currencies']);
           } else {
             this.snackBar.open(res.message, 'Close', {
               duration: 3000,
