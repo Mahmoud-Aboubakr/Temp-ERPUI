@@ -29,12 +29,13 @@ export class ListComponent implements OnInit {
     totalPages: 0,
     data: undefined
   }
+  
   paginationParam : PaginationParam = { 
     PageNumber : 1, 
     PageSize : environment.paginationList[0]
   }
 
-  dataSource = new MatTableDataSource<BranchModel>(this.paginationResponseModel.data);
+  dataSource: any = new MatTableDataSource<BranchModel>(this.paginationResponseModel.data);
   paginationList = environment.paginationList;
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 

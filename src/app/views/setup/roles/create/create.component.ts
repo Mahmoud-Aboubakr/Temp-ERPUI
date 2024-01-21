@@ -54,9 +54,9 @@ export class CreateComponent implements OnInit {
     let addModel = new RolesModel(); 
     //debugger;
     addModel.name = this.model.controls['name'].value; 
-    addModel.Desc_ar   = this.model.controls['Desc_ar'].value;
-    addModel.Desc_en  = this.model.controls['Desc_en'].value; 
-    addModel.Full_desc  = this.model.controls['Full_desc'].value; 
+    addModel.descriptionAr   = this.model.controls['descriptionAr'].value;
+    addModel.descriptionEn  = this.model.controls['descriptionEn'].value; 
+    addModel.fulDescription  = this.model.controls['fulDescription'].value; 
     await lastValueFrom(this._commonCrudService.post("Roles/AddRole", addModel, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 201){ 

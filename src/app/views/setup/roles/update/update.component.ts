@@ -69,9 +69,9 @@ export class UpdateComponent implements OnInit {
     if(this.model.valid){
       let updateModel = new RolesModel(); 
       updateModel.name  = this.model.controls['name'].value; 
-      updateModel.Desc_ar  = this.model.controls['Desc_ar'].value;
-      updateModel.Desc_en  = this.model.controls['Desc_en'].value;
-      updateModel.Full_desc  = this.model.controls['Full_desc'].value;
+      updateModel.descriptionAr  = this.model.controls['descriptionAr'].value;
+      updateModel.descriptionEn  = this.model.controls['descriptionEn'].value;
+      updateModel.fulDescription  = this.model.controls['fulDescription'].value;
       updateModel.id  = this.Id;  
       await lastValueFrom (  this._commonCrudService.update("roles/UpdateRole/" + this.Id, updateModel, this.responseModel)
       ) 

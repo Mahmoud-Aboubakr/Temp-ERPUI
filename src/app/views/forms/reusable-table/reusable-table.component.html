@@ -1,0 +1,26 @@
+<table mat-table [dataSource]="dataSource">
+
+    <!-- Define your columns here -->
+    <ng-container *ngFor="let column of displayedColumns.concat('Controls'); let index = index" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef [class]="currentDir == 'rtl'? 'text-end fw-bold': 'text-start fw-bold'">
+        <ng-container *ngIf="column !== 'Controls' || hasControls">
+          {{ (column === 'Controls' ? 'CONTROLS' : column) | translate}}
+        </ng-container>       
+      </th>
+      
+      <td mat-cell *matCellDef="let element" [class]="currentDir == 'rtl'? 'text-end': 'text-start'">
+        <ng-container *ngIf="column !== 'Controls' || !hasControls; else controlsColumn">
+          {{ element[rowsDef[index]] }}
+        </ng-container>
+
+        <ng-template #controlsColumn>
+          <button [class]="button.class" *ngFor="let button of dynamicButtons" (click)="onButtonClick(button, element)">
+            {{ button.label }}
+          </button>
+        </ng-template>       
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns.concat('Controls') sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns.concat('Controls');"></tr>
+</table>

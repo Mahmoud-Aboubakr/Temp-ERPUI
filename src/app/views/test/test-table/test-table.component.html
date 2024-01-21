@@ -1,0 +1,16 @@
+
+
+        <app-reusable-table 
+            [dataSource]="dataSource" 
+            [displayedColumns]="displayedColumns"
+            [dynamicButtons]="actionsButtons"
+            (buttonClick)="handleButtonClick($event)">
+        </app-reusable-table>
+    
+        <mat-paginator [pageSizeOptions]="paginationList" [length]="paginationResponseModel.totalCount"
+            [pageIndex]="paginationResponseModel.currentPage - 1" [pageSize]="paginationResponseModel.pageSize"
+            showFirstLastButtons class="d-flex justify-content-start">
+        </mat-paginator>
+
+
+
