@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 import { environment } from "environments/environment";
 import { PaginationResponseModel } from "../Models/ResponseModels/PaginationResponseModel";
 import { PaginationParam } from "../Models/ResponseModels/PaginationParam";
+import { PaginationParamWithSearch } from "../Models/ResponseModels/PaginationParamWithSearch";
 
 
 @Injectable({
@@ -34,6 +35,22 @@ export class CommonCrudService {
         .set('PageNumber',  paginationParams.PageNumber)
         .set('PageSize', paginationParams.PageSize);
   
+      return this._http.get<PaginationResponseModel<typeof data>>(`${this.apiUrl}${url}`, { params })
+      .pipe(
+            tap((response: any) => {   if (response.statusCode == 401) {
+                      this._router.navigateByUrl("/auth/login");
+                  }
+          })
+      );
+    }
+    public getAllWithSearch = (url: string, paginationParams: PaginationParamWithSearch, data : any)=> { 
+      var params = new HttpParams()
+        .set('PageNumber',  paginationParams.PageNumber)
+        .set('PageSize', paginationParams.PageSize);
+        if (paginationParams.Term !== null && paginationParams.Term !== undefined && paginationParams.Term !== '') {
+          params =  params.set('Term', paginationParams.Term);
+        }
+        
       return this._http.get<PaginationResponseModel<typeof data>>(`${this.apiUrl}${url}`, { params })
       .pipe(
             tap((response: any) => {   if (response.statusCode == 401) {
@@ -114,6 +131,9 @@ export class CommonCrudService {
 
   public update = (url:string,body: any,data:any) => {
     return this._http.put<ResponseModel<typeof data>>(this.apiUrl +url, body);  //"Lockup/"+id
+  }
+  public updatePatch = (url:string,body: any,data:any) => {
+    return this._http.patch<ResponseModel<typeof data>>(this.apiUrl +url, body);  //"Lockup/"+id
   }
   public getWithParam = async (url: string,params:any,data:any) => {
     return this._http.get<ResponseModel<typeof data>>(this.apiUrl +url, { params: { params} }).pipe(

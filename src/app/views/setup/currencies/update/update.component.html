@@ -1,0 +1,98 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">{{'CURRENCIES' | translate}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                        <div class="pb-16">
+                            <mat-form-field class="full-width">
+                                <input
+                                matInput
+                                name="arabicName"
+                                formControlName="arabicName"
+                                [placeholder]="'ARABIC_NAME' | translate"
+                                value="">
+                            </mat-form-field>
+                            <small 
+                            *ngIf="model.controls['arabicName'].hasError('required') && model.controls['arabicName'].touched" 
+                            class="form-error-msg"> {{'ARABIC_NAME_REQUIRED' | translate}} </small>
+                        </div>
+                        <div class="pb-16">
+                            <mat-form-field class="full-width">
+                                <input
+                                matInput
+                                name="englishName"
+                                formControlName="englishName"
+                                [placeholder]="'ENGLISH_NAME' | translate"
+                                value="">
+                            </mat-form-field>
+                            <small 
+                            *ngIf="model.controls['englishName'].hasError('required') && model.controls['englishName'].touched" 
+                            class="form-error-msg"> {{'ENGLISH_NAME_REQUIRED' | translate}} </small>
+                        </div>
+                        <div class="pb-16">
+                            <mat-form-field class="full-width">
+                                <input
+                                matInput
+                                name="symbol"
+                                formControlName="symbol"
+                                [placeholder]="'SYMBOL' | translate"
+                                value="">
+                            </mat-form-field>
+                            <small 
+                            *ngIf="model.controls['symbol'].hasError('required') && model.controls['symbol'].touched" 
+                            class="form-error-msg"> {{'SYMBOL_REQUIRED' | translate}} </small>
+                        </div>
+                        <div class="pb-16">
+                            <mat-form-field class="full-width">
+                                <input
+                                matInput
+                                name="rate"
+                                type="number"
+                                formControlName="rate"
+                                [placeholder]="'RATE' | translate"
+                                value="">
+                            </mat-form-field>
+                        </div>
+                        
+                        <div class="pb-16" style="display: flex; align-items: center;">
+                            <mat-form-field appearance="fill" class="full-width">
+                              <mat-label>{{ 'COUNTRY' | translate }}</mat-label>
+                              <mat-select formControlName="countryId">
+                                <!-- Loop through the countries array to dynamically populate options -->
+                                <mat-option *ngFor="let country of countries" [value]="country.id">
+                                  {{ country.arabicName }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <small
+                              *ngIf="model.get('countryId').hasError('required') && model.controls['countryId'].touched"
+                              class="form-error-msg"
+                            >
+                              {{'COUNTRY_IS_REQUIRED' | translate}}
+                            </small>
+                          </div>
+                          
+                        
+                        <div class="pb-16" style="display: flex; align-items: center;">
+                            <mat-checkbox name="isDefault" formControlName="isDefault"></mat-checkbox>
+                            <label for="isDefault">{{ 'IS_DEFAULT' | translate }}</label>
+                        </div>
+                          
+                    </div>
+
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="model.invalid" 
+            (click)="update()">{{'UPDATE' | translate}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
