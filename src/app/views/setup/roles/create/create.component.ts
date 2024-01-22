@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
 import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-create',
@@ -37,41 +36,42 @@ export class CreateComponent implements OnInit {
         // Validators.minLength(4),
         // Validators.maxLength(9)
         
-      ]),
-      Desc_ar: new UntypedFormControl('', [
+      ]),      
+      descriptionAr: new UntypedFormControl('', [
         Validators.required
       ]),
-      Desc_en: new UntypedFormControl('', [ 
+      descriptionEn: new UntypedFormControl('', [ 
         Validators.required
       ]),
-      Full_desc: new UntypedFormControl('', [
+      fulDescription: new UntypedFormControl('', [
         //Validators.required
       ])
     })
   }
   async save(){ 
     if(this.model.valid){
-    let addModel = new RolesModel(); 
-    //debugger;
-    addModel.name = this.model.controls['name'].value; 
-    addModel.descriptionAr   = this.model.controls['descriptionAr'].value;
-    addModel.descriptionEn  = this.model.controls['descriptionEn'].value; 
-    addModel.fulDescription  = this.model.controls['fulDescription'].value; 
-    await lastValueFrom(this._commonCrudService.post("Roles/AddRole", addModel, this.responseModel)).then(res => {
-      this.responseModel = res;
-      if(res.statusCode == 201){ 
-          this.resetForm();
-          this.snackBar.open(res.message, 'Close', {
-            duration: 3000,
-          });
-          this.router.navigate(['setup/roles']);
-        } else {
-          this.snackBar.open(res.message, 'Close', {
-            duration: 3000,
-          });
-      }
-    }); 
+      let addModel = new RolesModel(); 
+      //debugger;
+      addModel.name = this.model.controls['name'].value; 
+      addModel.descriptionAr   = this.model.controls['descriptionAr'].value;
+      addModel.descriptionEn  = this.model.controls['descriptionEn'].value; 
+      addModel.fulDescription  = this.model.controls['fulDescription'].value; 
 
+      await this._commonCrudService.post("Authentication/role", addModel, this.responseModel).subscribe({
+        next: result => {
+          this.responseModel = result
+          this.resetForm();
+            this.snackBar.open(result.message, 'Close', {
+              duration: 3000,
+            });
+            this.router.navigate(['setup/roles']);
+        },
+        error: err => {
+          this.snackBar.open(err.message, 'Close', {
+            duration: 3000,
+          });
+        }
+      })
     }
     
   }

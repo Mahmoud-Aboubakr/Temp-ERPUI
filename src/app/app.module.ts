@@ -52,7 +52,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       passThruUnknownUrl: true,
     }),
     RouterModule.forRoot(rootRouterConfig, {
-      useHash: false,
+      useHash: true,
       relativeLinkResolution: "legacy",
     }),
   ],

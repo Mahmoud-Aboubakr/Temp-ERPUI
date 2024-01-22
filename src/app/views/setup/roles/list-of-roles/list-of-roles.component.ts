@@ -45,16 +45,17 @@ export class ListOfRolesComponent implements OnInit {
   actionsButtons: DynamicButtons[] = [
     {
       label: 'Edit',
-      clickHandler: (data: any) => this.updateRole(data),
+      clickHandler: (data: any) => this.updateRole(data.id),
       class: 'btn btn-warning me-3'
     },
     {
       label: 'Delete',
-      clickHandler: (data: any) => this.deleteRole(data),
+      clickHandler: (data: any) => this.deleteRole(data.id),
       class: 'btn btn-danger me-3'
     },
     // Add more buttons as needed
   ];
+  
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 
      private router: Router,
@@ -68,7 +69,7 @@ export class ListOfRolesComponent implements OnInit {
       next: res => {
         this.paginationResponseModel = res;
         //console.log(this.paginationResponseModel)
-        this.dataSource.data = res
+        this.dataSource.data = res.data
       },
       error: err => {
         this.snackBar.open(err.message, 'Close', {
@@ -79,6 +80,7 @@ export class ListOfRolesComponent implements OnInit {
 
   }
   async updateRole(id){ 
+    console.log(id)
     this.router.navigate(['setup/roles/update/' + id]);
   }
   async deleteRole(id){ 

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListOfRolesComponent } from './list-of-roles/list-of-roles.component';
 import { CreateComponent } from './create/create.component';
+import { UpdateComponent } from './update/update.component';
+import { DeleteComponent } from './delete/delete.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,7 @@ const routes: Routes = [
         component: CreateComponent,
         data: { title: 'Create', breadcrumb: 'CRATE' }
       },  
-      /*{
+      {
         path: 'update/:id',
         component: UpdateComponent,
         data: { title: 'Update', breadcrumb: 'UPDATE' }
@@ -26,7 +28,7 @@ const routes: Routes = [
         path: 'delete/:id',
         component: DeleteComponent,
         data: { title: 'Delete', breadcrumb: 'DELETE' }
-      }*/
+      }
     ]
   }
 ];
