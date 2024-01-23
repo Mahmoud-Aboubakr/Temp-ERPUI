@@ -59,7 +59,7 @@ export class UpdateComponent implements OnInit {
       let updateModel = new ItemTypeModel(); 
       updateModel.TypeName = this.model.controls['typeName'].value; 
       updateModel.Id  = this.Id;  
-      await lastValueFrom (  this._commonCrudService.updatePatch("ItemTypes/" + this.Id, updateModel, this.responseModel)
+      await lastValueFrom (  this._commonCrudService.update("ItemTypes/" + this.Id, updateModel, this.responseModel)
       ) 
       .then(res => {
         this.responseModel = res;

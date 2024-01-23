@@ -73,6 +73,7 @@ export class NavigationService {
               name:"SETUP",
               type:"dropDown", 
               sub:[
+                {name: 'ITEMS', state: 'inventory/setup/items'},
                 {name: 'ITEM_TYPES', state: 'inventory/setup/itemTypes'},
                 {name: 'ITEM_CATEGORIES', state: 'inventory/setup/itemCategories'},
                 {name: 'ITEM_CLASSIFICATIONS', state: 'inventory/setup/itemClassifications'},
