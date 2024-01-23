@@ -6,7 +6,10 @@ import { PaginationParam } from 'app/Core/Models/ResponseModels/PaginationParam'
 import { PaginationResponseModel } from 'app/Core/Models/ResponseModels/PaginationResponseModel';
 import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
+import { UtilsServiceService } from 'app/Core/Services/utils-service.service';
+import { DynamicButtons } from 'app/shared/interfaces/dynamic-buttons';
 import { AppLanguageService } from 'app/shared/services/app-language.service';
+import { LayoutService } from 'app/shared/services/layout.service';
 import { environment } from 'environments/environment';
 import { lastValueFrom } from 'rxjs';
 
@@ -18,7 +21,10 @@ import { lastValueFrom } from 'rxjs';
 })
 export class ListOfRolesComponent implements OnInit {
 
-  displayedColumns: string[] = ['Id', 'Role', 'Description', 'Controls']; // Add more columns as needed
+  roles: RolesModel = new RolesModel();
+  displayedColumns: string[] = ['ID', 'ROLE', 'DESCRIPTION']; // Add more columns as needed
+  rowsDef: string[] = ['id', 'name', 'descriptionAr'] // Names of columns from Api
+
   paginationResponseModel: PaginationResponseModel<RolesModel[]> = {
     currentPage:0,
     errorMessage: '',
@@ -36,30 +42,45 @@ export class ListOfRolesComponent implements OnInit {
   }
   dataSource = new MatTableDataSource<RolesModel>(this.paginationResponseModel.data);
   paginationList = environment.paginationList;
+  actionsButtons: DynamicButtons[] = [
+    {
+      label: 'Edit',
+      clickHandler: (data: any) => this.updateRole(data.id),
+      class: 'btn btn-warning me-3'
+    },
+    {
+      label: 'Delete',
+      clickHandler: (data: any) => this.deleteRole(data.id),
+      class: 'btn btn-danger me-3'
+    },
+    // Add more buttons as needed
+  ];
+  
   constructor(private _commonCrudService : CommonCrudService,
      private snackBar: MatSnackBar, 
      private router: Router,
-     private _appLanguageService: AppLanguageService){ 
-    
-  }
+     ){}
 
   async ngOnInit(){ 
     await this.getData(); 
   }
   async getData(){ 
-    await lastValueFrom(this._commonCrudService.getAll("roles/GetRoles", this.paginationParam, this.paginationResponseModel)).then(res => {
-      this.paginationResponseModel = res;
-      if(res.statusCode == 200){
-        this.dataSource.data = this.paginationResponseModel.data;
-      } else {
-          this.snackBar.open(res.message, 'Close', {
-            duration: 3000,
-          });
+    await this._commonCrudService.getAll("Authentication/allroles", this.paginationParam, this.paginationResponseModel).subscribe({
+      next: res => {
+        this.paginationResponseModel = res;
+        //console.log(this.paginationResponseModel)
+        this.dataSource.data = res.data
+      },
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
       }
-    }); 
+    })
 
   }
   async updateRole(id){ 
+    console.log(id)
     this.router.navigate(['setup/roles/update/' + id]);
   }
   async deleteRole(id){ 
@@ -76,8 +97,9 @@ export class ListOfRolesComponent implements OnInit {
     await this.getData();
   }
 
-  getAppLanguage(){
-    this._appLanguageService.getLang();
+  handleButtonClick(event: { button: DynamicButtons; data: any }) {
+    const { button, data } = event;
+    button.clickHandler(data);
   }
 
 }
