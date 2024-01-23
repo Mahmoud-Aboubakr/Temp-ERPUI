@@ -120,6 +120,10 @@ export const rootRouterConfig: Routes = [
             path:'setup', 
             children:[
               {
+                path:'items',
+                loadChildren: () => import('./views/inventory/setup/items/items.module').then(m => m.ItemsModule)
+              },
+              {
                 path:'itemTypes',
                 loadChildren: () => import('./views/inventory/setup/itemTypes/itemTypes.module').then(m => m.ItemTypesModule)
               },
