@@ -36,10 +36,10 @@ export class CreateUserComponent implements OnInit {
   ];
 
   roles: RolesModel[] = [
-    {id: 1, name: 'supervisor', Desc_ar: 'مشرف', Desc_en: 'supervisor'},
-    {id: 2, name: 'supervisor', Desc_ar: 'مشرف', Desc_en: 'supervisor'},
-    {id: 3, name: 'supervisor', Desc_ar: 'مشرف', Desc_en: 'supervisor'},
-    {id: 4, name: 'supervisor', Desc_ar: 'مشرف', Desc_en: 'supervisor'},
+    {id: 1, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: 2, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: 3, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: 4, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
   ]
 
   createUserForm: FormGroup = new FormGroup({

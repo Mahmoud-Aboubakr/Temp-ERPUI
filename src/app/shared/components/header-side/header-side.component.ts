@@ -84,5 +84,6 @@ export class HeaderSideComponent implements OnInit {
     //let dir = data.checked ? 'rtl' : 'ltr';
     let dir = data.code == 'ar' ? 'rtl' : 'ltr'; 
     this.layout.publishLayoutChange({ dir: dir }); 
+    this.layout.setLang(dir)
   }
 }
