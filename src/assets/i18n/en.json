@@ -1,4 +1,5 @@
 {
+  "SUPPLIERS" : "Suppliers",
   "DELIVERIES" : "Deliveries", 
   "DELIVERY_TERM" : "Delivery Term", 
   "DELIVERY_TERM_REQUIRED" : "Delivery Term Is Required", 

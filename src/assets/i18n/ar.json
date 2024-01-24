@@ -1,4 +1,5 @@
 {
+  "SUPPLIERS" : "الموردين",
   "DELIVERIES" : "التسليم", 
   "DELIVERY_TERM" : "مصطلح", 
   "DELIVERY_TERM_REQUIRED" : "المصطلح مطلوب", 
