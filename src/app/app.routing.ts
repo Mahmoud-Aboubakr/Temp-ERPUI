@@ -135,6 +135,24 @@ export const rootRouterConfig: Routes = [
                 path:'itemClassifications',
                 loadChildren: () => import('./views/inventory/setup/itemClassifications/itemClassifications.module').then(m => m.ItemClassificationsModule)
               },
+              {
+                path:'contactTypes',
+                loadChildren: () => import('./views/inventory/setup/contactTypes/contactTypes.module').then(m => m.ContactTypesModule)
+              },
+            ]
+          }
+        ]
+      },
+      {
+        path: 'suppliers',
+        children: [
+          {
+            path:'setup', 
+            children:[
+              {
+                path:'deliveries',
+                loadChildren: () => import('./views/suppliers/setup/delivery/delivery.module').then(m => m.DeliveryModule)
+              },
             ]
           }
         ]
