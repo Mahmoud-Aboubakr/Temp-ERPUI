@@ -1,4 +1,6 @@
 {
+  "CASHIER" : "Cashier", 
+  "PAYMENT_GROUPS" : "Payment Groups",
   "SUPPLIERS" : "Suppliers",
   "DELIVERIES" : "Deliveries", 
   "DELIVERY_TERM" : "Delivery Term", 

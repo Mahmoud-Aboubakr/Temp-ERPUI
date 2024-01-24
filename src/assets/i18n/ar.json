@@ -1,4 +1,7 @@
 {
+  
+  "CASHIER" : "كاشير", 
+  "PAYMENT_GROUPS" : "مجموعات وسائل الدفع",
   "SUPPLIERS" : "الموردين",
   "DELIVERIES" : "التسليم", 
   "DELIVERY_TERM" : "مصطلح", 

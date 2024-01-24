@@ -173,6 +173,21 @@ export const rootRouterConfig: Routes = [
         
       },
       {
+        path: 'cashier',
+        children:[
+          { 
+            path: 'setup',
+            children:[
+              {
+                path:'paymentGroups', 
+                loadChildren: () => import('./views/cashier/setup/paymentGroup/paymentGroups.module').then(m => m.PaymentGroupsModule)
+              }
+            ]
+          },
+        ]
+        
+      },
+      {
         path: 'settings', 
         loadChildren: () => import('./views/settings/settings.module').then(m => m.SettingsModule)
       }
