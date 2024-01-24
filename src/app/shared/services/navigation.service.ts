@@ -120,6 +120,9 @@ export class NavigationService {
               sub:[
                 {
                   name:'PAYMENT_GROUPS', state:'cashier/setup/paymentGroups'
+                },
+                {
+                  name:'PAYMENT_MODES', state:'cashier/setup/paymentModes'
                 }
               ]
           },

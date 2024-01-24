@@ -181,6 +181,10 @@ export const rootRouterConfig: Routes = [
               {
                 path:'paymentGroups', 
                 loadChildren: () => import('./views/cashier/setup/paymentGroup/paymentGroups.module').then(m => m.PaymentGroupsModule)
+              },
+              {
+                path:'paymentModes', 
+                loadChildren: () => import('./views/cashier/setup/paymentModes/paymentModes.module').then(m => m.PaymentModesModule)
               }
             ]
           },
