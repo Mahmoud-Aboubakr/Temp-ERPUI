@@ -1,5 +1,5 @@
 export const config = {
-  apiUrl: 'https://localhost:44304/api/',
+  apiUrl: 'https://localhost:7258/api/',
   fileUrl:'https://localhost:7258/',
   paginationList: [5, 10, 20],
   status:['pending', 'active'],

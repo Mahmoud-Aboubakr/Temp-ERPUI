@@ -1,4 +1,9 @@
 {
+  "SUPPLIERS" : "Suppliers",
+  "DELIVERIES" : "Deliveries", 
+  "DELIVERY_TERM" : "Delivery Term", 
+  "DELIVERY_TERM_REQUIRED" : "Delivery Term Is Required", 
+  "CONTACT_TYPES" : "Contact Types",
   "SERVICE_NAME" : "Service Name", 
   "ITEM_CODE" : "Item Code", 
   "COST_PRICE" : "Cost Price", 

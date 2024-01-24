@@ -1,5 +1,9 @@
 {
-  
+  "SUPPLIERS" : "الموردين",
+  "DELIVERIES" : "التسليم", 
+  "DELIVERY_TERM" : "مصطلح", 
+  "DELIVERY_TERM_REQUIRED" : "المصطلح مطلوب", 
+  "CONTACT_TYPES" : "أنواع الأتصال",
   "SERVICE_NAME" : "إسم الخدمة", 
   "ITEM_CODE" : "كود العنصر", 
   "COST_PRICE" : "سعر التكلفة", 
