@@ -54,7 +54,8 @@ export class NavigationService {
             { name: 'APPLICATION_PAGE_PREFIX', state: 'setup/applicationPagePrefix'},
             { name: 'NATIONALITIES', state: 'setup/nationalities'},
             { name: 'Identifications', state: 'setup/identifications'},
-            { name: 'USER_TYPES', state: 'setup/userTypes'}
+            { name: 'USER_TYPES', state: 'setup/userTypes'},
+            { name: 'APPLICATION_PAGES', state: 'setup/applicationPages'},
           ] 
         },  
         {
