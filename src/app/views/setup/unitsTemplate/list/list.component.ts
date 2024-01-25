@@ -18,7 +18,7 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  displayedColumns: string[] = ['unitTemplateCode', 'unitTemplateNameEN', 'unitTemplateNameAr','unitId', 'Controls']; // Add more columns as needed
+  displayedColumns: string[] = ['unitTemplateCode', 'unitTemplateNameEN', 'unitTemplateNameAr', 'Controls']; // Add more columns as needed
   paginationResponseModel: PaginationResponseModel<unitsTemplateModel[]> = {
     currentPage:0,
     errorMessage: '',

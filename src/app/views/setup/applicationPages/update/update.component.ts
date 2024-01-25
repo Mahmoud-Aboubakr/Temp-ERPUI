@@ -19,6 +19,8 @@ export class UpdateComponent implements OnInit {
   console = console;
   model: UntypedFormGroup;
   appModules: any;
+  applicationList: any;
+  PagesTypes:any[];
   responseModel: ResponseModel<pagesModel[]> = {
     message: '',
     statusCode: 0,
@@ -35,8 +37,10 @@ export class UpdateComponent implements OnInit {
     
   ngOnInit() {
     this.Id  = this.route.snapshot.params['id'];
-    this.getData(this.Id); 
+    this.getApplicationsNames();
     this.getAppModules(); 
+    this.getPagesTypes(); 
+    this.getData(this.Id); 
       this.model = new UntypedFormGroup({
         applicationTblId: new UntypedFormControl('', [
            Validators.required
@@ -65,29 +69,7 @@ export class UpdateComponent implements OnInit {
         ]),
       })
   }
-  async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("Pages/GetPage/" + id, this.responseModel)).then(res => {
-      this.responseModel = res;
-      if(res.statusCode == 200){
-        this.model.controls['applicationTblId'].setValue(res.data['applicationTblId']); 
-        this.model.controls['appModuleId'].setValue( res.data['appModuleId']);
-        this.model.controls['appPageTypeId'].setValue( res.data['appPageTypeId']);
-        this.model.controls['pageNameEn'].setValue( res.data['pageNameEn']);
-        this.model.controls['pageNameAr'].setValue( res.data['pageNameAr']);
-        this.model.controls['pageDesCription'].setValue( res.data['pageNameEn']);
-        this.model.controls['pageUrl'].setValue( res.data['pageUrl']);
-        this.model.controls['sort'].setValue( res.data['sort']);
-        this.model.controls['isActive'].setValue( res.data['isActive']);
-
-      } else {
-          this.snackBar.open(res.message, 'Close', {
-            duration: 3000,
-          });
-          this.router.navigate(['setup/applicationPages']);
-      }
-    }); 
-
-  }
+ 
   async update(){ 
     if(this.model.valid){
       let updateModel = new pagesModel(); 
@@ -134,9 +116,10 @@ export class UpdateComponent implements OnInit {
       this.model.reset();
   }
 
-  getAppModules(){
-    this._commonCrudService.get('Pages/GetAppModules', this.appModules).subscribe({
-      next: res =>{ debugger; this.appModules = res.data},
+  getApplicationsNames(){
+   
+    this._commonCrudService.get('Pages/GetApplicationsNames', this.applicationList).subscribe({
+      next: res =>{ this.applicationList = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -145,5 +128,54 @@ export class UpdateComponent implements OnInit {
     })
   }
 
+  getAppModules(){
+    this._commonCrudService.get('Pages/GetAppModules', this.appModules).subscribe({
+      next: res =>{ this.appModules = res.data},
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
 
+  getPagesTypes(){
+    this._commonCrudService.get('Pages/GetPagesTypes', this.PagesTypes).subscribe({
+      next: res =>{ this.PagesTypes = res.data},
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
+
+  getData(id){
+    this._commonCrudService.get('Pages/GetPage/' + id, this.responseModel).subscribe({
+      next: res =>{ 
+        this.responseModel = res;
+        if(res.statusCode == 200){
+          this.model.controls['applicationTblId'].setValue(res.data['applicationTblId']); 
+          this.model.controls['appModuleId'].setValue( res.data['appModuleId']);
+          this.model.controls['appPageTypeId'].setValue( res.data['appPageTypeId']);
+          this.model.controls['pageNameEn'].setValue( res.data['pageNameEn']);
+          this.model.controls['pageNameAr'].setValue( res.data['pageNameAr']);
+          this.model.controls['pageDesCription'].setValue( res.data['pageNameEn']);
+          this.model.controls['pageUrl'].setValue( res.data['pageUrl']);
+          this.model.controls['sort'].setValue( res.data['sort']);
+          this.model.controls['isActive'].setValue( res.data['isActive']);
+        } else {
+            this.snackBar.open(res.message, 'Close', {
+              duration: 3000,
+            });
+            this.router.navigate(['setup/applicationPages']);
+        }
+      },
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
 }

@@ -33,9 +33,9 @@ export class CreateComponent implements OnInit {
   constructor(private _commonCrudService : CommonCrudService,
     private snackBar: MatSnackBar ) { }
   ngOnInit() { 
-  //this.getApplicationsNames();
+  this.getApplicationsNames();
   this.getAppModules(); 
-  //this.getPagesTypes(); 
+  this.getPagesTypes(); 
   
 
     this.model = new UntypedFormGroup({
@@ -68,9 +68,9 @@ export class CreateComponent implements OnInit {
   }
 
   getApplicationsNames(){
-    debugger;
+   
     this._commonCrudService.get('Pages/GetApplicationsNames', this.applicationList).subscribe({
-      next: res =>{  debugger;this.applicationList = res.data},
+      next: res =>{ this.applicationList = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -81,7 +81,7 @@ export class CreateComponent implements OnInit {
 
   getAppModules(){
     this._commonCrudService.get('Pages/GetAppModules', this.appModules).subscribe({
-      next: res =>{ debugger; this.appModules = res.data},
+      next: res =>{ this.appModules = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -92,7 +92,7 @@ export class CreateComponent implements OnInit {
 
   getPagesTypes(){
     this._commonCrudService.get('Pages/GetPagesTypes', this.PagesTypes).subscribe({
-      next: res =>{ debugger; this.PagesTypes = res.data},
+      next: res =>{ this.PagesTypes = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -113,7 +113,7 @@ export class CreateComponent implements OnInit {
     addModel.pageDesCription  = this.model.controls['pageDesCription'].value; 
     addModel.pageUrl  = this.model.controls['pageUrl'].value; 
     addModel.sort  = this.model.controls['sort'].value; 
-    addModel.isActive  = this.model.controls['isActive'].value; 
+    addModel.isActive  = JSON.parse(this.model.controls['isActive'].value); 
     await lastValueFrom(this._commonCrudService.post("Pages/AddPage", addModel, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 201){ 
