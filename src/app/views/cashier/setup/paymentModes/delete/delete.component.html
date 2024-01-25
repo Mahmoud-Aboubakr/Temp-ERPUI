@@ -1,0 +1,52 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">{{'PAYMENT_MODES' | translate}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div class="pb-16">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="paymentModeName"
+                            formControlName="paymentModeName"
+                            [placeholder]="'PAYMENT_MODE_NAME' | translate"
+                            value=""
+                            readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="pb-16">
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>{{ 'PAYMENT_MODE_TYPE' | translate }}</mat-label>
+                            <mat-select formControlName="paymentModeTypeId" disabled>
+                              <!-- Loop through the countries array to dynamically populate options -->
+                              <mat-option *ngFor="let paymentModeType of paymentModeTypes" [value]="paymentModeType.id">
+                                {{ paymentModeType.paymentName }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="pb-16">
+                        <ng-container *ngIf="isActive; else notActive" >
+                            <mat-icon>done</mat-icon>
+                          </ng-container>
+                          <ng-template #notActive>
+                            <mat-icon>clear</mat-icon>
+                          </ng-template>
+                        <label for="isDefault">{{ 'IS_ACTIVE' | translate }}</label>
+                    </div>
+
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="warn" 
+            [disabled]="model.invalid" 
+            (click)="delete()">{{'DELETE' | translate}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+

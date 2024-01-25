@@ -1,0 +1,344 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">{{'ITEMS' | translate}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="model">
+            <div fxLayout="row wrap">
+                <div fxFlex="50" fxFlex.gt-xs="50" class="full-width">
+                <div class="pb-16 margin-right">
+                    <mat-form-field class="full-width">
+                    <input
+                        matInput
+                        name="serviceName"
+                        formControlName="serviceName"
+                        [placeholder]="'SERVICE_NAME' | translate" 
+                        
+                        readonly value=""
+                    />
+                    </mat-form-field>
+                    <small
+                    *ngIf="model.controls['serviceName'].hasError('required') && model.controls['serviceName'].touched"
+                    class="form-error-msg"
+                    >
+                    {{ 'SERVICE_NAME_REQUIRED' | translate }}
+                    </small>
+                </div>
+                <div class="pb-16 margin-right">
+                    <mat-form-field class="full-width">
+                    <input
+                        matInput
+                        name="itemCode"
+                        formControlName="itemCode"
+                        [placeholder]="'ITEM_CODE' | translate"
+                        readonly value=""
+                    />
+                    </mat-form-field>
+                    <small
+                    *ngIf="model.controls['itemCode'].hasError('required') && model.controls['itemCode'].touched"
+                    class="form-error-msg"
+                    >
+                    {{ 'ITEM_CODE_REQUIRED' | translate }}
+                    </small>
+                </div>
+                <div class="pb-16 margin-right">
+                    <mat-form-field class="full-width">
+                    <input
+                        matInput
+                        name="barCode"
+                        formControlName="barCode"
+                        [placeholder]="'BARCODE' | translate"
+                        readonly value=""
+                    />
+                    </mat-form-field>
+                </div>
+                </div>
+                
+                <div fxFlex="50" fxFlex.gt-xs="50" class="full-width">
+                    <div class="pb-16 margin-right">
+                        <mat-form-field class="full-width">
+                        <input
+                            matInput
+                            name="arabicName"
+                            formControlName="arabicName"
+                            [placeholder]="'ARABIC_NAME' | translate"
+                            readonly value=""
+                        />
+                        </mat-form-field>
+                    </div>
+                    <div class="pb-16 margin-right">
+                        <mat-form-field class="full-width">
+                        <input
+                            matInput
+                            name="englishName"
+                            formControlName="englishName"
+                            [placeholder]="'ENGLISH_NAME' | translate"
+                            readonly value=""
+                        />
+                        </mat-form-field>
+                    </div>
+                    <div class="pb-16 margin-right">
+                        <ng-container *ngIf="isPermenant; else notPermenant" >
+                            <mat-icon>done</mat-icon>
+                        </ng-container>
+                        <ng-template #notPermenant>
+                            <mat-icon>clear</mat-icon>
+                        </ng-template>
+                        <label for="isPermenant">{{ 'PERMENANT_ITEM' | translate }}</label>
+                        
+                        <ng-container *ngIf="isActive; else notActive" >
+                            <mat-icon>done</mat-icon>
+                        </ng-container>
+                        <ng-template #notActive>
+                            <mat-icon>clear</mat-icon>
+                        </ng-template>
+                        <label for="isPermenant">{{ 'ACTIVE' | translate }}</label>
+
+                        <ng-container *ngIf="hasExpiredDate; else notHasExpiredDate" >
+                            <mat-icon>done</mat-icon>
+                        </ng-container>
+                        <ng-template #notHasExpiredDate>
+                            <mat-icon>clear</mat-icon>
+                        </ng-template>
+                        <label for="isPermenant">{{ 'HAS_EXPIRED_DATE' | translate }}</label>
+                    </div>
+                </div>
+        
+            </div>
+            <mat-card>
+                <mat-card-title>
+                    {{ 'ITEM_DETAILS' | translate }}
+                    </mat-card-title>
+                <mat-card-content>
+                    <div fxLayout="row wrap">
+                        <div fxFlex="33" fxFlex.gt-xs="33" class="full-width">
+                            <div class="pb-16 margin-right">
+                            <mat-form-field appearance="fill">
+                                <mat-label>{{ 'ITEM_CATEGORY' | translate }}</mat-label>
+                                <mat-select disabled formControlName="itemCategoryId">
+                                    <mat-option *ngFor="let itemCategory of itemCategories" [value]="itemCategory.id">
+                                        {{ itemCategory.name }}
+                                      </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small 
+                                *ngIf="model.get('itemCategoryId').hasError('required') && model.controls['itemCategoryId'].touched" 
+                                class="form-error-msg"> {{'ITEM_CATEGORY_IS_REQUIRED' | translate}} 
+                            </small>
+                            </div>
+                            <div class="pb-16 margin-right">
+                            <mat-form-field appearance="fill">
+                                <mat-label>{{ 'ITEM_TYPE' | translate }}</mat-label>
+                                <mat-select disabled formControlName="itemTypeId">
+                                    <mat-option *ngFor="let itemType of itemTypes" [value]="itemType.id">
+                                        {{ itemType.typeName }}
+                                      </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small 
+                                *ngIf="model.get('itemTypeId').hasError('required') && model.controls['itemTypeId'].touched" 
+                                class="form-error-msg"> {{'ITEM_TYPE_IS_REQUIRED' | translate}} 
+                            </small>
+                            </div>
+                            <div class="pb-16 margin-right">
+                            <mat-form-field appearance="fill">
+                                <mat-label>{{ 'ITEM_CLASSIFICATION' | translate }}</mat-label>
+                                <mat-select disabled formControlName="itemClassificationId">
+                                    <!-- Add options as needed -->
+                                    <mat-option *ngFor="let itemClassification of itemClassifications" [value]="itemClassification.id">
+                                        {{ itemClassification.name }}
+                                      </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small 
+                                *ngIf="model.get('itemClassificationId').hasError('required') && model.controls['itemClassificationId'].touched" 
+                                class="form-error-msg"> {{'ITEM_CLASSIFICATION_IS_REQUIRED' | translate}} 
+                            </small>
+                            </div>
+                            <div class="pb-16 margin-right">
+                            <mat-form-field appearance="fill">
+                                <mat-label>{{ 'UNIT_TEMPLATE' | translate }}</mat-label>
+                                <mat-select disabled formControlName="unitTemplateId">
+                                    <!-- Add options as needed -->
+                                    <mat-option value="0">Option 1</mat-option>
+                                    <mat-option value="2">Option 2</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxFlex="33" fxFlex.gt-xs="33" class="full-width">
+                            <div class="pb-16 margin-right">
+                                <mat-form-field class="full-width">
+                                    <input
+                                        matInput
+                                        name="retail"
+                                        formControlName="retail"
+                                        type="number"
+                                        [placeholder]="'RETAIL' | translate"
+                                        readonly value=""
+                                    />
+                                    </mat-form-field>
+                            </div>
+                            <div class="pb-16 margin-right">
+                                <mat-form-field class="full-width">
+                                    <input
+                                        matInput
+                                        name="wholesale"
+                                        formControlName="wholesale"
+                                        type="number"
+                                        [placeholder]="'WHOLESALE' | translate"
+                                        readonly value=""
+                                    />
+                                    </mat-form-field>
+                            </div>
+                            <div class="pb-16 margin-right">
+                                <mat-form-field class="full-width">
+                                    <input
+                                        matInput
+                                        name="costPrice"
+                                        formControlName="costPrice"
+                                        type="number"
+                                        [placeholder]="'COST_PRICE' | translate"
+                                        readonly value=""
+                                    />
+                                    </mat-form-field>
+                                    <small
+                                    *ngIf="model.controls['costPrice'].hasError('required') && model.controls['costPrice'].touched"
+                                    class="form-error-msg"
+                                    >
+                                    {{ 'COST_PRICE_REQUIRED' | translate }}
+                                    </small>
+                            </div>
+                            <div class="pb-16 margin-right">
+                                <!-- <input type="file"
+                                (change)="onFileSelected($event)"
+                                 accept="image/*" 
+                                 formControlName="image">
+                                 <input type="hidden" formControlName="imagePath"> -->
+                               <mat-label>{{ 'ITEM_IMAGE' | translate }}</mat-label>
+                               <mat-icon matSuffix>attach_file</mat-icon>
+                               <div class="image-preview" *ngIf="model.value['imagePath']">
+                                   <img [src]="getImageUrl(model.value['imagePath'])" alt="Uploaded Image" class="image">
+                               </div>
+                            </div>
+                        </div>
+                        <div fxFlex="33" fxFlex.gt-xs="33" class="full-width">
+                            <div class="pb-16 margin-right">
+                            <mat-form-field appearance="fill">
+                                <mat-label>{{ 'RETAIL_CURRENCY' | translate }}</mat-label>
+                                <mat-select disabled formControlName="retailCurrencyId">
+                                    <!-- Add options as needed -->
+                                    <mat-option *ngFor="let currency of currencies" [value]="currency.id">
+                                        {{ currency.arabicName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            </div>
+                            <div class="pb-16 margin-right">
+                            <mat-form-field appearance="fill">
+                                <mat-label>{{ 'WHOLESALE_CURRENCY' | translate }}</mat-label>
+                                <mat-select disabled formControlName="wholesaleCurrencyId">
+                                    <!-- Add options as needed -->
+                                    <mat-option *ngFor="let currency of currencies" [value]="currency.id">
+                                        {{ currency.arabicName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            </div>
+                            <div class="pb-16 margin-right">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>{{ 'COSTPRICE_CURRENCY' | translate }}</mat-label>
+                                    <mat-select disabled formControlName="costPriceCurrencyId">
+                                        <!-- Add options as needed -->
+                                        <mat-option *ngFor="let currency of currencies" [value]="currency.id">
+                                            {{ currency.arabicName }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <small
+                                    *ngIf="model.controls['costPriceCurrencyId'].hasError('required') && model.controls['costPriceCurrencyId'].touched"
+                                    class="form-error-msg"
+                                    >
+                                    {{ 'COSTPRICE_CURRENCY_REQUIRED' | translate }}
+                                </small>
+                            </div>
+                            <div class="pb-16 margin-right">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>{{ 'STOCK' | translate }}</mat-label>
+                                    <mat-select disabled formControlName="stock">
+                                        <mat-option *ngFor="let option of stockedOptions" [value]="option">
+                                            {{ StockedMapping[option] }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>
+                    {{ 'NOTES' | translate }}
+                    </mat-card-title>
+                <mat-card-content>
+                    <div fxFlex="50" fxFlex.gt-xs="50" class="full-width">
+                        <div class="pb-16 margin-right">
+                            <mat-form-field class="full-width">
+                                <input
+                                    matInput
+                                    name="instruction"
+                                    formControlName="instruction"
+                                    [placeholder]="'INSTRUCTION' | translate"
+                                    readonly value=""
+                                />
+                                </mat-form-field>
+                        </div>
+                        <div class="pb-16 margin-right">
+                            <mat-form-field class="full-width">
+                                <input
+                                    matInput
+                                    name="instructionDescription"
+                                    formControlName="instructionDescription"
+                                    [placeholder]="'INSTRUCTION_DESCRIPTION' | translate"
+                                    readonly value=""
+                                />
+                                </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxFlex="50" fxFlex.gt-xs="50" class="full-width">
+                        <div class="pb-16 margin-right">
+                            <mat-form-field class="full-width">
+                                <input
+                                    matInput
+                                    name="notes"
+                                    formControlName="notes"
+                                    [placeholder]="'NOTES' | translate"
+                                    readonly value=""
+                                />
+                                </mat-form-field>
+                        </div>
+                        <div class="pb-16 margin-right">
+                            <mat-form-field class="full-width">
+                                <input
+                                    matInput
+                                    name="notesDescription"
+                                    formControlName="notesDescription"
+                                    [placeholder]="'NOTES_DESCRIPTION' | translate"
+                                    readonly value=""
+                                />
+                                </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <button 
+            mat-raised-button 
+            color="warn" 
+            [disabled]="model.invalid" 
+            (click)="delete()">{{'DELETE' | translate}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+

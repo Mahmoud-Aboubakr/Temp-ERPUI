@@ -56,6 +56,7 @@ export class NavigationService {
             { name: 'Identifications', state: 'setup/identifications'},
             { name: 'USER_TYPES', state: 'setup/userTypes'},
             { name: 'APPLICATION_PAGES', state: 'setup/applicationPages'},
+            { name: 'CURRENCIES', state: 'setup/currencies'}
           ] 
         },  
         {
@@ -63,6 +64,36 @@ export class NavigationService {
           type: 'dropDown',
           sub: [
             {name: 'Create a new user', state: 'users/createUser'},
+          ]
+        },
+        {
+          name: 'INVENTORY',
+          type: 'dropDown',
+          sub: [
+            {
+              name:"SETUP",
+              type:"dropDown", 
+              sub:[
+                {name: 'ITEMS', state: 'inventory/setup/items'},
+                {name: 'ITEM_TYPES', state: 'inventory/setup/itemTypes'},
+                {name: 'ITEM_CATEGORIES', state: 'inventory/setup/itemCategories'},
+                {name: 'ITEM_CLASSIFICATIONS', state: 'inventory/setup/itemClassifications'},
+                {name: 'CONTACT_TYPES', state: 'inventory/setup/contactTypes'},
+              ]
+            }
+          ]
+        },         
+        {
+          name: 'SUPPLIERS',
+          type: 'dropDown',
+          sub: [
+            {
+              name:"SETUP",
+              type:"dropDown", 
+              sub:[
+                {name: 'DELIVERIES', state: 'suppliers/setup/deliveries'},
+              ]
+            }
           ]
         }         
       ]
@@ -79,6 +110,23 @@ export class NavigationService {
           type: 'dropDown',
           sub:[
             { name: 'EMPLOYEE', state: 'hr/setup/employee' },
+        ] },
+        { name: 'CASHIER',
+          state: 'modules/cashier', 
+          type: 'dropDown',
+          sub:[
+            { name: 'SETUP',
+              state: 'setup', 
+              type:'dropDown', 
+              sub:[
+                {
+                  name:'PAYMENT_GROUPS', state:'cashier/setup/paymentGroups'
+                },
+                {
+                  name:'PAYMENT_MODES', state:'cashier/setup/paymentModes'
+                }
+              ]
+          },
         ] },
       ]
     },

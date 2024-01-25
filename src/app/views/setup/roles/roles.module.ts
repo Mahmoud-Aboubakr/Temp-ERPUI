@@ -9,14 +9,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CreateComponent } from './create/create.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
-
+import { AppFormsModule } from 'app/views/forms/forms.module';
 
 @NgModule({
   declarations: [
     ListOfRolesComponent,
     CreateComponent,
     DeleteComponent,
-    UpdateComponent
+    UpdateComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +24,8 @@ import { UpdateComponent } from './update/update.component';
     SharedMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    AppFormsModule
   ]
 })
 export class RolesModule { }

@@ -39,6 +39,8 @@ export class LayoutService {
   public currentRoute: string;
 //   public fullWidthRoutes = ['shop'];
   public fullWidthRoutes = [];
+  dir: string = 'ltr'
+  currentLang: BehaviorSubject<any> = new BehaviorSubject('ltr')
 
   constructor(private themeService: ThemeService) {
     this.setAppLayout(
@@ -60,6 +62,12 @@ export class LayoutService {
       }
     );
   }
+
+  setLang(dir: string): void{
+    this.currentLang.next(dir)
+  } 
+
+  
 
   setAppLayout(layoutConf: ILayoutConf) {
     this.layoutConf = { ...this.layoutConf, ...layoutConf };
