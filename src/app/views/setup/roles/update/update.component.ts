@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ResponseModel } from 'app/Core/Models/ResponseModels/ResponseModel';
 import { RolesModel } from 'app/Core/Models/Roles/RolesModel';
 import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-update',
@@ -31,68 +30,66 @@ export class UpdateComponent implements OnInit {
     private router: Router,
     private _commonCrudService : CommonCrudService,
     private datePipe: DatePipe,private snackBar: MatSnackBar ) { }
+
   ngOnInit() {
     this.Id  = this.route.snapshot.params['id'];
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
-      newsTextAr: new UntypedFormControl('', [
+      name: new UntypedFormControl('', [
       ]),
-      newsTextEn: new UntypedFormControl('', [
+      descriptionAr: new UntypedFormControl('', [
       ]),
-      activeFrom: new UntypedFormControl('', [ 
+      descriptionEn: new UntypedFormControl('', [ 
         Validators.required
       ]),
-      activeTo: new UntypedFormControl('', [
+      fulDescription: new UntypedFormControl('', [
         Validators.required
       ])
     })
   }
   async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("Roles/GetRole/" + id, this.responseModel)).then(res => {
-      this.responseModel = res;
-      if(res.statusCode == 200){
-          this.model.controls['activeFrom'].setValue(res.data['activateFrom']); 
-          this.model.controls['activeTo'].setValue(res.data['activateTo']); 
-          this.model.controls['newsTextAr'].setValue(res.data['newsTextAr']); 
-          this.model.controls['newsTextEn'].setValue( res.data['newsTextEn']); 
-
-      } else {
-          this.snackBar.open(res.message, 'Close', {
-            duration: 3000,
-          });
-          this.router.navigate(['setup/roles']);
+    this._commonCrudService.get('Authentication/rolebyid?roleId=' + id, this.responseModel).subscribe({
+      next: res => {
+          this.model.controls['name'].setValue(res.data['name']); 
+          this.model.controls['descriptionAr'].setValue(res.data['descriptionAr']); 
+          this.model.controls['descriptionEn'].setValue(res.data['descriptionEn']); 
+          this.model.controls['fulDescription'].setValue( res.data['fulDescription']);
+      },
+      error: err => {
+        this.snackBar.open(err.error.message, 'Close', {
+          duration: 3000,
+        });
+        this.router.navigate(['setup/roles']);
       }
-    }); 
-
+    })
   }
+
   async update(){ 
     if(this.model.valid){
       let updateModel = new RolesModel(); 
       updateModel.name  = this.model.controls['name'].value; 
-      updateModel.Desc_ar  = this.model.controls['Desc_ar'].value;
-      updateModel.Desc_en  = this.model.controls['Desc_en'].value;
-      updateModel.Full_desc  = this.model.controls['Full_desc'].value;
-      updateModel.id  = this.Id;  
-      await lastValueFrom (  this._commonCrudService.update("roles/UpdateRole/" + this.Id, updateModel, this.responseModel)
-      ) 
-      .then(res => {
-        this.responseModel = res;
-        if(res.statusCode == 204){ 
-            this.resetForm();
-            this.snackBar.open(res.message, 'Close', {
-              duration: 3000,
-            });
-            this.router.navigate(['setup/roles']);
-          } else {
-            this.snackBar.open(res.message, 'Close', {
-              duration: 3000,
-            });
+      updateModel.descriptionAr  = this.model.controls['descriptionAr'].value;
+      updateModel.descriptionEn  = this.model.controls['descriptionEn'].value;
+      updateModel.fulDescription  = this.model.controls['fulDescription'].value;
+      updateModel.id  = this.Id; 
+      
+      await this._commonCrudService.update('Authentication/role', updateModel, this.responseModel).subscribe({
+        next: res => {
+          this.resetForm();
+          this.snackBar.open(res.message, 'Close', {
+            duration: 3000,
+          });
+          this.router.navigate(['setup/roles']);
+        },
+        error: err => {
+          this.snackBar.open(err.message, 'Close', {
+            duration: 3000,
+          });
         }
-      }); 
-
+      })
     }
-    
   }
+
   async resetForm() {
       // Iterate over each control and clear validators
       Object.keys(this.model.controls).forEach(key => {

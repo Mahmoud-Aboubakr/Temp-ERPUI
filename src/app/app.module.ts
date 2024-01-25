@@ -24,6 +24,7 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { NewsModule } from './views/setup/news/news.module';
 import { DatePipe } from '@angular/common';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -51,7 +52,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       passThruUnknownUrl: true,
     }),
     RouterModule.forRoot(rootRouterConfig, {
-      useHash: false,
+      useHash: true,
       relativeLinkResolution: "legacy",
     }),
   ],

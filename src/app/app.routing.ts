@@ -104,6 +104,10 @@ export const rootRouterConfig: Routes = [
             loadChildren: () => import('./views/setup/userTypes/userType.module').then(m => m.userTypesModule)
           },
           {
+            path: 'applicationPages',
+            loadChildren: () => import('./views/setup/applicationPages/applicationPages.module').then(m => m.applicationPagesModule)
+          },
+          {
             path: 'currencies',
             loadChildren: () => import('./views/setup/currencies/currencies.module').then(m => m.CurrenciesModule)
           },
@@ -120,6 +124,10 @@ export const rootRouterConfig: Routes = [
             path:'setup', 
             children:[
               {
+                path:'items',
+                loadChildren: () => import('./views/inventory/setup/items/items.module').then(m => m.ItemsModule)
+              },
+              {
                 path:'itemTypes',
                 loadChildren: () => import('./views/inventory/setup/itemTypes/itemTypes.module').then(m => m.ItemTypesModule)
               },
@@ -130,6 +138,24 @@ export const rootRouterConfig: Routes = [
               {
                 path:'itemClassifications',
                 loadChildren: () => import('./views/inventory/setup/itemClassifications/itemClassifications.module').then(m => m.ItemClassificationsModule)
+              },
+              {
+                path:'contactTypes',
+                loadChildren: () => import('./views/inventory/setup/contactTypes/contactTypes.module').then(m => m.ContactTypesModule)
+              },
+            ]
+          }
+        ]
+      },
+      {
+        path: 'suppliers',
+        children: [
+          {
+            path:'setup', 
+            children:[
+              {
+                path:'deliveries',
+                loadChildren: () => import('./views/suppliers/setup/delivery/delivery.module').then(m => m.DeliveryModule)
               },
             ]
           }
@@ -144,6 +170,25 @@ export const rootRouterConfig: Routes = [
               {
                 path:'employee', 
                 loadChildren: () => import('./views/HR/Setup/Employee/employee.module').then(m => m.EmployeeModule)
+              }
+            ]
+          },
+        ]
+        
+      },
+      {
+        path: 'cashier',
+        children:[
+          { 
+            path: 'setup',
+            children:[
+              {
+                path:'paymentGroups', 
+                loadChildren: () => import('./views/cashier/setup/paymentGroup/paymentGroups.module').then(m => m.PaymentGroupsModule)
+              },
+              {
+                path:'paymentModes', 
+                loadChildren: () => import('./views/cashier/setup/paymentModes/paymentModes.module').then(m => m.PaymentModesModule)
               }
             ]
           },

@@ -116,7 +116,7 @@ export class UpdateComponent implements OnInit {
       updateModel.CountryId = this.model.controls['countryId'].value; 
       updateModel.IsDefault = this.model.controls['isDefault'].value == ""? false : true; 
       updateModel.Id  = this.Id;  
-      await lastValueFrom ( this._commonCrudService.updatePatch("CurrencySetup/" + this.Id, updateModel, this.responseModel)
+      await lastValueFrom ( this._commonCrudService.update("CurrencySetup/" + this.Id, updateModel, this.responseModel)
       ) 
       .then(res => {
         this.responseModel = res;
