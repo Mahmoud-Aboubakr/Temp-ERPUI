@@ -111,6 +111,18 @@ export const rootRouterConfig: Routes = [
             path: 'currencies',
             loadChildren: () => import('./views/setup/currencies/currencies.module').then(m => m.CurrenciesModule)
           },
+          {
+            path: 'storeAdjustment',
+            loadChildren: () => import('./views/setup/storeAdjustment/storeAdjustment.module').then(m => m.storeAdjustmentsModule)
+          },
+          {
+            path: 'units',
+            loadChildren: () => import('./views/setup/units/units.module').then(m => m.unitsModule)
+          },
+          {
+            path: 'unitsTemplate',
+            loadChildren: () => import('./views/setup/unitsTemplate/unitsTemplate.module').then(m => m.unitsTemplateModel)
+          },
           ]
       },
       {
