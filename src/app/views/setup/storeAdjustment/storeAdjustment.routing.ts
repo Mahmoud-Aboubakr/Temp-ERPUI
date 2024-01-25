@@ -4,14 +4,14 @@ import { deleteComponent } from './delete/delete-component';
 import { ListComponent } from './list/list.component';
 import { UpdateComponent } from './update/update.component';
 
-export const userTypeRoutes: Routes = [
+export const storeAdjustmentRoutes: Routes = [
   {
     path: '',
     children: [
       {
         path: '',
         component: ListComponent,
-        data: { title: 'list', breadcrumb: 'LIST' }
+        data: { title: 'storeAdjustments', breadcrumb: 'LIST' }
       }, 
       {
         path: 'create',

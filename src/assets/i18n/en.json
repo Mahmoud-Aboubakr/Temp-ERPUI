@@ -205,6 +205,8 @@
   "ACCOUNT_SETTING":"Account Settings",
   "CHANGE_PASSWORD":"Change Password",
   "SIGNOUT":"Sign out",
+  "STORE_ADJUSTMENT":"Store Adjustment",
+  "STORE_ADJUSTMENT_RESONS":"Store Adjustment Reasons",
   "ID": "Code",
   "ROLE": "Role Name",
   "ROLES": "Roles",
@@ -265,7 +267,6 @@
   "SEC_LEVEL": "Security Level",
   "APPLICATION_NAME": "Application Name",
   "PARENT": "Parent",
-  "ITEM_TYPE": "Item Type",
   "ITEM_ORDER": "Item Order",
   "NAVIGATE_URL": "Navigate Url", 
   "CREATE_PAGE": "Create a new page",
@@ -341,5 +342,15 @@
   "PRODUCTS": "Products",
   "PRODUCT DETAILS": "Product Details",
   "CART": "Cart",
-  "CHECKOUT": "Checkout"
+  "CHECKOUT": "Checkout",
+  "UNIT_CODE": "Unit Code",
+  "UNIT_NAME_EN": "Unit English Name",
+  "UNIT_NAME_AR": "Unit Arabic Name",
+  "UNIT_DESCRIPTION": "Unit Description",
+  "UNITS": "Units",
+  "BASE_UNIT": "Base Unit",
+  "UNIT_TEMPLATE_CODE": "Unit Template Code",
+  "UNIT_TEMPLATE_NAME_EN": "Unit Template English Name",
+  "UNIT_TEMPLATE_NAME_AR": "Unit Template Arabic Name",
+  "UNITS_TEMPLATE": "Units Templates"
 }

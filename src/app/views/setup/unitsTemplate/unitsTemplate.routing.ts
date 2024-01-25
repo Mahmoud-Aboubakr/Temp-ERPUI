@@ -4,7 +4,7 @@ import { deleteComponent } from './delete/delete-component';
 import { ListComponent } from './list/list.component';
 import { UpdateComponent } from './update/update.component';
 
-export const userTypeRoutes: Routes = [
+export const unitsTemplateRoutes: Routes = [
   {
     path: '',
     children: [
