@@ -55,6 +55,7 @@ export class NavigationService {
             { name: 'NATIONALITIES', state: 'setup/nationalities'},
             { name: 'Identifications', state: 'setup/identifications'},
             { name: 'USER_TYPES', state: 'setup/userTypes'},
+            { name: 'APPLICATION_PAGES', state: 'setup/applicationPages'},
             { name: 'CURRENCIES', state: 'setup/currencies'}
           ] 
         },  

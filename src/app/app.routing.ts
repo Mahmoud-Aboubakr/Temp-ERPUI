@@ -104,6 +104,10 @@ export const rootRouterConfig: Routes = [
             loadChildren: () => import('./views/setup/userTypes/userType.module').then(m => m.userTypesModule)
           },
           {
+            path: 'applicationPages',
+            loadChildren: () => import('./views/setup/applicationPages/applicationPages.module').then(m => m.applicationPagesModule)
+          },
+          {
             path: 'currencies',
             loadChildren: () => import('./views/setup/currencies/currencies.module').then(m => m.CurrenciesModule)
           },
