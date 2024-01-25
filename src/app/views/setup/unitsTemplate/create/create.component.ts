@@ -16,6 +16,7 @@ export class CreateComponent implements OnInit {
   formData = {}
   console = console;
   model: UntypedFormGroup;
+  baseUnits: any[];
   responseModel: ResponseModel<unitsTemplateModel[]> = {
     message: '',
     statusCode: 0,
@@ -28,6 +29,7 @@ export class CreateComponent implements OnInit {
     private datePipe: DatePipe,
     private snackBar: MatSnackBar ) { }
   ngOnInit() {
+    this.getBaseUnits();
     this.model = new UntypedFormGroup({
       unitTemplateCode: new UntypedFormControl('', [
          Validators.required
@@ -45,6 +47,19 @@ export class CreateComponent implements OnInit {
       ])
     })
   }
+
+
+  getBaseUnits(){
+    this._commonCrudService.get('Units/GetUnits', this.baseUnits).subscribe({
+      next: res =>{ debugger; this.baseUnits = res.data},
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
+
   async save(){ 
     debugger
     if(this.model.valid){
@@ -55,23 +70,28 @@ export class CreateComponent implements OnInit {
     addModel.unitId  = this.model.controls['unitId'].value;
     addModel.isActive  = this.model.controls['isActive'].value;
 
-    await lastValueFrom(this._commonCrudService.post("UnitTemplates/AddUnitTemplate", addModel, this.responseModel)).then(res => {
-      this.responseModel = res;
-      if(res.statusCode == 201){ 
-          this.resetForm();
-          this.snackBar.open(this.responseModel.message, 'Close', {
-            duration: 3000, // Duration in milliseconds
-          });
-        } else {
-          this.snackBar.open(this.responseModel.message, 'Close', {
-            duration: 3000,
-          });
+    this._commonCrudService.post('UnitTemplates/AddUnitTemplate',addModel, this.responseModel).subscribe({
+      next: res =>{ 
+        this.responseModel = res;
+        if(res.statusCode == 201){ 
+            this.resetForm();
+            this.snackBar.open(this.responseModel.message, 'Close', {
+              duration: 3000, // Duration in milliseconds
+            });
+          } else {
+            this.snackBar.open(this.responseModel.message, 'Close', {
+              duration: 3000,
+            });
+        }
+        },
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
       }
-    }); 
-
-    }
-    
-  }
+    })
+  }    
+}
 
     // Method to reset form controls
     resetForm() {
@@ -85,4 +105,4 @@ export class CreateComponent implements OnInit {
       // Reset the form to its initial state
       this.model.reset();
     }
-}
+  }

@@ -18,6 +18,7 @@ export class deleteComponent implements OnInit {
   formData = {};
   console = console;
   model: UntypedFormGroup;
+  baseUnits: any[];
   responseModel: ResponseModel<unitsTemplateModel[]> = {
     message: '',
     statusCode: 0,
@@ -31,6 +32,7 @@ export class deleteComponent implements OnInit {
     private _commonCrudService : CommonCrudService,
     private datePipe: DatePipe,private snackBar: MatSnackBar ) { }
   ngOnInit() {
+    this.getBaseUnits();
     this.Id  = this.route.snapshot.params['id'];
     //console.log(this.Id);
     this.getData(this.Id); 
@@ -51,11 +53,23 @@ export class deleteComponent implements OnInit {
       ])
     })
   }
-  async getData(id){ 
-    await lastValueFrom(this._commonCrudService.get("UnitTemplates/GetUnitTemplate/" + id, this.responseModel))
-    .then(res => {
-      this.responseModel = res;
-      if(res.statusCode == 200){
+
+  getBaseUnits(){
+    this._commonCrudService.get('Units/GetUnits', this.baseUnits).subscribe({
+      next: res =>{ debugger; this.baseUnits = res.data},
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
+
+  getData(id){
+    this._commonCrudService.get("UnitTemplates/GetUnitTemplate/"+ id, this.responseModel).subscribe({
+      next: res =>{ 
+        this.responseModel = res
+        if(res.statusCode == 200){
           this.model.controls['unitTemplateCode'].setValue(res.data['unitTemplateCode']); 
           this.model.controls['unitTemplateNameEN'].setValue(res.data['unitTemplateNameEN']); 
           this.model.controls['unitTemplateNameAr'].setValue( res.data['unitTemplateNameAr']); 
@@ -67,8 +81,15 @@ export class deleteComponent implements OnInit {
           });
           this.router.navigate(['setup/unitsTemplate']);
       }
-    }); 
+      },
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
   }
+
   async delete(){ 
     if(this.model.valid){
       await lastValueFrom(this._commonCrudService.delete("UnitTemplates/DeleteUnitTemplate/" + this.Id))

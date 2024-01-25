@@ -7,6 +7,23 @@
         <form [formGroup]="model">
             <div fxLayout="row wrap">
                 <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
+                    <div class="pb-16">  
+                        <div class="example-container">
+                            <mat-form-field appearance="" class="w-100">
+                                <mat-label>{{'BASE_UNIT' | translate}}</mat-label>
+                                <select matNativeControl formControlName="unitId">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option *ngFor="let element of baseUnits" [value]="element.id">
+                                        {{element.unitCode}}
+                                    </option>
+                                </select>
+                                <mat-error
+                                    *ngIf="model.get('unitId')?.hasError('required') && model.get('unitId').touched">
+                                    {{'REQUIRED_FIELD' | translate }}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
                     <div class="pb-16">
                         <mat-form-field class="full-width">
                             <input matInput name="unitTemplateCode" formControlName="unitTemplateCode"
@@ -24,12 +41,6 @@
                         <mat-form-field class="full-width">
                             <input matInput name="unitTemplateNameEN" formControlName="unitTemplateNameEN"
                             [placeholder]="'UNIT_TEMPLATE_NAME_EN' | translate" readonly>
-                        </mat-form-field>
-                    </div>
-                    <div class="pb-16">
-                        <mat-form-field class="full-width">
-                            <input matInput name="unitId" formControlName="unitId"
-                            [placeholder]="'BASE_UNIT' | translate" readonly>
                         </mat-form-field>
                     </div>
                     <div class="pb-16">
