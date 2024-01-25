@@ -110,6 +110,23 @@ export class NavigationService {
           sub:[
             { name: 'EMPLOYEE', state: 'hr/setup/employee' },
         ] },
+        { name: 'CASHIER',
+          state: 'modules/cashier', 
+          type: 'dropDown',
+          sub:[
+            { name: 'SETUP',
+              state: 'setup', 
+              type:'dropDown', 
+              sub:[
+                {
+                  name:'PAYMENT_GROUPS', state:'cashier/setup/paymentGroups'
+                },
+                {
+                  name:'PAYMENT_MODES', state:'cashier/setup/paymentModes'
+                }
+              ]
+          },
+        ] },
       ]
     },
     {

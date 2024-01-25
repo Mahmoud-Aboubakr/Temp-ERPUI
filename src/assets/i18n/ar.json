@@ -1,4 +1,12 @@
 {
+  "PAYMENT_MODES" : "طرق الدفع", 
+  "PAYMENT_MODE_NAME" : "إسم طريقة الدفع", 
+  "PAYMENT_MODE_TYPE" : "نوع طريقة الدفع", 
+  "IS_ACTIVE" : "متاح", 
+  "PAYMENT_MODE_NAME_REQUIRED" : "اسم طريقة الدفع مطلوبة", 
+  "PAYMENT_MODE_TYPE_IS_REQUIRED" : "نوع طريقة الدفع مطلوبة", 
+  "CASHIER" : "كاشير", 
+  "PAYMENT_GROUPS" : "مجموعات وسائل الدفع",
   "SUPPLIERS" : "الموردين",
   "DELIVERIES" : "التسليم", 
   "DELIVERY_TERM" : "مصطلح", 

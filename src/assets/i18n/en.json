@@ -1,4 +1,12 @@
 {
+  "PAYMENT_MODES" : "Payment Modes", 
+  "PAYMENT_MODE_NAME" : "Payment Mode Name", 
+  "PAYMENT_MODE_TYPE" : "Payment Mode Type", 
+  "IS_ACTIVE" : "Is Active", 
+  "PAYMENT_MODE_NAME_REQUIRED" : "Payment Mode Name Is Required", 
+  "PAYMENT_MODE_TYPE_IS_REQUIRED" : "Payment Mode Type Is Required", 
+  "CASHIER" : "Cashier", 
+  "PAYMENT_GROUPS" : "Payment Groups",
   "SUPPLIERS" : "Suppliers",
   "DELIVERIES" : "Deliveries", 
   "DELIVERY_TERM" : "Delivery Term", 
