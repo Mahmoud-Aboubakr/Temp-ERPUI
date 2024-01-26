@@ -11,9 +11,9 @@
                                 <mat-label>{{'APPLICATION_NAME' | translate}}</mat-label>
                                 <select matNativeControl required formControlName="applicationTblId">
                                     <option [label]="'CHOOSE_ITEM' | translate"></option>
-                                    <!-- <option value="1">ERP</option> -->
-                                    <option *ngFor="let element of applicationList" [value]="element.id">
-                                        {{element.englishName}}</option>
+                                    <option value="1">ERP</option>
+                                    <!-- <option *ngFor="let element of applicationList" [value]="element.id">
+                                        {{element.englishName}}</option> -->
                                 </select>
                                 <mat-error
                                     *ngIf="model.get('applicationTblId')?.hasError('required') && model.get('applicationTblId').touched">
@@ -45,12 +45,12 @@
                                 <mat-label>{{'ITEM_TYPE' | translate}}</mat-label>
                                 <select matNativeControl required formControlName="appPageTypeId">
                                     <option [label]="'CHOOSE_ITEM' | translate"></option>
-                                    <!-- <option value="1">{{'DEFINED' | translate }}</option>
+                                    <option value="1">{{'DEFINED' | translate }}</option>
                                     <option value="2">{{'TRANSACT' | translate }}</option>
-                                    <option value="3">{{'REPORTS' | translate }}</option> -->
-                                    <option *ngFor="let element of PagesTypes" [value]="element.id">
+                                    <option value="3">{{'REPORTS' | translate }}</option>
+                                    <!-- <option *ngFor="let element of PagesTypes" [value]="element.id">
                                         {{element.englishName}}
-                                    </option>
+                                    </option> -->
                                 </select>
                                 <mat-error
                                     *ngIf="model.get('appPageTypeId')?.hasError('required') && model.get('appPageTypeId').touched">
