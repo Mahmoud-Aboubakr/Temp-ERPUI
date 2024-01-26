@@ -38,7 +38,7 @@ export class ReusableTableComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     //console.log(this.getAppLanguage())
     this._layoutService.currentLang.subscribe({
-      next: value => this.currentDir = value
+      next: value => this.currentDir = value 
     })
   }
 

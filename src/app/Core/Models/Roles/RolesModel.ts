@@ -1,5 +1,5 @@
 export class RolesModel {
-    id: number;
+    id: string;
     name: string;
     descriptionAr: string;
     descriptionEn: string;

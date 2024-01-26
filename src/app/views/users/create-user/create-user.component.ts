@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { BranchModel } from 'app/Core/Models/Branches/BranchModel';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.scss']
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUserComponent implements OnInit, OnDestroy{
 
   constructor(private _formBuilder: FormBuilder){}
 
@@ -36,10 +36,10 @@ export class CreateUserComponent implements OnInit {
   ];
 
   roles: RolesModel[] = [
-    {id: 1, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
-    {id: 2, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
-    {id: 3, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
-    {id: 4, name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: '1', name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: '2', name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: '3', name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
+    {id: '4', name: 'supervisor', descriptionAr: 'مشرف', descriptionEn: 'supervisor'},
   ]
 
   createUserForm: FormGroup = new FormGroup({

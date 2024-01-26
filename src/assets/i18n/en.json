@@ -253,7 +253,17 @@
   "MAKE_DISCOUNT": "Make Discount",
   "DISC_PERCENTAGE": "Discount Percentage",
   "DISC_LIMIT": "Discount Limit",
+  "MANAGE": "Manage",
 
+  "STORES": "Stores",
+  "STORE": "Store",
+  "MAIN_STORE": "Main Store",
+  "SUB_STORE": "Sub Store",
+  "STORE_ADMIN": "Store Admin",
+  "BRANCH_NAME": "Branch Name",
+  "STORES_ACCOUNTS": "Stores Accounts",
+
+  "PRIVILEGES": "Privileges",
   "USER_TYPES":"User Types", 
   "USER_TYPE":"User Type", 
   "FULL_DESCRIPTION":"Full Description", 

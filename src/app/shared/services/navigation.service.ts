@@ -98,7 +98,17 @@ export class NavigationService {
               ]
             }
           ]
-        }         
+        },
+        {
+          name: 'STORES',
+          type: 'dropDown',
+          sub: [
+            {
+              name: 'Add a new store',
+              state: 'stores/addStore'
+            }
+          ]
+        }       
       ]
     },
     {

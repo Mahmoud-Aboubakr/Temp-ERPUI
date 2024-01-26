@@ -1,0 +1,168 @@
+<form class="mt-5" [formGroup]="createStoreForm">
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'CODE' | translate}}</mat-label>
+                <input matInput [disabled]="createStoreForm.get('code').disabled" formControlName="code">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>{{'ENGLISH_NAME' | translate}}</mat-label>
+                    <input matInput formControlName="name_en" required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="text-center">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>{{'ARABIC_NAME' | translate}}</mat-label>
+                    <input matInput formControlName="name_ar" required>
+                </mat-form-field>
+            </div>
+        </div>                  
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'DEPARTMENT' | translate}}</mat-label>
+                <select matNativeControl formControlName="department">
+                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                    <option value="admin">Admin</option>
+                    <option value="mahmoud">Mahmoud</option>
+                    <option value="fathy">Fathy</option>
+                </select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'STORE_ADMIN' | translate}}</mat-label>
+                <select matNativeControl required formControlName="storeAdmin">
+                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                    <option value="admin">Admin</option>
+                    <option value="mahmoud">Mahmoud</option>
+                    <option value="fathy">Fathy</option>
+                </select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{'BRANCH_NAME' | translate}}</mat-label>
+                <select matNativeControl required formControlName="branchName">
+                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                    <option value="admin">Admin</option>
+                    <option value="mahmoud">Mahmoud</option>
+                    <option value="fathy">Fathy</option>
+                </select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-card class="shadow-lg bg-light mb-5 rounded">
+        <mat-card-title>{{'STORES_ACCOUNTS' | translate}}</mat-card-title>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>General Store</mat-label>
+                        <input matInput placeholder="Enter your search term" [(ngModel)]="searchTerm" formControlName="generalStore">
+                        <button mat-button matSuffix (click)="search()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Cost Of Goods</mat-label>
+                        <input matInput placeholder="Enter your search term" type="search" [(ngModel)]="searchTerm" formControlName="costOfGoods">
+                        <button mat-button matSuffix (click)="search()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Sales Revenue</mat-label>
+                        <input matInput placeholder="Enter your search term" type="search" [(ngModel)]="searchTerm" formControlName="salesRevenue">
+                        <button mat-button matSuffix (click)="search()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Settlement By Discount</mat-label>
+                        <input matInput placeholder="Enter your search term" type="search" [(ngModel)]="searchTerm" formControlName="settlementByDiscount">
+                        <button mat-button matSuffix (click)="search()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Settlement As Well</mat-label>
+                        <input matInput placeholder="Enter your search term" type="search" [(ngModel)]="searchTerm" formControlName="settlementAsWell">
+                        <button mat-button matSuffix (click)="search()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Outgoing Movements</mat-label>
+                        <input matInput placeholder="Enter your search term" type="search" [(ngModel)]="searchTerm" formControlName="outgoingMovements">
+                        <button mat-button matSuffix (click)="search()">
+                          <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-content>
+            <div class="row align-items-center">
+                <div class="col-md-4 col-sm-6">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{'Approval Authority' | translate}}</mat-label>
+                        <select matNativeControl formControlName="approvalAuthority">
+                            <option [label]="'CHOOSE_ITEM' | translate"></option>
+                            <option value="admin">Admin</option>
+                            <option value="mahmoud">Mahmoud</option>
+                            <option value="fathy">Fathy</option>
+                        </select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="d-flex flex-column">
+                        <p>{{'PRIVILEGES' | translate}}</p>
+                        <div [class]="currentDir == 'ltr'? 'd-flex': 'd-flex justify-content-end'">
+                            <section *ngFor="let privilege of privileges; let i = index" formArrayName="privileges" class="me-5">
+                                <mat-checkbox [formControlName]="i">
+                                    <span>{{privilege}}</span>
+                                </mat-checkbox>   
+                            </section>
+                        </div>
+                    </div>                   
+                </div>
+                <div [class]="currentDir == 'ltr'? 'col-md-3 col-sm-6': 'col-md-4 col-sm-6'">
+                    <button class="btn btn-primary w-100 mx-auto d-block">{{'ADD' | translate}}</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <button class="btn btn-success w-50 mx-auto my-5 d-block" type="submit">{{'SAVE' | translate}}</button>
+</form>

@@ -174,6 +174,10 @@ export const rootRouterConfig: Routes = [
         ]
       },
       {
+        path: 'stores',
+        loadChildren: () => import('./views/stores/stores.module').then(m => m.StoresModule)
+      },
+      {
         path: 'hr',
         children:[
           { 

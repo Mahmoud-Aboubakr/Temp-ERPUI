@@ -14,7 +14,7 @@ import { CommonCrudService } from 'app/Core/Services/CommonCrudService';
 })
 export class UpdateComponent implements OnInit {
 
-  Id:number;
+  Id: string;
   formData = {};
   console = console;
   model: UntypedFormGroup;
