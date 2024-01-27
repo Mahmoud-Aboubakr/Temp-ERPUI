@@ -10,10 +10,10 @@ import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-applicationPage-delete',
-  templateUrl: './delete-component.html',
-  styleUrls:['./delete-component.css'],
+  templateUrl: './delete.component.html',
+  styleUrls:['./delete.component.css'],
 })
-export class deleteComponent implements OnInit {
+export class DeleteComponent implements OnInit {
   Id:number;
   formData = {};
   console = console;

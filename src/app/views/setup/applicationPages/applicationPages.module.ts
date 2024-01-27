@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
+
+
+
+import { NgModule, createComponent } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { applicationPagesRoutes } from './applicationPages.routing';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
@@ -17,18 +19,21 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { deleteComponent } from './delete/delete-component';
+import { UpdateComponent } from './update/update.component';
+import { DeleteComponent } from './delete/delete.component';
 import { ListComponent } from './list/list.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
-import { UpdateComponent } from './update/update.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedMaterialModule } from 'app/shared/shared-material.module';
+import { applicationPagesRoutes } from './applicationPages.routing';
+
 
 @NgModule({
   imports: [
+    MatPaginatorModule,
     TranslateModule,
     MatTableModule,
-    MatPaginatorModule,
     MatSnackBarModule,
     CommonModule,
     FormsModule,
@@ -45,8 +50,9 @@ import { UpdateComponent } from './update/update.component';
     MatIconModule,
     MatStepperModule,
     FlexLayoutModule,
+    SharedMaterialModule,
     RouterModule.forChild(applicationPagesRoutes),
   ], 
-  declarations: [CreateComponent,deleteComponent,ListComponent,UpdateComponent],
+  declarations: [ListComponent, CreateComponent, UpdateComponent,DeleteComponent],
 })
 export class applicationPagesModule { }

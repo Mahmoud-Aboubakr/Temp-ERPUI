@@ -17,7 +17,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { deleteComponent } from './delete/delete-component';
+import { DeleteComponent } from './delete/delete.component';
 import { ListComponent } from './list/list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -47,6 +47,6 @@ import { UpdateComponent } from './update/update.component';
     FlexLayoutModule,
     RouterModule.forChild(unitsRoutes),
   ], 
-  declarations: [CreateComponent,deleteComponent,ListComponent,UpdateComponent],
+  declarations: [CreateComponent,DeleteComponent,ListComponent,UpdateComponent],
 })
 export class unitsModule { }

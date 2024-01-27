@@ -7,19 +7,23 @@
         <form [formGroup]="model">
             <div fxLayout="row wrap">
                 <div fxFlex="100" fxFlex.gt-xs="100" class="full-width">
-                    <div class="pb-16">
-                        <mat-form-field appearance="" class="w-100">
-                            <mat-label>{{'BASE_UNIT' | translate}}</mat-label>
-                            <select matNativeControl required formControlName="unitId">
-                                <option [label]="'CHOOSE_ITEM' | translate"></option>
-                                <option *ngFor="let element of baseUnits" [value]="element.id">
-                                    {{element.unitCode}}
-                                </option>
-                            </select>
-                            <mat-error *ngIf="model.get('unitId')?.hasError('required') && model.get('unitId').touched">
-                                {{'REQUIRED_FIELD' | translate }}
-                            </mat-error>
-                        </mat-form-field>
+                    <div class="pb-16">  
+                        <div class="example-container">
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>{{ 'BASE_UNIT' | translate }}</mat-label>
+                                <mat-select formControlName="unitId">
+                                    <!-- Loop through the countries array to dynamically populate options -->
+                                    <mat-option *ngFor="let element of baseUnits" [value]="element.id">
+                                        {{ element.unitCode }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small
+                                *ngIf="model.get('unitId').hasError('required') && model.controls['unitId'].touched"
+                                class="form-error-msg">
+                                {{'REQUIRED_FIELD' | translate}}
+                            </small>
+                        </div>
                     </div>
                     <div class="pb-16">
                         <mat-form-field class="full-width">
@@ -41,11 +45,11 @@
                         </mat-form-field>
                     </div>
                     <div class="pb-16">
-                        <mat-checkbox
+                        <mat-checkbox 
+                        class="example-margin"
                         name="isActive"
                         formControlName="isActive"
-                        ></mat-checkbox>
-                        <label for="isActive"> {{ 'ISACTIVE' | translate }}</label>
+                        value="">{{'ISACTIVE' | translate}}</mat-checkbox>
                     </div>
                 </div>
             </div>
