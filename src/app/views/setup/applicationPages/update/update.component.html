@@ -49,19 +49,19 @@
                         <div class="example-container">
                             <mat-form-field appearance="fill" class="full-width">
                                 <mat-label>{{ 'ITEM_TYPE' | translate }}</mat-label>
-                                <mat-select formControlName="appPageTypeId">
+                                <mat-select formControlName="pageType">
 
                                     <mat-option [value]="1">{{'DEFINED' | translate }}</mat-option>
                                     <mat-option [value]="2">{{'TRANSACT' | translate }}</mat-option>
                                     <mat-option [value]="3">{{'REPORTS' | translate }}</mat-option>
-                                    <!-- <mat-option *ngFor="let element of PagesTypes" [value]="element.id">
-                                        {{element.englishName}}
+                                    <!-- <mat-option *ngFor="let element of PagesTypes" [value]="element.Key">
+                                        {{element.value}}
                                     </mat-option> -->
                                 </mat-select>
                             </mat-form-field>
 
                             <small
-                                *ngIf="model.get('appPageTypeId').hasError('required') && model.controls['appPageTypeId'].touched"
+                                *ngIf="model.get('pageType').hasError('required') && model.controls['pageType'].touched"
                                 class="form-error-msg">
                                 {{'REQUIRED_FIELD' | translate}}
                             </small>

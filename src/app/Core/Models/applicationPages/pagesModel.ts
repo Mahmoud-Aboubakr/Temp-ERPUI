@@ -1,7 +1,7 @@
 export class pagesModel{
     applicationTblId :number;
     appModuleId :number;
-    appPageTypeId :number;
+    pageType :number;
     pageNameEn :string; 
     pageNameAr :string; 
     pageUrl :string; 

@@ -41,6 +41,7 @@ export class UpdateComponent implements OnInit {
     data: undefined
   }
   appModules: LookUp[]; 
+  PagesTypes : any[];
   constructor(private route: ActivatedRoute,
     private router: Router,
     private _commonCrudService : CommonCrudService,
@@ -55,7 +56,7 @@ export class UpdateComponent implements OnInit {
       appModuleId: new UntypedFormControl('', [ 
         Validators.required
       ]),
-      appPageTypeId: new UntypedFormControl('', [
+      pageType: new UntypedFormControl('', [
         Validators.required
       ]),
       pageNameEn: new UntypedFormControl('', [
@@ -76,13 +77,14 @@ export class UpdateComponent implements OnInit {
       ]),
     })
     this.getAppModules();
+    this.getPagesTypes();
   }
   async getAppModules(){ 
     var paginationParam  = { 
        PageNumber : 1, 
        PageSize : 1000
      }
-     await lastValueFrom(this._commonCrudService.getAll("Pages/GetAppModules", paginationParam , this.paginationResponseModel)).then(res => {
+     await lastValueFrom(this._commonCrudService.getAll("CommonService/GetAppModules", paginationParam , this.paginationResponseModel)).then(res => {
        this.paginationResponseModel = res;
        if(res.statusCode == 200){
          this.appModules = this.paginationResponseModel.data;
@@ -93,6 +95,18 @@ export class UpdateComponent implements OnInit {
        }
      }); 
    }
+
+   getPagesTypes(){
+    this._commonCrudService.get('CommonService/GetPagesTypes', this.PagesTypes).subscribe({
+      next: res =>{ this.PagesTypes = res},
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
+
   async getData(id){ 
     this._commonCrudService.get('Pages/GetPage/' + id, this.responseModel).subscribe({
       next: res =>{ 
@@ -100,7 +114,7 @@ export class UpdateComponent implements OnInit {
         if(res.statusCode == 200){
           this.model.controls['applicationTblId'].setValue(res.data['applicationTblId']); 
           this.model.controls['appModuleId'].setValue( res.data['appModuleId']);
-          this.model.controls['appPageTypeId'].setValue( res.data['appPageTypeId']);
+          this.model.controls['pageType'].setValue( res.data['pageType']);
           this.model.controls['pageNameEn'].setValue( res.data['pageNameEn']);
           this.model.controls['pageNameAr'].setValue( res.data['pageNameAr']);
           this.model.controls['pageDesCription'].setValue( res.data['pageNameEn']);
@@ -127,7 +141,7 @@ export class UpdateComponent implements OnInit {
       let updateModel = new pagesModel(); 
       updateModel.applicationTblId = this.model.controls['applicationTblId'].value; 
       updateModel.appModuleId  = this.model.controls['appModuleId'].value; 
-      updateModel.appPageTypeId  = this.model.controls['appPageTypeId'].value; 
+      updateModel.pageType  = this.model.controls['pageType'].value; 
       updateModel.pageNameEn  = this.model.controls['pageNameEn'].value; 
       updateModel.pageNameAr  = this.model.controls['pageNameEn'].value; 
       updateModel.pageDesCription  = this.model.controls['pageDesCription'].value; 
