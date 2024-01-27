@@ -37,9 +37,9 @@ export class UpdateComponent implements OnInit {
     
   ngOnInit() {
     this.Id  = this.route.snapshot.params['id'];
-    this.getApplicationsNames();
+    //this.getApplicationsNames();
     this.getAppModules(); 
-    this.getPagesTypes(); 
+    //this.getPagesTypes(); 
     this.getData(this.Id); 
       this.model = new UntypedFormGroup({
         applicationTblId: new UntypedFormControl('', [
