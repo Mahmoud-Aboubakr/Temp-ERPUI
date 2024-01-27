@@ -33,11 +33,10 @@ export class CreateComponent implements OnInit {
   constructor(private _commonCrudService : CommonCrudService,
     private snackBar: MatSnackBar ) { }
   ngOnInit() { 
-  this.getApplicationsNames();
+  //this.getApplicationsNames();
   this.getAppModules(); 
-  this.getPagesTypes(); 
+ // this.getPagesTypes(); 
   
-
     this.model = new UntypedFormGroup({
       applicationTblId: new UntypedFormControl('', [
          Validators.required
