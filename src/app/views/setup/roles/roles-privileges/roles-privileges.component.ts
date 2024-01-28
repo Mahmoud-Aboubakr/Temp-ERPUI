@@ -16,6 +16,7 @@ import { ChecklistDatabaseService } from 'app/Core/Services/checklist-database.s
 import { ModuleNode, PageNode, PrivilegeNode, TypeNode } from 'app/shared/interfaces/privileges';
 import { environment } from 'environments/environment';
 import { BehaviorSubject } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 class TreeNode {
   id?: number;
@@ -40,7 +41,8 @@ class FlatNode {
 export class RolesPrivilegesComponent implements OnInit{
 
   constructor(private _commonCrudService: CommonCrudService,
-              private router: ActivatedRoute) {
+              private router: ActivatedRoute,
+              private snackBar: MatSnackBar) {
                 this.getRoleById()
                }
 
@@ -95,6 +97,15 @@ export class RolesPrivilegesComponent implements OnInit{
   hasNoContent = (_: number, _nodeData: FlatNode) => _nodeData.name === '';
 
   responseModel: ResponseModel<PrivilegeNode[]> = {
+    message: '',
+    statusCode: 0,
+    executionDate: undefined,
+    succeeded: false,
+    data: [],
+    total: 0
+  }
+
+  rolePrivResponseModel: ResponseModel<RolePrivilegesModel[]> = {
     message: '',
     statusCode: 0,
     executionDate: undefined,
@@ -292,14 +303,27 @@ export class RolesPrivilegesComponent implements OnInit{
       }
     }
     this.selectedIds = this.selectedIds.filter(x => x !== undefined)
-    console.log(this.selectedIds)
+    //console.log(this.selectedIds)
   }
 
   saveModules(){
     let rolePrivileges = new RolePrivilegesModel();
     rolePrivileges.roleId = this.roleId;
+    rolePrivileges.pagesIds = this.selectedIds;
 
-    //this._commonCrudService.post('Authentication/roleprivilege')
+    this._commonCrudService.post('Authentication/roleprivilege', rolePrivileges, this.rolePrivResponseModel).subscribe(
+      {next: result => {
+          this.responseModel = result
+          this.snackBar.open(result.message, 'Close', {
+            duration: 3000,
+          });
+      },
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }}
+    )
   }
 
   filterTree(): void {
