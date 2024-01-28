@@ -1,0 +1,116 @@
+
+<div class="container my-4">
+    <div class="card py-2">
+        <div class="card-body">
+            <h2 class="text-center mb-5">{{'APPLICATION_PAGES' | translate}}</h2>
+            <form [formGroup]="model">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>{{ 'APPLICATION_NAME' | translate }}</mat-label>
+                                <mat-select formControlName="applicationTblId" [disabled]="true">
+                                    <mat-option [value]="1">ERP</mat-option>
+                                    <!-- <mat-option *ngFor="let element of applicationList" [value]="element.id">
+                                        {{element.englishName}}
+                                    </mat-option> -->
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>{{ 'PARENT' | translate }}</mat-label>
+                                <mat-select formControlName="appModuleId" [disabled]="true">
+                                    <mat-option *ngFor="let element of appModules" [value]="element.id">
+                                        {{ element.englishName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>{{ 'ITEM_TYPE' | translate }}</mat-label>
+                                <mat-select formControlName="pageType"  [disabled]="true">
+                                    <mat-option [value]="1">{{'DEFINED' | translate }}</mat-option>
+                                    <mat-option [value]="2">{{'TRANSACT' | translate }}</mat-option>
+                                    <mat-option [value]="3">{{'REPORTS' | translate }}</mat-option>
+                                    <!-- <mat-option *ngFor="let element of PagesTypes" [value]="element.key">
+                                        {{element.value}}
+                                    </mat-option> -->
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'ARABICNAME' | translate}}</mat-label>
+                              <input matInput formControlName="pageNameAr" readonly>
+                            </mat-form-field>
+                        </div>
+                    </div>    
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'ENGLISHNAME' | translate}}</mat-label>
+                                <input matInput formControlName="pageNameEn" readonly>
+                            </mat-form-field>
+                        </div>
+                    </div>  
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'ITEM_ORDER' | translate}}</mat-label>
+                                <input matInput formControlName="sort" readonly type="number" min="1" maxlength="4">
+                            </mat-form-field>
+                        </div>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'NAVIGATE_URL' | translate}}</mat-label>
+                              <input matInput formControlName="pageUrl" readonly>
+                            </mat-form-field>
+                        </div>
+                    </div>    
+                    <div class="col-md-4 col-sm-6">
+                        <div class="text-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'ACTIVE' | translate}}</mat-label>
+                                <select matNativeControl readonly formControlName="isActive">
+                                    <option [label]="'CHOOSE_ITEM' | translate"></option>
+                                    <option value="true">true</option>
+                                    <option value="false">false</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="example-container">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'DESCRIPTION' | translate}}</mat-label>
+                                <input matInput formControlName="pageDesCription" readonly>
+                            </mat-form-field>
+                        </div>
+                    </div>  
+                </div>
+                <button 
+                mat-raised-button 
+                color="warn" 
+                [disabled]="model.invalid" 
+                (click)="delete()">{{'DELETE' | translate}}</button>
+            </form>
+        </div>
+    </div>
+</div>

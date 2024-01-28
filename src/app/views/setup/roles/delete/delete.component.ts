@@ -15,7 +15,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class DeleteComponent implements OnInit {
 
-  Id:number;
+  Id: string;
   formData = {};
   console = console;
   model: UntypedFormGroup;

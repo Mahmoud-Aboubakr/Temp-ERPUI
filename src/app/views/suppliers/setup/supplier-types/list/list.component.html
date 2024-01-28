@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between">
+    <button mat-icon-button color="primary" (click)="addType()">
+        <mat-icon>add_circle</mat-icon>
+    </button>
+    
+    <div class="search-container">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'SEARCH' | translate }}" [(ngModel)]="paginationParamWithSearch.Term" />
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="search()">
+          <mat-icon>search</mat-icon>
+        </button>
+    </div>
+</div>
+
+<app-reusable-table 
+            [dataSource]="dataSource" 
+            [displayedColumns]="displayedColumns"
+            [dynamicButtons]="actionsButtons"
+            [rowsDef]="rowsDef"
+            (buttonClick)="handleButtonClick($event)">
+</app-reusable-table>
+
+<mat-paginator [pageSizeOptions]="paginationList" [length]="paginationResponseModel.totalCount"
+    [pageIndex]="paginationResponseModel.currentPage - 1" [pageSize]="paginationResponseModel.pageSize"
+    showFirstLastButtons (page)="onPageChanged($event)" class="d-flex justify-content-center mt-3">
+</mat-paginator>

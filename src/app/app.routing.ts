@@ -111,6 +111,18 @@ export const rootRouterConfig: Routes = [
             path: 'currencies',
             loadChildren: () => import('./views/setup/currencies/currencies.module').then(m => m.CurrenciesModule)
           },
+          {
+            path: 'storeAdjustment',
+            loadChildren: () => import('./views/setup/storeAdjustment/storeAdjustment.module').then(m => m.storeAdjustmentsModule)
+          },
+          {
+            path: 'units',
+            loadChildren: () => import('./views/setup/units/units.module').then(m => m.unitsModule)
+          },
+          {
+            path: 'unitsTemplate',
+            loadChildren: () => import('./views/setup/unitsTemplate/unitsTemplate.module').then(m => m.unitsTemplateModel)
+          },
           ]
       },
       {
@@ -157,9 +169,17 @@ export const rootRouterConfig: Routes = [
                 path:'deliveries',
                 loadChildren: () => import('./views/suppliers/setup/delivery/delivery.module').then(m => m.DeliveryModule)
               },
+              {
+                path:'supplierTypes',
+                loadChildren: () => import('./views/suppliers/setup/supplier-types/supplier-types.module').then(m => m.SupplierTypesModule)
+              },
             ]
           }
         ]
+      },
+      {
+        path: 'stores',
+        loadChildren: () => import('./views/stores/stores.module').then(m => m.StoresModule)
       },
       {
         path: 'hr',

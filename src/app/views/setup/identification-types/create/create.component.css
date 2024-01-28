@@ -1,0 +1,9 @@
+.example-section {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}/*# sourceMappingURL=create.component.css.map */

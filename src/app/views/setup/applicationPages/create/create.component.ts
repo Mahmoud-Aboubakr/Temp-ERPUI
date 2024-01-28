@@ -27,7 +27,7 @@ export class CreateComponent implements OnInit {
     data: [],
     total: 0
   };
-  appModules: any;
+  appModules: LookUp[]; 
   applicationList: any;
   PagesTypes:any[];
   constructor(private _commonCrudService : CommonCrudService,
@@ -35,9 +35,8 @@ export class CreateComponent implements OnInit {
   ngOnInit() { 
   //this.getApplicationsNames();
   this.getAppModules(); 
-  //this.getPagesTypes(); 
+  this.getPagesTypes(); 
   
-
     this.model = new UntypedFormGroup({
       applicationTblId: new UntypedFormControl('', [
          Validators.required
@@ -45,7 +44,7 @@ export class CreateComponent implements OnInit {
       appModuleId: new UntypedFormControl('', [ 
         Validators.required
       ]),
-      appPageTypeId: new UntypedFormControl('', [
+      pageType: new UntypedFormControl('', [
         Validators.required
       ]),
       pageNameEn: new UntypedFormControl('', [
@@ -68,9 +67,9 @@ export class CreateComponent implements OnInit {
   }
 
   getApplicationsNames(){
-    debugger;
-    this._commonCrudService.get('Pages/GetApplicationsNames', this.applicationList).subscribe({
-      next: res =>{  debugger;this.applicationList = res.data},
+   
+    this._commonCrudService.get('CommonService/GetApplicationsNames', this.applicationList).subscribe({
+      next: res =>{ this.applicationList = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -80,8 +79,8 @@ export class CreateComponent implements OnInit {
   }
 
   getAppModules(){
-    this._commonCrudService.get('Pages/GetAppModules', this.appModules).subscribe({
-      next: res =>{ debugger; this.appModules = res.data},
+    this._commonCrudService.get('CommonService/GetAppModules', this.appModules).subscribe({
+      next: res =>{ this.appModules = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -91,8 +90,8 @@ export class CreateComponent implements OnInit {
   }
 
   getPagesTypes(){
-    this._commonCrudService.get('Pages/GetPagesTypes', this.PagesTypes).subscribe({
-      next: res =>{ debugger; this.PagesTypes = res.data},
+    this._commonCrudService.get('CommonService/GetPagesTypes', this.PagesTypes).subscribe({
+      next: res =>{ this.PagesTypes = res},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
           duration: 3000,
@@ -107,13 +106,13 @@ export class CreateComponent implements OnInit {
     let addModel = new pagesModel(); 
     addModel.applicationTblId = this.model.controls['applicationTblId'].value; 
     addModel.appModuleId  = this.model.controls['appModuleId'].value; 
-    addModel.appPageTypeId  = this.model.controls['appPageTypeId'].value; 
+    addModel.pageType  = this.model.controls['pageType'].value; 
     addModel.pageNameEn  = this.model.controls['pageNameEn'].value; 
     addModel.pageNameAr  = this.model.controls['pageNameEn'].value; 
     addModel.pageDesCription  = this.model.controls['pageDesCription'].value; 
     addModel.pageUrl  = this.model.controls['pageUrl'].value; 
     addModel.sort  = this.model.controls['sort'].value; 
-    addModel.isActive  = this.model.controls['isActive'].value; 
+    addModel.isActive  = JSON.parse(this.model.controls['isActive'].value); 
     await lastValueFrom(this._commonCrudService.post("Pages/AddPage", addModel, this.responseModel)).then(res => {
       this.responseModel = res;
       if(res.statusCode == 201){ 

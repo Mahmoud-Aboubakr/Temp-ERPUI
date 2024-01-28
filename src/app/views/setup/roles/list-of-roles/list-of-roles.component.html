@@ -44,6 +44,7 @@
             [rowsDef]="rowsDef"
             (buttonClick)="handleButtonClick($event)">
     </app-reusable-table>
+    
     <mat-paginator [pageSizeOptions]="paginationList" [length]="paginationResponseModel.totalCount"
       [pageIndex]="paginationResponseModel.currentPage - 1" [pageSize]="paginationResponseModel.pageSize"
       showFirstLastButtons (page)="onPageChanged($event)" class="d-flex justify-content-center mt-3">

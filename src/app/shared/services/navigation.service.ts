@@ -56,6 +56,9 @@ export class NavigationService {
             { name: 'Identifications', state: 'setup/identifications'},
             { name: 'USER_TYPES', state: 'setup/userTypes'},
             { name: 'APPLICATION_PAGES', state: 'setup/applicationPages'},
+            { name: 'STORE_ADJUSTMENT', state: 'setup/storeAdjustment'},
+            { name: 'UNITS', state: 'setup/units'},
+            { name: 'UNITS_TEMPLATE', state: 'setup/unitsTemplate'},
             { name: 'CURRENCIES', state: 'setup/currencies'}
           ] 
         },  
@@ -92,10 +95,21 @@ export class NavigationService {
               type:"dropDown", 
               sub:[
                 {name: 'DELIVERIES', state: 'suppliers/setup/deliveries'},
+                {name: 'SUPPLIER_TYPES', state: 'suppliers/setup/supplierTypes'}
               ]
             }
           ]
-        }         
+        },
+        {
+          name: 'STORES',
+          type: 'dropDown',
+          sub: [
+            {
+              name: 'Add a new store',
+              state: 'stores/addStore'
+            }
+          ]
+        }       
       ]
     },
     {

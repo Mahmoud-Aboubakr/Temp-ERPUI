@@ -44,14 +44,19 @@ export class ListOfRolesComponent implements OnInit {
   paginationList = environment.paginationList;
   actionsButtons: DynamicButtons[] = [
     {
-      label: 'Edit',
+      label: 'EDIT',
       clickHandler: (data: any) => this.updateRole(data.id),
       class: 'btn btn-warning me-3'
     },
     {
-      label: 'Delete',
+      label: 'DELETE',
       clickHandler: (data: any) => this.deleteRole(data.id),
       class: 'btn btn-danger me-3'
+    },
+    {
+      label: 'MANAGE',
+      clickHandler: (data: any) => this.managePrivileges(data.id),
+      class: 'btn btn-secondary me-3'
     },
     // Add more buttons as needed
   ];
@@ -88,6 +93,11 @@ export class ListOfRolesComponent implements OnInit {
   }
   async addRole(){ 
     this.router.navigate(['setup/roles/create']);
+  }
+
+  async managePrivileges(id){
+    console.log(id)
+    this.router.navigate(['setup/roles/manage/' + id])
   }
   async onPageChanged(event: any) {
     console.log(event);
