@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
+import { LookUp } from 'app/Core/Models/LookUp/LookUp';
 
 @Component({
   selector: 'app-applicationPage-delete',
@@ -18,7 +19,8 @@ export class DeleteComponent implements OnInit {
   formData = {};
   console = console;
   model: UntypedFormGroup;
-  appModules: any;
+  appModules: LookUp[]; 
+  PagesTypes:any[];
   responseModel: ResponseModel<pagesModel[]> = {
     message: '',
     statusCode: 0,
@@ -34,13 +36,14 @@ export class DeleteComponent implements OnInit {
   ngOnInit() {
     this.Id  = this.route.snapshot.params['id'];
     this.getAppModules(); 
+    this.getPagesTypes();
     this.getData(this.Id); 
     this.model = new UntypedFormGroup({
       applicationTblId: new UntypedFormControl('', [
       ]),
       appModuleId: new UntypedFormControl('', [ 
       ]),
-      appPageTypeId: new UntypedFormControl('', [
+      pageType: new UntypedFormControl('', [
       ]),
       pageNameEn: new UntypedFormControl('', [
       ]),
@@ -58,7 +61,7 @@ export class DeleteComponent implements OnInit {
   }
   
   getAppModules(){
-    this._commonCrudService.get('Pages/GetAppModules', this.appModules).subscribe({
+    this._commonCrudService.get('CommonService/GetAppModules', this.appModules).subscribe({
       next: res =>{ debugger; this.appModules = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
@@ -67,7 +70,16 @@ export class DeleteComponent implements OnInit {
       }
     })
   }
-
+  getPagesTypes(){
+    this._commonCrudService.get('CommonService/GetPagesTypes', this.PagesTypes).subscribe({
+      next: res =>{ this.PagesTypes = res},
+      error: err => {
+        this.snackBar.open(err.message, 'Close', {
+          duration: 3000,
+        });
+      }
+    })
+  }
 
   async getData(id){ 
     await lastValueFrom(this._commonCrudService.get("Pages/GetPage/" + id, this.responseModel))
@@ -76,7 +88,7 @@ export class DeleteComponent implements OnInit {
       if(res.statusCode == 200){
           this.model.controls['applicationTblId'].setValue(res.data['applicationTblId']); 
           this.model.controls['appModuleId'].setValue( res.data['appModuleId']);
-          this.model.controls['appPageTypeId'].setValue( res.data['appPageTypeId']);
+          this.model.controls['pageType'].setValue( res.data['pageType']);
           this.model.controls['pageNameEn'].setValue( res.data['pageNameEn']);
           this.model.controls['pageNameAr'].setValue( res.data['pageNameAr']);
           this.model.controls['pageDesCription'].setValue( res.data['pageNameEn']);
