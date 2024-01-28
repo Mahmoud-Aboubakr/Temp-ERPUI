@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,createComponent } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { unitsTemplateRoutes } from './unitsTemplate.routing';
@@ -17,12 +17,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { deleteComponent } from './delete/delete-component';
+import { DeleteComponent } from './delete/delete.component';
 import { ListComponent } from './list/list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 import { UpdateComponent } from './update/update.component';
+import { SharedMaterialModule } from 'app/shared/shared-material.module';
+
+
 
 @NgModule({
   imports: [
@@ -45,8 +48,9 @@ import { UpdateComponent } from './update/update.component';
     MatIconModule,
     MatStepperModule,
     FlexLayoutModule,
+    SharedMaterialModule,
     RouterModule.forChild(unitsTemplateRoutes),
   ], 
-  declarations: [CreateComponent,deleteComponent,ListComponent,UpdateComponent],
+  declarations: [CreateComponent,DeleteComponent,ListComponent,UpdateComponent],
 })
 export class unitsTemplateModel { }

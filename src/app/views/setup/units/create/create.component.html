@@ -34,12 +34,13 @@
                             [placeholder]="'UNIT_DESCRIPTION' | translate" value="">
                         </mat-form-field>
                     </div>
+
                     <div class="pb-16">
-                        <mat-checkbox
+                        <mat-checkbox 
+                        class="example-margin"
                         name="isActive"
                         formControlName="isActive"
-                        ></mat-checkbox>
-                        <label for="isActive"> {{ 'ISACTIVE' | translate }}</label>
+                        value="">{{'ISACTIVE' | translate}}</mat-checkbox>
                     </div>
                 </div>
             </div>
