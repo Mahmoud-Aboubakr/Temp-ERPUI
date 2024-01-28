@@ -169,6 +169,10 @@ export const rootRouterConfig: Routes = [
                 path:'deliveries',
                 loadChildren: () => import('./views/suppliers/setup/delivery/delivery.module').then(m => m.DeliveryModule)
               },
+              {
+                path:'supplierTypes',
+                loadChildren: () => import('./views/suppliers/setup/supplier-types/supplier-types.module').then(m => m.SupplierTypesModule)
+              },
             ]
           }
         ]

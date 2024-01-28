@@ -8,6 +8,9 @@
   "CASHIER" : "كاشير", 
   "PAYMENT_GROUPS" : "مجموعات وسائل الدفع",
   "SUPPLIERS" : "الموردين",
+  "SUPPLIER_TYPE": "نوع المورد",
+  "SUPPLIER_TYPES": "انواع الموردين",
+  "SUPPLIER_NAME" : "اسم المورد",
   "DELIVERIES" : "التسليم", 
   "DELIVERY_TERM" : "مصطلح", 
   "DELIVERY_TERM_REQUIRED" : "المصطلح مطلوب", 
@@ -260,6 +263,8 @@
   "STORE_ADMIN": "امين المخزن",
   "BRANCH_NAME": "اسم الفرع",
   "STORES_ACCOUNTS": "حسابات المخازن",
+  "STORE_FEATURES": "خصائص المخزن",
+  "MANUAL": "يدوي",
 
 
   "PRIVILEGES": "الصلاحيات",

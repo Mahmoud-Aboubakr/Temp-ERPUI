@@ -8,6 +8,9 @@
   "CASHIER" : "Cashier", 
   "PAYMENT_GROUPS" : "Payment Groups",
   "SUPPLIERS" : "Suppliers",
+  "SUPPLIER_TYPE": "Supplier Type",
+  "SUPPLIER_TYPES": "Supplier Types",
+  "SUPPLIER_NAME": "Supplier Name",
   "DELIVERIES" : "Deliveries", 
   "DELIVERY_TERM" : "Delivery Term", 
   "DELIVERY_TERM_REQUIRED" : "Delivery Term Is Required", 
@@ -262,6 +265,8 @@
   "STORE_ADMIN": "Store Admin",
   "BRANCH_NAME": "Branch Name",
   "STORES_ACCOUNTS": "Stores Accounts",
+  "STORE_FEATURES": "Store Features",
+  "MANUAL": "Manual",
 
   "PRIVILEGES": "Privileges",
   "USER_TYPES":"User Types", 

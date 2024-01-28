@@ -10,6 +10,8 @@ import { CreateComponent } from './create/create.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
 import { AppFormsModule } from 'app/views/forms/forms.module';
+import { RolesPrivilegesComponent } from './roles-privileges/roles-privileges.component';
+import { TestPrivComponent } from './test-priv/test-priv.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AppFormsModule } from 'app/views/forms/forms.module';
     CreateComponent,
     DeleteComponent,
     UpdateComponent,
+    RolesPrivilegesComponent,
+    TestPrivComponent,
   ],
   imports: [
     CommonModule,

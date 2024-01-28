@@ -1,0 +1,38 @@
+.search-bar-wide.open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 999;
+}
+.search-bar-wide.open .search-icon-btn {
+  display: none;
+}
+.search-bar-wide.open div {
+  display: flex;
+}
+.search-bar-wide.open .search-close {
+  display: block;
+}
+.search-bar-wide div {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.search-bar-wide div input {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  font-weight: 700;
+  padding-left: 15px;
+}
+.search-bar-wide .search-close {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  cursor: pointer;
+}/*# sourceMappingURL=search-input-over.component.css.map */

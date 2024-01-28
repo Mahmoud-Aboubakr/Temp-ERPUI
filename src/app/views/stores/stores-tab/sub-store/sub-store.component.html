@@ -1,20 +1,19 @@
-<form class="mt-5" [formGroup]="createStoreForm">
-    <div class="row">
+<form class="mt-5" [formGroup]="createStoreForm" (ngSubmit)="addStore(createStoreForm)">
+    <div class="row align-items-end">
         <div class="col-md-4 col-sm-6">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{'MAINSTORE' | translate}}</mat-label>
-                <select matNativeControl formControlName="mainStoreCode">
+                <select matNativeControl formControlName="mainStoreId">
                     <option [label]="'CHOOSE_ITEM' | translate"></option>
-                    <option value="admin">Admin</option>
-                    <option value="mahmoud">Mahmoud</option>
-                    <option value="fathy">Fathy</option>
+                    <option *ngFor="let store of stores" [value]="store.id">{{currentDir == 'ltr'? store.storeNameEn: store.storeNameAr}}</option>
                 </select>
             </mat-form-field>
         </div>
         <div class="col-md-4 col-sm-6">
+            <mat-checkbox formControlName="manual">{{'MANUAL' | translate}}</mat-checkbox>
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{'CODE' | translate}}</mat-label>
-                <input matInput [disabled]="createStoreForm.get('code').disabled" formControlName="code">
+                <input matInput formControlName="storeCode" required>
             </mat-form-field>
         </div>
     </div>
@@ -24,7 +23,7 @@
             <div class="text-center">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{'ENGLISH_NAME' | translate}}</mat-label>
-                    <input matInput formControlName="name_en" required>
+                    <input matInput formControlName="storeNameEn" required>
                 </mat-form-field>
             </div>
         </div>
@@ -33,7 +32,7 @@
             <div class="text-center">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{'ARABIC_NAME' | translate}}</mat-label>
-                    <input matInput formControlName="name_ar" required>
+                    <input matInput formControlName="storeNameAr" required>
                 </mat-form-field>
             </div>
         </div> 
@@ -43,11 +42,11 @@
         <div class="col-md-4 col-sm-6">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{'DEPARTMENT' | translate}}</mat-label>
-                <select matNativeControl formControlName="department">
+                <select matNativeControl formControlName="departmentId">
                     <option [label]="'CHOOSE_ITEM' | translate"></option>
-                    <option value="admin">Admin</option>
-                    <option value="mahmoud">Mahmoud</option>
-                    <option value="fathy">Fathy</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Mahmoud</option>
+                    <option value="3">Fathy</option>
                 </select>
             </mat-form-field>
         </div>
@@ -55,11 +54,9 @@
         <div class="col-md-4 col-sm-6">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{'STORE_ADMIN' | translate}}</mat-label>
-                <select matNativeControl required formControlName="storeAdmin">
+                <select matNativeControl required formControlName="appUserId">
                     <option [label]="'CHOOSE_ITEM' | translate"></option>
-                    <option value="admin">Admin</option>
-                    <option value="mahmoud">Mahmoud</option>
-                    <option value="fathy">Fathy</option>
+                    <option *ngFor="let user of users" [value]="user.id">{{user.fullName}}</option>
                 </select>
             </mat-form-field>
         </div>
@@ -67,15 +64,26 @@
         <div class="col-md-4 col-sm-6">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{'BRANCH_NAME' | translate}}</mat-label>
-                <select matNativeControl required formControlName="branchName">
+                <select matNativeControl required formControlName="branchId">
                     <option [label]="'CHOOSE_ITEM' | translate"></option>
-                    <option value="admin">Admin</option>
-                    <option value="mahmoud">Mahmoud</option>
-                    <option value="fathy">Fathy</option>
+                    <option *ngFor="let branch of branches" [value]="branch.id">{{currentDir == 'ltr'? branch.englishName: branch.arabicName}}</option>
                 </select>
             </mat-form-field>
         </div>
     </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-card class="bg-light my-5 rounded">
+        <mat-card-title>{{'STORE_FEATURES' | translate}}</mat-card-title>
+        <mat-card-content>
+            <div class="d-flex justify-content-between w-75">
+                <mat-checkbox formControlName="isAllowSupplierTrans">Allow Supplier Transactions</mat-checkbox>
+                <mat-checkbox formControlName="isActive">Is Active</mat-checkbox>
+                <mat-checkbox formControlName="isScrapStore">Scrap Store</mat-checkbox>
+            </div>    
+        </mat-card-content>
+    </mat-card>
 
     <mat-divider></mat-divider>
 

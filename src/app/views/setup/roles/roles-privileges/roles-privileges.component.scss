@@ -1,0 +1,22 @@
+.example-tree-invisible {
+    display: none;
+  }
+  
+  .mat-tree-node {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-tree-node button {
+    margin-right: 8px;
+  }
+  
+  li.mat-tree-node {
+    height: 48px;
+    min-height: 48px;
+  }
+
+  .mat-checkbox-layout .mat-checkbox-label{
+    background-color: #4caf50 !important;  
+    color: #ffffff; /* Change this to your desired text color */
+  }
