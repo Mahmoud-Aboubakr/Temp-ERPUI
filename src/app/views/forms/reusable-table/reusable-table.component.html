@@ -15,7 +15,7 @@
 
         <ng-template #controlsColumn>
           <button [class]="button.class" *ngFor="let button of dynamicButtons" (click)="onButtonClick(button, element)">
-            {{ button.label }}
+            {{ button.label | translate }}
           </button>
         </ng-template>       
       </td>

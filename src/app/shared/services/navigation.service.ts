@@ -95,10 +95,21 @@ export class NavigationService {
               type:"dropDown", 
               sub:[
                 {name: 'DELIVERIES', state: 'suppliers/setup/deliveries'},
+                {name: 'SUPPLIER_TYPES', state: 'suppliers/setup/supplierTypes'}
               ]
             }
           ]
-        }         
+        },
+        {
+          name: 'STORES',
+          type: 'dropDown',
+          sub: [
+            {
+              name: 'Add a new store',
+              state: 'stores/addStore'
+            }
+          ]
+        }       
       ]
     },
     {

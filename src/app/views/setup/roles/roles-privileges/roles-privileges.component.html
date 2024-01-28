@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-title class="text-center">Manage Roles Privileges</mat-card-title>
+    <mat-card-content>
+        <p class="lead">Role Name: {{roleName}}</p>
+        <h2 class="my-5">Role Privileges</h2>
+        <input class="mb-3 form-control w-50" type="text" placeholder="Filter Modules by Name" [(ngModel)]="searchTerm" (input)="filterTree()">
+        <!-- <button mat-icon-button color="primary" (click)="filterTree()">
+          <mat-icon>search</mat-icon>
+        </button> -->
+
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+          <!-- This is the tree node template for leaf nodes -->
+          <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+            <mat-checkbox class="checklist-leaf-node"
+                  [checked]="checklistSelection.isSelected(node)"
+                  (change)="todoLeafItemSelectionToggle(node)">{{node.name}}
+            </mat-checkbox>
+          </mat-tree-node>
+          <!-- This is the tree node template for expandable nodes -->
+          <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+            <button mat-icon-button matTreeNodeToggle
+                    [attr.aria-label]="'Toggle ' + node.name" color="primary">
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{!treeControl.isExpanded(node) ? 'add' : 'remove'}}
+              </mat-icon>
+            </button>
+            <mat-checkbox [checked]="descendantsAllSelected(node)"
+                  [indeterminate]="descendantsPartiallySelected(node)"
+                  (change)="todoItemSelectionToggle(node)">{{node.name}}
+            </mat-checkbox>
+            <ng-container matTreeNodeOutlet></ng-container>
+          </mat-tree-node>
+        </mat-tree>
+
+        <button class="btn btn-success mt-5" (click)="saveModules()">{{'SAVE' | translate}}</button>
+    </mat-card-content>
+</mat-card>
