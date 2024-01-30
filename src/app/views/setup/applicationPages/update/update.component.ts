@@ -84,7 +84,7 @@ export class UpdateComponent implements OnInit {
        PageNumber : 1, 
        PageSize : 1000
      }
-     await lastValueFrom(this._commonCrudService.getAll("CommonService/GetAppModules", paginationParam , this.paginationResponseModel)).then(res => {
+     await lastValueFrom(this._commonCrudService.getAll("CommonDropDown/GetAppModules", paginationParam , this.paginationResponseModel)).then(res => {
        this.paginationResponseModel = res;
        if(res.statusCode == 200){
          this.appModules = this.paginationResponseModel.data;
@@ -97,7 +97,7 @@ export class UpdateComponent implements OnInit {
    }
 
    getPagesTypes(){
-    this._commonCrudService.get('CommonService/GetPagesTypes', this.PagesTypes).subscribe({
+    this._commonCrudService.get('CommonDropDown/GetPagesTypes', this.PagesTypes).subscribe({
       next: res =>{ this.PagesTypes = res},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
