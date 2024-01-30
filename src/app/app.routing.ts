@@ -155,6 +155,10 @@ export const rootRouterConfig: Routes = [
                 path:'contactTypes',
                 loadChildren: () => import('./views/inventory/setup/contactTypes/contactTypes.module').then(m => m.ContactTypesModule)
               },
+              {
+                path: 'stores',
+                loadChildren: () => import('./views/inventory/setup/stores/stores.module').then(m => m.StoresModule)
+              }
             ]
           }
         ]
@@ -177,10 +181,10 @@ export const rootRouterConfig: Routes = [
           }
         ]
       },
-      {
+      /*{
         path: 'stores',
         loadChildren: () => import('./views/stores/stores.module').then(m => m.StoresModule)
-      },
+      },*/
       {
         path: 'hr',
         children:[
