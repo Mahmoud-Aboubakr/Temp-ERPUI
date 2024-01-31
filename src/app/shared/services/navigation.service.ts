@@ -82,6 +82,14 @@ export class NavigationService {
                 {name: 'ITEM_CATEGORIES', state: 'inventory/setup/itemCategories'},
                 {name: 'ITEM_CLASSIFICATIONS', state: 'inventory/setup/itemClassifications'},
                 {name: 'CONTACT_TYPES', state: 'inventory/setup/contactTypes'},
+                {name: 'STORES', type: 'dropDown',
+                  sub: [
+                    {
+                      name: 'Add a new store',
+                      state: 'inventory/setup/stores/addStore'
+                    }
+                  ]
+                },
               ]
             }
           ]
@@ -100,7 +108,7 @@ export class NavigationService {
             }
           ]
         },
-        {
+        /*{
           name: 'STORES',
           type: 'dropDown',
           sub: [
@@ -109,7 +117,7 @@ export class NavigationService {
               state: 'stores/addStore'
             }
           ]
-        }       
+        }    */   
       ]
     },
     {

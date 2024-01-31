@@ -303,7 +303,7 @@ export class RolesPrivilegesComponent implements OnInit{
       }
     }
     this.selectedIds = this.selectedIds.filter(x => x !== undefined)
-    //console.log(this.selectedIds)
+    // console.log(this.selectedIds)
   }
 
   saveModules(){

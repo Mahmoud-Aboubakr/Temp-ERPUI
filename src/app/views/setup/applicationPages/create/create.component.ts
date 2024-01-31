@@ -68,7 +68,7 @@ export class CreateComponent implements OnInit {
 
   getApplicationsNames(){
    
-    this._commonCrudService.get('CommonService/GetApplicationsNames', this.applicationList).subscribe({
+    this._commonCrudService.get('CommonDropDown/GetApplicationsNames', this.applicationList).subscribe({
       next: res =>{ this.applicationList = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
@@ -79,7 +79,7 @@ export class CreateComponent implements OnInit {
   }
 
   getAppModules(){
-    this._commonCrudService.get('CommonService/GetAppModules', this.appModules).subscribe({
+    this._commonCrudService.get('CommonDropDown/GetAppModules', this.appModules).subscribe({
       next: res =>{ this.appModules = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
@@ -90,7 +90,7 @@ export class CreateComponent implements OnInit {
   }
 
   getPagesTypes(){
-    this._commonCrudService.get('CommonService/GetPagesTypes', this.PagesTypes).subscribe({
+    this._commonCrudService.get('CommonDropDown/GetPagesTypes', this.PagesTypes).subscribe({
       next: res =>{ this.PagesTypes = res},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
