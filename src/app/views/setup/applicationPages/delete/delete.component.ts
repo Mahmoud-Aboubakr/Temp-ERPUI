@@ -61,7 +61,7 @@ export class DeleteComponent implements OnInit {
   }
   
   getAppModules(){
-    this._commonCrudService.get('CommonService/GetAppModules', this.appModules).subscribe({
+    this._commonCrudService.get('CommonDropDown/GetAppModules', this.appModules).subscribe({
       next: res =>{ debugger; this.appModules = res.data},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
@@ -71,7 +71,7 @@ export class DeleteComponent implements OnInit {
     })
   }
   getPagesTypes(){
-    this._commonCrudService.get('CommonService/GetPagesTypes', this.PagesTypes).subscribe({
+    this._commonCrudService.get('CommonDropDown/GetPagesTypes', this.PagesTypes).subscribe({
       next: res =>{ this.PagesTypes = res},
       error: err => {
         this.snackBar.open(err.message, 'Close', {
